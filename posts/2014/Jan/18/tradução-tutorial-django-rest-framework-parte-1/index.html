@@ -89,15 +89,15 @@
 	<a href="../../../../../tag/rest.html">REST</a>
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h1>Tutorial 1: Serialização</h1>
-<h2>Introdução</h2>
+                <h2>Tutorial 1: Serialização</h2>
+<h3>Introdução</h3>
 <p>Este tutorial cobre a criação de um serviço simples de <em>pastebin</em>  com <em>highlight</em> de código. O tutorial irá introduzir vários componentes que juntos compõem o framework REST, e lhe darão uma compreensão de como tudo se encaixa.</p>
 <p>Este tutorial é detalhado, então você deveria pegar alguns biscoitos e um copo de sua bebida favorita antes de começá-lo. Se você quer somente uma visão geral, então você deveria ler a documentação do <a href="http://www.django-rest-framework.org/tutorial/quickstart">quickstart</a></p>
 <hr />
 <p><strong>Nota</strong>: O código para este tutorial está disponível no GitHub no <a href="https://github.com/tomchristie/rest-framework-tutorial">tomchristie/rest-framework-tutorial</a>. A implementação completa está também online como uma versão para testes -  <em>sandbox</em>  <a href="http://restframework.herokuapp.com/">aqui</a></p>
 <hr />
-<h2>Construindo um novo ambiente</h2>
-<p>Antes de mais nada, criaremos um <em>virtual environment</em>, usando o <a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a>. Isso fará com que os pacotes do nosso ambiente fiquem isoldados de outros projetos que estamos trabalhando.  </p>
+<h3>Construindo um novo ambiente</h3>
+<p>Antes de mais nada, criaremos um <em>virtual environment</em>, usando o <a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a>. Isso fará com que os pacotes do nosso ambiente fiquem isoldados de outros projetos que estamos trabalhando.</p>
 <div class="highlight"><pre>virtualenv env
 <span class="nb">source </span>env/bin/activate
 </pre></div>
@@ -114,7 +114,7 @@
 <blockquote>
 <p><strong>Nota</strong>: para sair do virtualenv a qualquer momento basta digitar  <code>deactivate</code>. Para mais informações veja a <a href="http://www.virtualenv.org/en/latest/index.html">documentação do virtualenv</a></p>
 </blockquote>
-<h2>Iniciando</h2>
+<h3>Iniciando</h3>
 <p>Ok, estamos prontos para codificar. Para começar, vamos criar um projeto para trabalharmos.</p>
 <div class="highlight"><pre><span class="n">cd</span> <span class="o">~</span>
 <span class="n">django</span><span class="o">-</span><span class="n">admin</span><span class="p">.</span><span class="n">py</span> <span class="n">startproject</span> <span class="n">tutorial</span>
@@ -152,7 +152,7 @@
 </pre></div>
 
 
-<p>Precisamos também definir a raiz do urlconf, no arquivo <code>tutorial/urls.py</code>, para incluir as URLs da aplicação snippet. </p>
+<p>Precisamos também definir a raiz do urlconf, no arquivo <code>tutorial/urls.py</code>, para incluir as URLs da aplicação snippet.</p>
 <div class="highlight"><pre><span class="sx">!python</span>
 <span class="n">urlpatterns</span> <span class="p">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
 <span class="n">url</span><span class="p">(</span><span class="n">r</span><span class="o">&#39;</span>^<span class="s">&#39;, include(&#39;</span><span class="n">snippets</span><span class="p">.</span><span class="n">urls</span><span class="o">&#39;</span><span class="p">)),</span>
@@ -160,9 +160,9 @@
 </pre></div>
 
 
-<p>Ok, estamos prontos para continuar. </p>
-<h2>Criando um modelo para trabalhar</h2>
-<p>Para os propósitos deste tutorial, vamos começar criando um modelo simples de <code>Snippet</code> que será usado para armazenar <em>code snippets</em> (amostras de código). Vá em frente e altere o arquivo <code>models.py</code> da aplicação <code>snippet</code>. </p>
+<p>Ok, estamos prontos para continuar.</p>
+<h3>Criando um modelo para trabalhar</h3>
+<p>Para os propósitos deste tutorial, vamos começar criando um modelo simples de <code>Snippet</code> que será usado para armazenar <em>code snippets</em> (amostras de código). Vá em frente e altere o arquivo <code>models.py</code> da aplicação <code>snippet</code>.</p>
 <blockquote>
 <p><strong>Nota</strong>: é boa prática de progrmação incluir comentários. Ainda que você os encontre na versão do nosso repositório, aqui nós a omitimos para focar no código.</p>
 </blockquote>
@@ -199,7 +199,7 @@
 </pre></div>
 
 
-<h2>Criando a classe de serialização</h2>
+<h3>Criando a classe de serialização</h3>
 <p>a primeira coisa que precisamos para iniciar nossa API é providenciar uma maneira de serializar e deserializar as instâncias de snippet em uma representação como <code>json</code>. Nós podemos fazer isso declarando serializadores que funcionam tal como os forms do Django. Crie um arquivo no diretório <code>snippets</code> chamado <code>serializers.py</code> e adicione o seguinte código.</p>
 <div class="highlight"><pre><span class="sx">!python</span>
 <span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">forms</span> <span class="n">import</span> <span class="n">widgets</span>
@@ -244,7 +244,7 @@
 <p>A primeira parte da classe de serialização define os campos que serão serializados/desserializados. O método <code>restore_object</code> define como serão criadas as instâncias quando desserializarmos os dados.</p>
 <p>Note que podemos usar também vários atributos que seriam tipicamente usados em  campos de um form, tal como <code>widget=widgets.TextArea</code>. Eles podem ser usados para controlar como serializador deve renderizar quando mostrado como um form HTML. Isso é particularmente útil para o controle de como a API navegável será mostrada, como veremos mais tarde neste tutorial.</p>
 <p>Na verdade, nós podemos  também economizar algum tempo usando a classe <code>ModelSerializer</code>, como veremos mais tarde, mas por hora, vamos manter nosso serializador explícito.</p>
-<h2>Trabalhando com serializadores.</h2>
+<h3>Trabalhando com serializadores.</h3>
 <p>Antes de ir mais adiante iremos nos familiarizar com o uso da nossa nova classe Serializer. Vamos para o Django shell.</p>
 <div class="highlight"><pre><span class="sx">!bash</span>
 <span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">shell</span>
@@ -312,7 +312,7 @@
 </pre></div>
 
 
-<h2>Usando <em>ModelSerializers</em></h2>
+<h3>Usando <em>ModelSerializers</em></h3>
 <p>Nossa classe <code>SnippetSerializer</code> está replicando várias informações que estão também contidas no modelo <code>snippet</code>. Seria bom se pudéssemos manter nosso código um pouco mais conciso.</p>
 <p>Da mesma maneira que o Django fornece classes de <code>Form</code> e <code>ModelForm</code>, o framework REST inclui as classes <code>Serializer</code> e <code>ModelsSerializer</code>.</p>
 <div class="highlight"><pre><span class="sx">!python</span>
@@ -323,11 +323,11 @@
 </pre></div>
 
 
-<h2>Escrevendo <em>Views</em> Django regulares usando nosso <em>Serializer</em></h2>
+<h3>Escrevendo <em>Views</em> Django regulares usando nosso <em>Serializer</em></h3>
 <p>Vamos ver como podemos escrever algumas <em>API views</em> usando nossa nova classe <em>Serializer</em>. Por hora, não usaremos nenhuma outra funcionalidade do REST Framework, nós iremos escrever <em>views</em> Django como qualquer outra <em>view</em>.</p>
 <p>Vamos começar criando uma subclasse do <em>HttpResponse</em> que podermos usar para renderizar qualquer dato que retornaremos no formato <code>json</code>.</p>
 <p>Edit o arquivo <code>snippets/views.py</code>, e adicione o seguinte.</p>
-<div class="highlight"><pre><span class="sx">!python </span>
+<div class="highlight"><pre><span class="sx">!python</span>
 <span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">http</span> <span class="n">import</span> <span class="n">HttpResponse</span>
 <span class="n">from</span> <span class="n">django</span><span class="p">.</span><span class="n">views</span><span class="p">.</span><span class="n">decorators</span><span class="p">.</span><span class="n">csrf</span> <span class="n">import</span> <span class="n">csrf_exempt</span>
 <span class="n">from</span> <span class="n">rest_framework</span><span class="p">.</span><span class="n">renderers</span> <span class="n">import</span> <span class="n">JSONRenderer</span>
@@ -406,7 +406,7 @@ from django.conf.urls import patterns, url</p>
     url(r'^snippets/(?P<pk>[0-9]+)/$', 'snippet_detail'),
 )</p>
 <p>Vale a pena notar que existem alguns casos específicos que não estamos tratando no momento. Se nós enviarmos um <code>json</code> mal formado, ou se a requisição (<em>request</em>) for feito com um método que a _view_não trata, então acabaremos com uma resposta de um erro 500 "server error" . Ainda, isso serve por hora.</p>
-<h2>Testando nossa primeira tentativa na API Web.</h2>
+<h3>Testando nossa primeira tentativa na API Web.</h3>
 <p>Agora podemos iniciar um servidor que servirá nossos <em>snippets</em>.
 Saia do <em>shell</em> ...</p>
 <div class="highlight"><pre><span class="sx">!python</span>
@@ -414,7 +414,7 @@ Saia do <em>shell</em> ...</p>
 </pre></div>
 
 
-<p>... e inicie o servidor de desenvolvimento do Django </p>
+<p>... e inicie o servidor de desenvolvimento do Django</p>
 <div class="highlight"><pre><span class="sx">!bash</span>
 <span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">runserver</span>
 
@@ -443,7 +443,7 @@ Saia do <em>shell</em> ...</p>
 
 
 <p>da mesma maneira, você pode ver o mesmo <code>json</code>, visitando essas URLs com um browser web.</p>
-<h2>Onde estamos agora.</h2>
+<h3>Onde estamos agora.</h3>
 <p>Estamos indo bem até agora, temos uma API de serialização muito similar a API do Django <em>Forms</em>, e algumas <em>views</em>.</p>
 <p>Nossas <em>views</em> de API não fazem nada de especial até o momento, além de servir respostas <code>json</code>, e existem alguns tratamentos de erros específicos nós poderíamos fazer, mas é uma API web funcional.</p>
 <p>Iremos ver como melhorar as coisas na  <a href="2-requests-and-responses.md">parte 2 deste tutorial</a>.</p>
@@ -460,13 +460,13 @@ Saia do <em>shell</em> ...</p>
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
                     <li class="list-group-item"><a href="/feeds/"><i
-                            class="icon-feeds-sign icon-large"></i>feeds
+                            class="icon-rss-sign icon-large"></i>rss
                     </a></li>
                     <li class="list-group-item"><a href="http://twitter.com/cadu_leite"><i
-                            class="icon-Twitter-sign icon-large"></i>Twitter
+                            class="icon-twitter-sign icon-large"></i>twitter
                     </a></li>
                     <li class="list-group-item"><a href="http://google.com/+CarlosLeite"><i
-                            class="icon-G+-sign icon-large"></i>G+
+                            class="icon-google-plus-sign icon-large"></i>google-plus
                     </a></li>
                     <li class="list-group-item"><a href="http://github.com/cadu-leite"><i
                             class="icon-github-sign icon-large"></i>github
@@ -482,8 +482,8 @@ Saia do <em>shell</em> ...</p>
 
                 <li class="list-group-item"><a href="../../../../../tags.html"><h4><i class="icon-tags icon-large"></i>Tags</h4></a></li>
                         <li class="list-group-item tag-1">
-                            <a href="../../../../../tag/python.html">
-                                python
+                            <a href="../../../../../tag/rest.html">
+                                REST
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
@@ -492,8 +492,8 @@ Saia do <em>shell</em> ...</p>
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="../../../../../tag/rest.html">
-                                REST
+                            <a href="../../../../../tag/python.html">
+                                python
                             </a>
                         </li>
         </ul>

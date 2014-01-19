@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Tradução Tutorial Django-REST-Framework</title>
+    <title>PostgreSQL - Tamanho do B.D. no disco</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,9 +12,9 @@
     <!-- Open Graph tags -->
 
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Tradução Tutorial Django-REST-Framework"/>
-            <meta property="og:url" content="../../../../../posts/2014/Jan/18/tradução-tutorial-django-rest-framework/"/>
-            <meta property="og:description" content="comentários sobre a tradução do tutorial Django-rest-framewrok"/>
+            <meta property="og:title" content="PostgreSQL - Tamanho do B.D. no disco"/>
+            <meta property="og:url" content="../../../../../posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/"/>
+            <meta property="og:description" content="quando seu banco postgreSQL ocupa em disco ?"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="../../../../../theme/css/bootstrap.min.css" type="text/css"/>
@@ -63,10 +63,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="../../../../../posts/2014/Jan/18/tradução-tutorial-django-rest-framework/"
+                    <a href="../../../../../posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/"
                        rel="bookmark"
-                       title="Permalink to Tradução Tutorial Django-REST-Framework">
-                        Tradução Tutorial Django-REST-Framework
+                       title="Permalink to PostgreSQL - Tamanho do B.D. no disco">
+                        PostgreSQL - Tamanho do B.D. no disco
                     </a>
                 </h1>
             </header>
@@ -76,7 +76,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="icon-calendar"></i>Sat 18 January 2014
+        <i class="icon-calendar"></i>Fri 02 September 2011
     </span>
 
 
@@ -89,15 +89,46 @@
 	<a href="../../../../../tag/rest.html">REST</a>
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h1>Tradução Tutorial Django-REST-Framework</h1>
-<p>começam os tesxtos</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">a</span>
-    <span class="k">return</span> <span class="n">a</span>
+                <p>Para saber o tamanho de um Banco de Dados PostgreSQL no disco, execute a <em>query sql</em> abaixo.</p>
+<div class="highlight"><pre><span class="nv">postgres</span><span class="o">=</span><span class="c"># SELECT pg_database.datname,</span>
+postgres-# pg_size_pretty<span class="o">(</span>pg_database_size<span class="o">(</span>pg_database.datname<span class="o">))</span> AS size
+postgres-# FROM pg_database;
 </pre></div>
 
 
-<p>volta o texto normal</p>
+<p>o retorno será algo no formato ...</p>
+<div class="highlight"><pre>datname | size
+------------------+---------
+template1 | 4272 kB
+template0 | 4272 kB
+postgres | 4364 kB
+znc | 4272 kB
+teste | 8128 kB
+template_postgis | 7416 kB
+circuitonobre | 8336 kB
+postfix | 4908 kB
+teste | 11 MB
+znc_gerencia | 9048 kB
+pam | 14 MB
+tnc_uc | 48 MB
+<span class="o">(</span>12 rows<span class="o">)</span>
+
+<span class="nv">postgres</span><span class="o">=</span><span class="c"># SELECT pg_size_pretty(pg_database_size(&#39;sorocaba_sig&#39;)) As fulldbsize;</span>
+
+fulldbsize
+------------
+8568 kB
+<span class="o">(</span>1 row<span class="o">)</span>
+
+<span class="nv">postgres</span><span class="o">=</span><span class="c"># SELECT pg_database.datname,</span>
+pg_size_pretty<span class="o">(</span>pg_database_size<span class="o">(</span>pg_database.datname<span class="o">))</span> AS size
+FROM pg_database where <span class="nv">datname</span> <span class="o">=</span> <span class="s1">&#39;sorocaba_sig&#39;</span>;
+
+datname | size
+--------------+---------
+sorocaba_sig | 8568 kB
+<span class="o">(</span>1 row<span class="o">)</span>
+</pre></div>
             </div>
             <!-- /.entry-content -->
         </article>
@@ -133,11 +164,6 @@
 
                 <li class="list-group-item"><a href="../../../../../tags.html"><h4><i class="icon-tags icon-large"></i>Tags</h4></a></li>
                         <li class="list-group-item tag-1">
-                            <a href="../../../../../tag/python.html">
-                                python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
                             <a href="../../../../../tag/rest.html">
                                 REST
                             </a>
@@ -145,6 +171,11 @@
                         <li class="list-group-item tag-1">
                             <a href="../../../../../tag/django.html">
                                 django
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="../../../../../tag/python.html">
+                                python
                             </a>
                         </li>
         </ul>

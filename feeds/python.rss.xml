@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cadu-leite - blog</title><link>http://cadu-leite.github.io/</link><description></description><atom:link href="http://cadu-leite.github.io/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Jan 2014 00:00:00 -0200</lastBuildDate><item><title>Tradução Tutorial Django-REST-Framework</title><link>http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework/</link><description>&lt;h1&gt;Tradução Tutorial Django-REST-Framework&lt;/h1&gt;
-&lt;p&gt;começam os tesxtos&lt;/p&gt;
-&lt;p&gt;:::Python
-def function(a):
-    print a
-    return a&lt;/p&gt;
-&lt;p&gt;volta o texto normal&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cadu-leite</dc:creator><pubDate>Sat, 18 Jan 2014 00:00:00 -0200</pubDate><guid>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework/</guid><category>python</category><category>django</category><category>REST</category></item><item><title>Tradução Tutorial Django-REST-Framework - Parte 1</title><link>http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-1/</link><description>&lt;h1&gt;Tutorial 1: Serialização&lt;/h1&gt;
-&lt;h2&gt;Introdução&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>cadu-leite - blog</title><link>http://cadu-leite.github.io/</link><description></description><atom:link href="http://cadu-leite.github.io/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 18 Jan 2014 00:00:00 -0200</lastBuildDate><item><title>Tradução Tutorial Django-REST-Framework - Parte 1</title><link>http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-1/</link><description>&lt;h2&gt;Tutorial 1: Serialização&lt;/h2&gt;
+&lt;h3&gt;Introdução&lt;/h3&gt;
 &lt;p&gt;Este tutorial cobre a criação de um serviço simples de &lt;em&gt;pastebin&lt;/em&gt;  com &lt;em&gt;highlight&lt;/em&gt; de código. O tutorial irá introduzir vários componentes que juntos compõem o framework REST, e lhe darão uma compreensão de como tudo se encaixa.&lt;/p&gt;
 &lt;p&gt;Este tutorial é detalhado, então você deveria pegar alguns biscoitos e um copo de sua bebida favorita antes de começá-lo. Se você quer somente uma visão geral, então você deveria ler a documentação do &lt;a href="http://www.django-rest-framework.org/tutorial/quickstart"&gt;quickstart&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: O código para este tutorial está disponível no GitHub no &lt;a href="https://github.com/tomchristie/rest-framework-tutorial"&gt;tomchristie/rest-framework-tutorial&lt;/a&gt;. A implementação completa está também online como uma versão para testes -  &lt;em&gt;sandbox&lt;/em&gt;  &lt;a href="http://restframework.herokuapp.com/"&gt;aqui&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;Construindo um novo ambiente&lt;/h2&gt;
-&lt;p&gt;Antes de mais nada, criaremos um &lt;em&gt;virtual environment&lt;/em&gt;, usando o &lt;a href="http://www.virtualenv.org/en/latest/index.html"&gt;virtualenv&lt;/a&gt;. Isso fará com que os pacotes do nosso ambiente fiquem isoldados de outros projetos que estamos trabalhando.  &lt;/p&gt;
+&lt;h3&gt;Construindo um novo ambiente&lt;/h3&gt;
+&lt;p&gt;Antes de mais nada, criaremos um &lt;em&gt;virtual environment&lt;/em&gt;, usando o &lt;a href="http://www.virtualenv.org/en/latest/index.html"&gt;virtualenv&lt;/a&gt;. Isso fará com que os pacotes do nosso ambiente fiquem isoldados de outros projetos que estamos trabalhando.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;virtualenv env
 &lt;span class="nb"&gt;source &lt;/span&gt;env/bin/activate
 &lt;/pre&gt;&lt;/div&gt;
@@ -30,7 +24,7 @@ def function(a):
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: para sair do virtualenv a qualquer momento basta digitar  &lt;code&gt;deactivate&lt;/code&gt;. Para mais informações veja a &lt;a href="http://www.virtualenv.org/en/latest/index.html"&gt;documentação do virtualenv&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;Iniciando&lt;/h2&gt;
+&lt;h3&gt;Iniciando&lt;/h3&gt;
 &lt;p&gt;Ok, estamos prontos para codificar. Para começar, vamos criar um projeto para trabalharmos.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;~&lt;/span&gt;
 &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;startproject&lt;/span&gt; &lt;span class="n"&gt;tutorial&lt;/span&gt;
@@ -68,7 +62,7 @@ def function(a):
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Precisamos também definir a raiz do urlconf, no arquivo &lt;code&gt;tutorial/urls.py&lt;/code&gt;, para incluir as URLs da aplicação snippet. &lt;/p&gt;
+&lt;p&gt;Precisamos também definir a raiz do urlconf, no arquivo &lt;code&gt;tutorial/urls.py&lt;/code&gt;, para incluir as URLs da aplicação snippet.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python&lt;/span&gt;
 &lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
 &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;^&lt;span class="s"&gt;&amp;#39;, include(&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;snippets&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
@@ -76,9 +70,9 @@ def function(a):
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Ok, estamos prontos para continuar. &lt;/p&gt;
-&lt;h2&gt;Criando um modelo para trabalhar&lt;/h2&gt;
-&lt;p&gt;Para os propósitos deste tutorial, vamos começar criando um modelo simples de &lt;code&gt;Snippet&lt;/code&gt; que será usado para armazenar &lt;em&gt;code snippets&lt;/em&gt; (amostras de código). Vá em frente e altere o arquivo &lt;code&gt;models.py&lt;/code&gt; da aplicação &lt;code&gt;snippet&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Ok, estamos prontos para continuar.&lt;/p&gt;
+&lt;h3&gt;Criando um modelo para trabalhar&lt;/h3&gt;
+&lt;p&gt;Para os propósitos deste tutorial, vamos começar criando um modelo simples de &lt;code&gt;Snippet&lt;/code&gt; que será usado para armazenar &lt;em&gt;code snippets&lt;/em&gt; (amostras de código). Vá em frente e altere o arquivo &lt;code&gt;models.py&lt;/code&gt; da aplicação &lt;code&gt;snippet&lt;/code&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: é boa prática de progrmação incluir comentários. Ainda que você os encontre na versão do nosso repositório, aqui nós a omitimos para focar no código.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -115,7 +109,7 @@ def function(a):
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Criando a classe de serialização&lt;/h2&gt;
+&lt;h3&gt;Criando a classe de serialização&lt;/h3&gt;
 &lt;p&gt;a primeira coisa que precisamos para iniciar nossa API é providenciar uma maneira de serializar e deserializar as instâncias de snippet em uma representação como &lt;code&gt;json&lt;/code&gt;. Nós podemos fazer isso declarando serializadores que funcionam tal como os forms do Django. Crie um arquivo no diretório &lt;code&gt;snippets&lt;/code&gt; chamado &lt;code&gt;serializers.py&lt;/code&gt; e adicione o seguinte código.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python&lt;/span&gt;
 &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forms&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;widgets&lt;/span&gt;
@@ -160,7 +154,7 @@ def function(a):
 &lt;p&gt;A primeira parte da classe de serialização define os campos que serão serializados/desserializados. O método &lt;code&gt;restore_object&lt;/code&gt; define como serão criadas as instâncias quando desserializarmos os dados.&lt;/p&gt;
 &lt;p&gt;Note que podemos usar também vários atributos que seriam tipicamente usados em  campos de um form, tal como &lt;code&gt;widget=widgets.TextArea&lt;/code&gt;. Eles podem ser usados para controlar como serializador deve renderizar quando mostrado como um form HTML. Isso é particularmente útil para o controle de como a API navegável será mostrada, como veremos mais tarde neste tutorial.&lt;/p&gt;
 &lt;p&gt;Na verdade, nós podemos  também economizar algum tempo usando a classe &lt;code&gt;ModelSerializer&lt;/code&gt;, como veremos mais tarde, mas por hora, vamos manter nosso serializador explícito.&lt;/p&gt;
-&lt;h2&gt;Trabalhando com serializadores.&lt;/h2&gt;
+&lt;h3&gt;Trabalhando com serializadores.&lt;/h3&gt;
 &lt;p&gt;Antes de ir mais adiante iremos nos familiarizar com o uso da nossa nova classe Serializer. Vamos para o Django shell.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!bash&lt;/span&gt;
 &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;manage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt;
@@ -228,7 +222,7 @@ def function(a):
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Usando &lt;em&gt;ModelSerializers&lt;/em&gt;&lt;/h2&gt;
+&lt;h3&gt;Usando &lt;em&gt;ModelSerializers&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;Nossa classe &lt;code&gt;SnippetSerializer&lt;/code&gt; está replicando várias informações que estão também contidas no modelo &lt;code&gt;snippet&lt;/code&gt;. Seria bom se pudéssemos manter nosso código um pouco mais conciso.&lt;/p&gt;
 &lt;p&gt;Da mesma maneira que o Django fornece classes de &lt;code&gt;Form&lt;/code&gt; e &lt;code&gt;ModelForm&lt;/code&gt;, o framework REST inclui as classes &lt;code&gt;Serializer&lt;/code&gt; e &lt;code&gt;ModelsSerializer&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python&lt;/span&gt;
@@ -239,11 +233,11 @@ def function(a):
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Escrevendo &lt;em&gt;Views&lt;/em&gt; Django regulares usando nosso &lt;em&gt;Serializer&lt;/em&gt;&lt;/h2&gt;
+&lt;h3&gt;Escrevendo &lt;em&gt;Views&lt;/em&gt; Django regulares usando nosso &lt;em&gt;Serializer&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;Vamos ver como podemos escrever algumas &lt;em&gt;API views&lt;/em&gt; usando nossa nova classe &lt;em&gt;Serializer&lt;/em&gt;. Por hora, não usaremos nenhuma outra funcionalidade do REST Framework, nós iremos escrever &lt;em&gt;views&lt;/em&gt; Django como qualquer outra &lt;em&gt;view&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Vamos começar criando uma subclasse do &lt;em&gt;HttpResponse&lt;/em&gt; que podermos usar para renderizar qualquer dato que retornaremos no formato &lt;code&gt;json&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Edit o arquivo &lt;code&gt;snippets/views.py&lt;/code&gt;, e adicione o seguinte.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python &lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python&lt;/span&gt;
 &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HttpResponse&lt;/span&gt;
 &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;django&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;views&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decorators&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csrf&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;csrf_exempt&lt;/span&gt;
 &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;rest_framework&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;renderers&lt;/span&gt; &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;JSONRenderer&lt;/span&gt;
@@ -322,7 +316,7 @@ from django.conf.urls import patterns, url&lt;/p&gt;
     url(r'^snippets/(?P&lt;pk&gt;[0-9]+)/$', 'snippet_detail'),
 )&lt;/p&gt;
 &lt;p&gt;Vale a pena notar que existem alguns casos específicos que não estamos tratando no momento. Se nós enviarmos um &lt;code&gt;json&lt;/code&gt; mal formado, ou se a requisição (&lt;em&gt;request&lt;/em&gt;) for feito com um método que a _view_não trata, então acabaremos com uma resposta de um erro 500 "server error" . Ainda, isso serve por hora.&lt;/p&gt;
-&lt;h2&gt;Testando nossa primeira tentativa na API Web.&lt;/h2&gt;
+&lt;h3&gt;Testando nossa primeira tentativa na API Web.&lt;/h3&gt;
 &lt;p&gt;Agora podemos iniciar um servidor que servirá nossos &lt;em&gt;snippets&lt;/em&gt;.
 Saia do &lt;em&gt;shell&lt;/em&gt; ...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python&lt;/span&gt;
@@ -330,7 +324,7 @@ Saia do &lt;em&gt;shell&lt;/em&gt; ...&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;... e inicie o servidor de desenvolvimento do Django &lt;/p&gt;
+&lt;p&gt;... e inicie o servidor de desenvolvimento do Django&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!bash&lt;/span&gt;
 &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;manage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;runserver&lt;/span&gt;
 
@@ -359,7 +353,7 @@ Saia do &lt;em&gt;shell&lt;/em&gt; ...&lt;/p&gt;
 
 
 &lt;p&gt;da mesma maneira, você pode ver o mesmo &lt;code&gt;json&lt;/code&gt;, visitando essas URLs com um browser web.&lt;/p&gt;
-&lt;h2&gt;Onde estamos agora.&lt;/h2&gt;
+&lt;h3&gt;Onde estamos agora.&lt;/h3&gt;
 &lt;p&gt;Estamos indo bem até agora, temos uma API de serialização muito similar a API do Django &lt;em&gt;Forms&lt;/em&gt;, e algumas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Nossas &lt;em&gt;views&lt;/em&gt; de API não fazem nada de especial até o momento, além de servir respostas &lt;code&gt;json&lt;/code&gt;, e existem alguns tratamentos de erros específicos nós poderíamos fazer, mas é uma API web funcional.&lt;/p&gt;
 &lt;p&gt;Iremos ver como melhorar as coisas na  &lt;a href="2-requests-and-responses.md"&gt;parte 2 deste tutorial&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cadu-leite</dc:creator><pubDate>Sat, 18 Jan 2014 00:00:00 -0200</pubDate><guid>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-1/</guid><category>python</category><category>django</category><category>REST</category></item><item><title>Tradução Tutorial Django-REST-Framework - Parte 2</title><link>http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/</link><description>&lt;h1&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h1&gt;
@@ -517,4 +511,43 @@ def snippet_detail(request, pk):
 &lt;p&gt;Ter uma API acessível ao seu navegador Web é um grande ganho de usabilidade, e faz com que o desenvolvimento e uso da sua API seja mais fácil. Isso também diminui dramaticamente a barreira de entrada para outros desenvolvedores que queiram inspecionar e trabalhar com sua API.&lt;/p&gt;
 &lt;p&gt;Veja o tópico &lt;a href="../topics/browsable-api.md"&gt;API Navegável&lt;/a&gt; para mais informações sobre a característica da API navegável e como customiza-lá.&lt;/p&gt;
 &lt;h2&gt;O que vem depois?&lt;/h2&gt;
-&lt;p&gt;No &lt;a href="3-class-based-views.md"&gt;tutorial part 3&lt;/a&gt;, começaremos usando &lt;em&gt;views&lt;/em&gt; baseadas em classes, e ver como as &lt;em&gt;views&lt;/em&gt; genéricas reduzem a quantidade de código que precisamos escrever.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cadu-leite</dc:creator><pubDate>Sat, 18 Jan 2014 00:00:00 -0200</pubDate><guid>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</guid><category>python</category><category>django</category><category>REST</category></item></channel></rss>
+&lt;p&gt;No &lt;a href="3-class-based-views.md"&gt;tutorial part 3&lt;/a&gt;, começaremos usando &lt;em&gt;views&lt;/em&gt; baseadas em classes, e ver como as &lt;em&gt;views&lt;/em&gt; genéricas reduzem a quantidade de código que precisamos escrever.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cadu-leite</dc:creator><pubDate>Sat, 18 Jan 2014 00:00:00 -0200</pubDate><guid>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</guid><category>python</category><category>django</category><category>REST</category></item><item><title>PostgreSQL - Tamanho do B.D. no disco</title><link>http://cadu-leite.github.io/posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/</link><description>&lt;p&gt;Para saber o tamanho de um Banco de Dados PostgreSQL no disco, execute a &lt;em&gt;query sql&lt;/em&gt; abaixo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_database.datname,&lt;/span&gt;
+postgres-# pg_size_pretty&lt;span class="o"&gt;(&lt;/span&gt;pg_database_size&lt;span class="o"&gt;(&lt;/span&gt;pg_database.datname&lt;span class="o"&gt;))&lt;/span&gt; AS size
+postgres-# FROM pg_database;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;o retorno será algo no formato ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;datname | size
+------------------+---------
+template1 | 4272 kB
+template0 | 4272 kB
+postgres | 4364 kB
+znc | 4272 kB
+teste | 8128 kB
+template_postgis | 7416 kB
+circuitonobre | 8336 kB
+postfix | 4908 kB
+teste | 11 MB
+znc_gerencia | 9048 kB
+pam | 14 MB
+tnc_uc | 48 MB
+&lt;span class="o"&gt;(&lt;/span&gt;12 rows&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_size_pretty(pg_database_size(&amp;#39;sorocaba_sig&amp;#39;)) As fulldbsize;&lt;/span&gt;
+
+fulldbsize
+------------
+8568 kB
+&lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_database.datname,&lt;/span&gt;
+pg_size_pretty&lt;span class="o"&gt;(&lt;/span&gt;pg_database_size&lt;span class="o"&gt;(&lt;/span&gt;pg_database.datname&lt;span class="o"&gt;))&lt;/span&gt; AS size
+FROM pg_database where &lt;span class="nv"&gt;datname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sorocaba_sig&amp;#39;&lt;/span&gt;;
+
+datname | size
+--------------+---------
+sorocaba_sig | 8568 kB
+&lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Cadu-leite</dc:creator><pubDate>Fri, 02 Sep 2011 00:00:00 -0300</pubDate><guid>tag:cadu-leite.github.io,2011-09-02:posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/</guid><category>python</category><category>django</category><category>REST</category></item></channel></rss>
