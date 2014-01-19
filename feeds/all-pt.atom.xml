@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/all-pt.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2014-01-18T00:00:00-02:00</updated><entry><title>Tradução Tutorial Django-REST-Framework - Parte 2</title><link href="http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/" rel="alternate"></link><updated>2014-01-18T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</id><summary type="html">&lt;h1&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h1&gt;
-&lt;p&gt;A partir deste ponto iremos cobrir o &lt;em&gt;core&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt; REST. Vamos introduzir algumas partes essenciais da construção. &lt;/p&gt;
-&lt;h2&gt;Objetos &lt;em&gt;Request&lt;/em&gt;.&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/all-pt.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2014-01-18T00:00:00-02:00</updated><entry><title>Tutorial Django-REST-Framework - Parte 2</title><link href="http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/" rel="alternate"></link><updated>2014-01-18T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</id><summary type="html">&lt;h2&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;A partir deste ponto iremos cobrir o &lt;em&gt;core&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt; REST. Vamos introduzir algumas partes essenciais da construção.&lt;/p&gt;
+&lt;h3&gt;Objetos &lt;em&gt;Request&lt;/em&gt;.&lt;/h3&gt;
 &lt;p&gt;O &lt;em&gt;framework&lt;/em&gt; REST introduz um objeto &lt;code&gt;Reuquest&lt;/code&gt; que extende o &lt;code&gt;HttpRequest&lt;/code&gt; normal, e fornece maior flexibilidade no tratamento do &lt;em&gt;request&lt;/em&gt;. A principal funcionalidade do objeto &lt;code&gt;Request&lt;/code&gt; e o atributo  &lt;code&gt;request.DATA&lt;/code&gt;, o qual é similar ao &lt;code&gt;request.POST&lt;/code&gt;, mas mais funcional para trabalhar com uma API Web.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;POST&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Only&lt;/span&gt; &lt;span class="n"&gt;handles&lt;/span&gt; &lt;span class="n"&gt;form&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Only&lt;/span&gt; &lt;span class="n"&gt;works&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;POST&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DATA&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Handles&lt;/span&gt; &lt;span class="n"&gt;arbitrary&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;  &lt;span class="n"&gt;Works&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;POST&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;PUT&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;PATCH&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;methods&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Objetos &lt;em&gt;Response&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;o &lt;em&gt;framework&lt;/em&gt; REST também introduz um objeto &lt;code&gt;Response&lt;/code&gt;, o qual é um tipo de &lt;code&gt;TemplateResponse&lt;/code&gt; que trata um conteúdo não renderizado e usa o mecanismo de &lt;em&gt;content negotiation&lt;/em&gt; para determinar o tipo correto de conteúdo para retornar ao cliente. &lt;/p&gt;
+&lt;h3&gt;Objetos &lt;em&gt;Response&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;o &lt;em&gt;framework&lt;/em&gt; REST também introduz um objeto &lt;code&gt;Response&lt;/code&gt;, o qual é um tipo de &lt;code&gt;TemplateResponse&lt;/code&gt; que trata um conteúdo não renderizado e usa o mecanismo de &lt;em&gt;content negotiation&lt;/em&gt; para determinar o tipo correto de conteúdo para retornar ao cliente.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Renders&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;requested&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Códigos de Status.&lt;/h2&gt;
-&lt;p&gt;O uso de códigos de status HTTP nas suas &lt;em&gt;views&lt;/em&gt; nem sempre faz com que a leitura seja clara, e é fácil não notar se você leu um código de erro errado. O &lt;em&gt;framework&lt;/em&gt; REST fornece identificadores mais explícitos para cada código de status, tal como um &lt;code&gt;HTP_404_BAD_REQUEST&lt;/code&gt; no módulo de status. É uma boa idéia usar isso em tudo ao invés de identificadores numéricos. &lt;/p&gt;
-&lt;h2&gt;&lt;em&gt;Wrapping views&lt;/em&gt;&lt;/h2&gt;
+&lt;h3&gt;Códigos de Status.&lt;/h3&gt;
+&lt;p&gt;O uso de códigos de status HTTP nas suas &lt;em&gt;views&lt;/em&gt; nem sempre faz com que a leitura seja clara, e é fácil não notar se você leu um código de erro errado. O &lt;em&gt;framework&lt;/em&gt; REST fornece identificadores mais explícitos para cada código de status, tal como um &lt;code&gt;HTP_404_BAD_REQUEST&lt;/code&gt; no módulo de status. É uma boa idéia usar isso em tudo ao invés de identificadores numéricos.&lt;/p&gt;
+&lt;h3&gt;&lt;em&gt;Wrapping views&lt;/em&gt;&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;*Nota do tradutor: &lt;em&gt;Wrapping é um padrão no desenvolvimento de software - ver &lt;a href="http://en.wikipedia.org/wiki/Wrapper_function"&gt;wrapper function&lt;/a&gt;. a tradução do título seria, "envolvendo funções do tipo 'view'". em python, é equivalente ao uso de 'decorators'. O termo "wrapper"&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -27,7 +27,7 @@
 &lt;/ol&gt;
 &lt;p&gt;Estes &lt;em&gt;wrappers&lt;/em&gt; fornecem partes de algumas funcionalidades tal como ter certeza que você recebeu instâncias de &lt;code&gt;Request&lt;/code&gt; na sua view, e adicionando &lt;em&gt;context&lt;/em&gt; aos objetos &lt;code&gt;Response&lt;/code&gt; então o &lt;em&gt;content negotiation&lt;/em&gt; pode ser feito.&lt;/p&gt;
 &lt;p&gt;Os &lt;em&gt;wrappers&lt;/em&gt; também fornecem comportamento tal como retornar uma resposta &lt;code&gt;405 Method Not Allowed&lt;/code&gt; quando for necessário, e tratar qualquer exceção do tipo  &lt;code&gt;ParserError&lt;/code&gt; que pode ocorrer quando uma entrada mal formada no &lt;code&gt;request.DATA&lt;/code&gt; é acessada.&lt;/p&gt;
-&lt;h2&gt;Juntando tudo.&lt;/h2&gt;
+&lt;h3&gt;Juntando tudo.&lt;/h3&gt;
 &lt;p&gt;Okay, vamos em frente e usar estes novos componentes para escrever algumas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Nós não precisamos mais da nossa classe &lt;code&gt;JSONResponse&lt;/code&gt; no &lt;code&gt;views.py&lt;/code&gt;, então vá em frente e delete isso. Uma vez feito isso, podemos aos poucos, começar nosso refactoring.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sx"&gt;!python&lt;/span&gt;
@@ -57,14 +57,14 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Nossa &lt;em&gt;view&lt;/em&gt; de instância é uma melhoria se comparada ao exemplo anterior. É um pouco mais concisa, e o código é um pouco mais parecido com o que trabalhamos na API de &lt;em&gt;Forms&lt;/em&gt; . Também estamos usando códigos de status nomeados, o que torna o significado da resposta um pouco mais óbvio. &lt;/p&gt;
+&lt;p&gt;Nossa &lt;em&gt;view&lt;/em&gt; de instância é uma melhoria se comparada ao exemplo anterior. É um pouco mais concisa, e o código é um pouco mais parecido com o que trabalhamos na API de &lt;em&gt;Forms&lt;/em&gt; . Também estamos usando códigos de status nomeados, o que torna o significado da resposta um pouco mais óbvio.&lt;/p&gt;
 &lt;p&gt;Aqui a &lt;em&gt;view&lt;/em&gt; para um &lt;em&gt;snippet&lt;/em&gt; individual, no módulo &lt;code&gt;views.py&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;!python
 @api_view(['GET', 'PUT', 'DELETE'])
 def snippet_detail(request, pk):
     """
     Retrieve, update or delete a snippet instance.
-    """            &lt;br /&gt;
+    """
     try:
         snippet = Snippet.objects.get(pk=pk)
     except Snippet.DoesNotExist:
@@ -88,7 +88,7 @@ def snippet_detail(request, pk):
 
 &lt;p&gt;Isso tudo deve parecer muito familiar  - Não é muito diferente de trabalhar com as &lt;em&gt;views&lt;/em&gt; normais do Django.&lt;/p&gt;
 &lt;p&gt;Note que não estamos mais amarrando nossos &lt;em&gt;requests&lt;/em&gt; ou &lt;em&gt;responses&lt;/em&gt; a um determinado tipo de conteúdo.  &lt;code&gt;request.DATA&lt;/code&gt;  pode tratar &lt;em&gt;requests&lt;/em&gt; &lt;code&gt;json&lt;/code&gt;, mas pode também tratar também &lt;code&gt;yaml&lt;/code&gt; e outros formatos. Da mesma maneira, estamos retornando objetos &lt;em&gt;reponse&lt;/em&gt; com dados, mas permitindo ao  REST framework renderizar o &lt;em&gt;reponse&lt;/em&gt; no tipo correto de conteúdo pra nós.&lt;/p&gt;
-&lt;h2&gt;Adicionando sufixos de formatos opcionais a nossas URLs&lt;/h2&gt;
+&lt;h3&gt;Adicionando sufixos de formatos opcionais a nossas URLs&lt;/h3&gt;
 &lt;p&gt;Para tirar vantagem do fato que nossos &lt;em&gt;reponses&lt;/em&gt; não estão mais amarrados a um único tipo de conteúdo, vamos adicionar suporte a sufixos de formatos para noss API. Usar sufixos de formatos nos dá URLs que explicitamente referenciam um dado formato, e significa que nossa API  será capaz de tratar URLs tal como  &lt;a href="http://example.com/api/items/4.json"&gt;http://example.com/api/items/4.json&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Começamos por adicionar o &lt;em&gt;keyword&lt;/em&gt; argumento &lt;code&gt;format&lt;/code&gt; para ambas as views, como abaixo.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;snippet_list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
@@ -114,7 +114,7 @@ def snippet_detail(request, pk):
 
 
 &lt;p&gt;Nós não precisamos necessariamente adicionar esses padrões de URLs, mas isso nos dá uma maneira simples e clara de referenciar um formato específico.&lt;/p&gt;
-&lt;h2&gt;Como lhe parece?&lt;/h2&gt;
+&lt;h3&gt;Como lhe parece?&lt;/h3&gt;
 &lt;p&gt;Vá em frente e teste a API na linha de comando, como fizemos no &lt;a href="1-serialization.md"&gt;tutorial part 1&lt;/a&gt;. Tudo está funcionando  de maneira similar, embora nós tenhamos alguns bons tratamentos de erros se enviarmos &lt;em&gt;request&lt;/em&gt; inválidos.&lt;/p&gt;
 &lt;p&gt;Nós podemos ter uma lista de &lt;em&gt;snippets&lt;/em&gt; como antes.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;curl&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//127.0.0.1:8000/snippets/&lt;/span&gt;
@@ -149,11 +149,11 @@ def snippet_detail(request, pk):
 
 
 &lt;p&gt;Agora abra a API em um navegador Web, visitando &lt;a href="http://127.0.0.1:8000/snippets/"&gt;http://127.0.0.1:8000/snippets/&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;Navegabilidade&lt;/h3&gt;
+&lt;h4&gt;Navegabilidade&lt;/h4&gt;
 &lt;p&gt;Como a API escolhe o tipo de conteúdo do &lt;em&gt;response&lt;/em&gt; baseado no &lt;em&gt;request&lt;/em&gt; do cliente, isso irá por padrão, retornar  uma representação formatada em HTML do recurso quando este recurso é requisitado por um navegador Web. Isso permite a API retornar uma representação HTML totalmente compatível com seu navegador Web.&lt;/p&gt;
 &lt;p&gt;Ter uma API acessível ao seu navegador Web é um grande ganho de usabilidade, e faz com que o desenvolvimento e uso da sua API seja mais fácil. Isso também diminui dramaticamente a barreira de entrada para outros desenvolvedores que queiram inspecionar e trabalhar com sua API.&lt;/p&gt;
 &lt;p&gt;Veja o tópico &lt;a href="../topics/browsable-api.md"&gt;API Navegável&lt;/a&gt; para mais informações sobre a característica da API navegável e como customiza-lá.&lt;/p&gt;
-&lt;h2&gt;O que vem depois?&lt;/h2&gt;
+&lt;h3&gt;O que vem depois?&lt;/h3&gt;
 &lt;p&gt;No &lt;a href="3-class-based-views.md"&gt;tutorial part 3&lt;/a&gt;, começaremos usando &lt;em&gt;views&lt;/em&gt; baseadas em classes, e ver como as &lt;em&gt;views&lt;/em&gt; genéricas reduzem a quantidade de código que precisamos escrever.&lt;/p&gt;</summary><category term="python"></category><category term="django"></category><category term="REST"></category></entry><entry><title>Tutorial Django-REST-Framework - Parte 1</title><link href="http://cadu-leite.github.io/posts/2014/Jan/17/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-1/" rel="alternate"></link><updated>2014-01-17T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-17:posts/2014/Jan/17/tradução-tutorial-django-rest-framework-parte-1/</id><summary type="html">&lt;h2&gt;Tutorial 1: Serialização&lt;/h2&gt;
 &lt;h3&gt;Introdução&lt;/h3&gt;
 &lt;p&gt;Este tutorial cobre a criação de um serviço simples de &lt;em&gt;pastebin&lt;/em&gt;  com &lt;em&gt;highlight&lt;/em&gt; de código. O tutorial irá introduzir vários componentes que juntos compõem o framework REST, e lhe darão uma compreensão de como tudo se encaixa.&lt;/p&gt;
@@ -493,33 +493,45 @@ Quit the server with CONTROL-C.
 &lt;h3&gt;Onde estamos agora.&lt;/h3&gt;
 &lt;p&gt;Estamos indo bem até agora, temos uma API de serialização muito similar a API do Django &lt;em&gt;Forms&lt;/em&gt;, e algumas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Nossas &lt;em&gt;views&lt;/em&gt; de API não fazem nada de especial até o momento, além de servir respostas &lt;code&gt;json&lt;/code&gt;, e existem alguns tratamentos de erros específicos nós poderíamos fazer, mas é uma API web funcional.&lt;/p&gt;
-&lt;p&gt;Iremos ver como melhorar as coisas na  &lt;a href="2-requests-and-responses.md"&gt;parte 2 deste tutorial&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="django"></category><category term="REST"></category></entry><entry><title>PostgreSQL - Tamanho do B.D. no disco</title><link href="http://cadu-leite.github.io/posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/" rel="alternate"></link><updated>2011-09-02T00:00:00-03:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2011-09-02:posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/</id><summary type="html">&lt;p&gt;Para saber o tamanho de um Banco de Dados PostgreSQL no disco, execute a &lt;em&gt;query sql&lt;/em&gt; abaixo.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_database.datname,&lt;/span&gt;
-postgres-# pg_size_pretty&lt;span class="o"&gt;(&lt;/span&gt;pg_database_size&lt;span class="o"&gt;(&lt;/span&gt;pg_database.datname&lt;span class="o"&gt;))&lt;/span&gt; AS size
-postgres-# FROM pg_database;
+&lt;p&gt;Iremos ver como melhorar as coisas na  &lt;a href="2-requests-and-responses.md"&gt;parte 2 deste tutorial&lt;/a&gt;.&lt;/p&gt;</summary><category term="python"></category><category term="django"></category><category term="REST"></category></entry><entry><title>Tradução do Tutorial do django-rest-framewok</title><link href="http://cadu-leite.github.io/posts/2014/Jan/16/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework/" rel="alternate"></link><updated>2014-01-16T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-16:posts/2014/Jan/16/tradução-tutorial-django-rest-framework/</id><summary type="html">&lt;h2&gt;Porque traduzir ?&lt;/h2&gt;
+&lt;p&gt;Vamos usar o &lt;a href="http://www.django-rest-framework.org/tutorial/"&gt;django-rest-framework&lt;/a&gt; dentro da ZNC Sistemas, empresa onde trabalho, e vamos precisar que outros desenvolvedores conheçam um pouco do framework e tenham uma idéia de  como funciona.
+Internamente não vale a pena traduzir, o time consegue ler diocumentação em inglês, más se pensar na comunidade Django Brasil,  e acho que serveria para encourajar outros a lerem o tutorial.
+Acredito que somos carentes de documentação em PT-BR, vai aqui uma pequena contribuição.&lt;/p&gt;
+&lt;p&gt;Lembrando que o tutorial original está no site original do &lt;a href="http://www.django-rest-framework.org/tutorial/"&gt;django-rest-framework&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[tradução-tutorial-django-rest-framework-parte-1]&lt;/li&gt;
+&lt;li&gt;&lt;a href="/tradução-tutorial-django-rest-framework-parte-2"&gt;tradução-tutorial-django-rest-framework-parte-2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="django"></category><category term="REST"></category></entry><entry><title>PostgreSQL - Tamanho do B.D. no disco</title><link href="http://cadu-leite.github.io/posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/" rel="alternate"></link><updated>2011-09-02T00:00:00-03:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2011-09-02:posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/</id><summary type="html">&lt;p&gt;Para saber o tamanho de um Banco de Dados PostgreSQL no disco, execute a &lt;em&gt;query sql&lt;/em&gt; abaixo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;-#&lt;/span&gt; &lt;span class="n"&gt;pg_size_pretty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;AS&lt;/span&gt; &lt;span class="k"&gt;size&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;-#&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;o retorno será algo no formato ...&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;datname | size
 ------------------+---------
-template1 | 4272 kB
-template0 | 4272 kB
-postgres | 4364 kB
-znc | 4272 kB
-teste | 8128 kB
-template_postgis | 7416 kB
-circuitonobre | 8336 kB
-postfix | 4908 kB
-teste | 11 MB
-znc_gerencia | 9048 kB
-pam | 14 MB
-tnc_uc | 48 MB
+bd-1 | 4272 kB
+bd-2 | 4272 kB
+bd-3 | 4364 kB
+bd-4 | 4272 kB
+bd-5 | 8128 kB
+bd-6 | 7416 kB
+bd-6 | 8336 kB
+bd-7 | 4908 kB
+bd-8 | 11 MB
+bd-9 | 9048 kB
+bd-10 | 14 MB
+bd-11 | 48 MB
 &lt;span class="o"&gt;(&lt;/span&gt;12 rows&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_size_pretty(pg_database_size(&amp;#39;sorocaba_sig&amp;#39;)) As fulldbsize;&lt;/span&gt;
 
-fulldbsize
+&lt;p&gt;Para um único banco de dados.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;pg_size_pretty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sorocaba_sig&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;As&lt;/span&gt; &lt;span class="n"&gt;fulldbsize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;como retorno temos ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fulldbsize
 ------------
 8568 kB
 &lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
