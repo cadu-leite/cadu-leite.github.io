@@ -1,95 +1,44 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
+<html lang="pt">
 <head>
-    <title>Tradução Tutorial Django-REST-Framework - Parte 2</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <title>Tradução Tutorial Django-REST-Framework - Parte 2</title>
+        <link rel="stylesheet" href="../../../../../theme/css/main.css" />
+        <link href="http://cadu-leite.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="cadu-leite - blog  Atom Feed" />
+        <link href="http://cadu-leite.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="cadu-leite - blog  RSS Feed" />
 
-    <!-- Open Graph tags -->
-
-            <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Tradução Tutorial Django-REST-Framework - Parte 2"/>
-            <meta property="og:url" content="../../../../../posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/"/>
-            <meta property="og:description" content="Tradução do tutorial Django-rest-framewrok parte 2"/>
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="../../../../../theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="../../../../../theme/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../../../theme/css/pygments.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../../theme/css/style.css" type="text/css"/>
-    <!-- JavaScript plugins (requires jQuery) -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-
-        <link href="../../../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="cadu-leite - blog  ATOM Feed"/>
-        <link href="../../../../../feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
-              title="cadu-leite - blog  RSS Feed"/>
-
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 </head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="../../../../.." class="navbar-brand">cadu-leite - blog </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="../../../../../category/python.html">Python</a>
-                        </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="../../../../../archives.html"><i class="icon-th-list"></i>Archives</a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</nav>
-<!-- /.navbar -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="../../../../../posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/"
-                       rel="bookmark"
-                       title="Permalink to Tradução Tutorial Django-REST-Framework - Parte 2">
-                        Tradução Tutorial Django-REST-Framework - Parte 2
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../../../../../">cadu-leite - blog  </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="../../../../../category/python.html">Python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="../../../../../posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/" rel="bookmark"
+           title="Permalink to Tradução Tutorial Django-REST-Framework - Parte 2">Tradução Tutorial Django-REST-Framework - Parte 2</a></h1>
+    </header>
+
+    <div class="entry-content">
 <footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="icon-calendar"></i>Sat 18 January 2014
-    </span>
+        <abbr class="published" title="2014-01-18T00:00:00">
+                Sat 18 January 2014
+        </abbr>
 
-
-
-<span class="label label-default">Tags</span>
-	<a href="../../../../../tag/python.html">python</a>
-        /
-	<a href="../../../../../tag/django.html">django</a>
-        /
-	<a href="../../../../../tag/rest.html">REST</a>
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <h1>Tutorial 2: <em>Requests</em> e <em>Responses</em></h1>
+        <address class="vcard author">
+                By <a class="url fn" href="../../../../../author/cadu-leite.html">Cadu-leite</a>
+        </address>
+<p>In <a href="../../../../../category/python.html">Python</a>. </p>
+<p>tags: <a href="../../../../../tag/python.html">python</a><a href="../../../../../tag/django.html">django</a><a href="../../../../../tag/rest.html">REST</a></p>
+</footer><!-- /.post-info -->      <h1>Tutorial 2: <em>Requests</em> e <em>Responses</em></h1>
 <p>A partir deste ponto iremos cobrir o <em>core</em> do <em>framework</em> REST. Vamos introduzir algumas partes essenciais da construção. </p>
 <h2>Objetos <em>Request</em>.</h2>
 <p>O <em>framework</em> REST introduz um objeto <code>Reuquest</code> que extende o <code>HttpRequest</code> normal, e fornece maior flexibilidade no tratamento do <em>request</em>. A principal funcionalidade do objeto <code>Request</code> e o atributo  <code>request.DATA</code>, o qual é similar ao <code>request.POST</code>, mas mais funcional para trabalhar com uma API Web.</p>
@@ -245,77 +194,43 @@ def snippet_detail(request, pk):
 <p>Veja o tópico <a href="../topics/browsable-api.md">API Navegável</a> para mais informações sobre a característica da API navegável e como customiza-lá.</p>
 <h2>O que vem depois?</h2>
 <p>No <a href="3-class-based-views.md">tutorial part 3</a>, começaremos usando <em>views</em> baseadas em classes, e ver como as <em>views</em> genéricas reduzem a quantidade de código que precisamos escrever.</p>
-            </div>
-            <!-- /.entry-content -->
-        </article>
-    </section>
+    </div><!-- /.entry-content -->
 
-        </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://www.znc.com.br/">ZNC Sistemas</a></li>
+                            <li><a href="https://sigef.incra.gov.br/">SIGEF</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://cadu-leite.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            <li><a href="http://cadu-leite.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
 
-<aside>
-    <section>
-        <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
-                    <li class="list-group-item"><a href="/feeds/"><i
-                            class="icon-rss-sign icon-large"></i>rss
-                    </a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/cadu_leite"><i
-                            class="icon-twitter-sign icon-large"></i>twitter
-                    </a></li>
-                    <li class="list-group-item"><a href="http://google.com/+CarlosLeite"><i
-                            class="icon-google-plus-sign icon-large"></i>google-plus
-                    </a></li>
-                    <li class="list-group-item"><a href="http://github.com/cadu-leite"><i
-                            class="icon-github-sign icon-large"></i>github
-                    </a></li>
-                    <li class="list-group-item"><a href="http://bitbucket.org/carlos_leite"><i
-                            class="icon-bitbucket-sign icon-large"></i>bitbucket
-                    </a></li>
-                    <li class="list-group-item"><a href="http://people.python.org.br/"><i
-                            class="icon-Python People-sign icon-large"></i>Python People
-                    </a></li>
+                            <li><a href="/feeds/">rss</a></li>
+                            <li><a href="http://twitter.com/cadu_leite">twitter</a></li>
+                            <li><a href="http://google.com/+CarlosLeite">google-plus</a></li>
+                            <li><a href="http://github.com/cadu-leite">github</a></li>
+                            <li><a href="http://bitbucket.org/carlos_leite">bitbucket</a></li>
+                            <li><a href="http://people.python.org.br/">Python People</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
 
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
 
-
-                <li class="list-group-item"><a href="../../../../../tags.html"><h4><i class="icon-tags icon-large"></i>Tags</h4></a></li>
-                        <li class="list-group-item tag-1">
-                            <a href="../../../../../tag/rest.html">
-                                REST
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="../../../../../tag/django.html">
-                                django
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="../../../../../tag/python.html">
-                                python
-                            </a>
-                        </li>
-        </ul>
-    </section>
-</aside>        </div>
-    </div>
-</div>
-<footer>
-    <div class="container">
-        <hr>
-        <p class="pull-right"><i class="icon-arrow-up"></i> <a href="#">Back to top</a></p>
-
-
-        <p>&copy; 2014 cadu-leite &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a></p>
-    </div>
-</footer>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../../../../../theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="../../../../../theme/js/respond.min.js"></script>
-
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
 
 </body>
 </html>
