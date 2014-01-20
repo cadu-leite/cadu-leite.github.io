@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/all-pt.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2014-01-18T00:00:00-02:00</updated><entry><title>Tutorial Django-REST-Framework - Parte 2</title><link href="http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/" rel="alternate"></link><updated>2014-01-18T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</id><summary type="html">&lt;h2&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/django.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2014-01-18T00:00:00-02:00</updated><entry><title>Tutorial Django-REST-Framework - Parte 2</title><link href="http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/" rel="alternate"></link><updated>2014-01-18T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</id><summary type="html">&lt;h2&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;A partir deste ponto iremos cobrir o &lt;em&gt;core&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt; REST. Vamos introduzir algumas partes essenciais da construção.&lt;/p&gt;
 &lt;h3&gt;Objetos &lt;em&gt;Request&lt;/em&gt;.&lt;/h3&gt;
 &lt;p&gt;O &lt;em&gt;framework&lt;/em&gt; REST introduz um objeto &lt;code&gt;Reuquest&lt;/code&gt; que extende o &lt;code&gt;HttpRequest&lt;/code&gt; normal, e fornece maior flexibilidade no tratamento do &lt;em&gt;request&lt;/em&gt;. A principal funcionalidade do objeto &lt;code&gt;Request&lt;/code&gt; e o atributo  &lt;code&gt;request.DATA&lt;/code&gt;, o qual é similar ao &lt;code&gt;request.POST&lt;/code&gt;, mas mais funcional para trabalhar com uma API Web.&lt;/p&gt;
@@ -499,47 +499,4 @@ Internamente não vale a pena traduzir, o time consegue ler diocumentação em i
 Acredito que somos carentes de documentação em PT-BR, vai aqui uma pequena contribuição.&lt;/p&gt;
 &lt;p&gt;Lembrando que o tutorial original está no site original do &lt;a href="http://www.django-rest-framework.org/tutorial/"&gt;django-rest-framework&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A tradução do tutorial &lt;strong&gt;começa em &lt;a href="http://cadu-leite.github.io/posts/2014/Jan/17/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-1"&gt;tradução-tutorial-django-rest-framework-parte-1&lt;/a&gt; &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;O segundo capítulo está disponível em  &lt;a href="http://cadu-leite.github.io/posts/2014/Jan/17/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2"&gt;tradução-tutorial-django-rest-framework-parte-2&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="REST"></category><category term=""></category></entry><entry><title>PostgreSQL - Tamanho do B.D. no disco</title><link href="http://cadu-leite.github.io/posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/" rel="alternate"></link><updated>2011-09-02T00:00:00-03:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2011-09-02:posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/</id><summary type="html">&lt;p&gt;Para saber o tamanho de um Banco de Dados PostgreSQL no disco, execute a &lt;em&gt;query sql&lt;/em&gt; abaixo.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;-#&lt;/span&gt; &lt;span class="n"&gt;pg_size_pretty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;AS&lt;/span&gt; &lt;span class="k"&gt;size&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;-#&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;o retorno será algo no formato ...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;datname | size
-------------------+---------
-bd-1 | 4272 kB
-bd-2 | 4272 kB
-bd-3 | 4364 kB
-bd-4 | 4272 kB
-bd-5 | 8128 kB
-bd-6 | 7416 kB
-bd-6 | 8336 kB
-bd-7 | 4908 kB
-bd-8 | 11 MB
-bd-9 | 9048 kB
-bd-10 | 14 MB
-bd-11 | 48 MB
-&lt;span class="o"&gt;(&lt;/span&gt;12 rows&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Para um único banco de dados.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;pg_size_pretty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sorocaba_sig&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;As&lt;/span&gt; &lt;span class="n"&gt;fulldbsize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;como retorno temos ...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;fulldbsize
-------------
-8568 kB
-&lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
-
-&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_database.datname,&lt;/span&gt;
-pg_size_pretty&lt;span class="o"&gt;(&lt;/span&gt;pg_database_size&lt;span class="o"&gt;(&lt;/span&gt;pg_database.datname&lt;span class="o"&gt;))&lt;/span&gt; AS size
-FROM pg_database where &lt;span class="nv"&gt;datname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sorocaba_sig&amp;#39;&lt;/span&gt;;
-
-datname | size
---------------+---------
-sorocaba_sig | 8568 kB
-&lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="database"></category><category term="postgresql"></category></entry></feed>
+&lt;p&gt;O segundo capítulo está disponível em  &lt;a href="http://cadu-leite.github.io/posts/2014/Jan/17/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2"&gt;tradução-tutorial-django-rest-framework-parte-2&lt;/a&gt;&lt;/p&gt;</summary><category term="django"></category><category term="REST"></category><category term=""></category></entry></feed>

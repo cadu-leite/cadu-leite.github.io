@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/postgresql.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2011-09-02T00:00:00-03:00</updated><entry><title>PostgreSQL - Tamanho do B.D. no disco</title><link href="http://cadu-leite.github.io/posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/" rel="alternate"></link><updated>2011-09-02T00:00:00-03:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2011-09-02:posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/</id><summary type="html">&lt;p&gt;Para saber o tamanho de um Banco de Dados PostgreSQL no disco, execute a &lt;em&gt;query sql&lt;/em&gt; abaixo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;-#&lt;/span&gt; &lt;span class="n"&gt;pg_size_pretty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;datname&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;AS&lt;/span&gt; &lt;span class="k"&gt;size&lt;/span&gt; &lt;span class="n"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;-#&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;pg_database&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;o retorno será algo no formato ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;datname | size
+------------------+---------
+bd-1 | 4272 kB
+bd-2 | 4272 kB
+bd-3 | 4364 kB
+bd-4 | 4272 kB
+bd-5 | 8128 kB
+bd-6 | 7416 kB
+bd-6 | 8336 kB
+bd-7 | 4908 kB
+bd-8 | 11 MB
+bd-9 | 9048 kB
+bd-10 | 14 MB
+bd-11 | 48 MB
+&lt;span class="o"&gt;(&lt;/span&gt;12 rows&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Para um único banco de dados.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;pg_size_pretty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pg_database_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sorocaba_sig&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="k"&gt;As&lt;/span&gt; &lt;span class="n"&gt;fulldbsize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;como retorno temos ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fulldbsize
+------------
+8568 kB
+&lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="nv"&gt;postgres&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# SELECT pg_database.datname,&lt;/span&gt;
+pg_size_pretty&lt;span class="o"&gt;(&lt;/span&gt;pg_database_size&lt;span class="o"&gt;(&lt;/span&gt;pg_database.datname&lt;span class="o"&gt;))&lt;/span&gt; AS size
+FROM pg_database where &lt;span class="nv"&gt;datname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sorocaba_sig&amp;#39;&lt;/span&gt;;
+
+datname | size
+--------------+---------
+sorocaba_sig | 8568 kB
+&lt;span class="o"&gt;(&lt;/span&gt;1 row&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="database"></category><category term="postgresql"></category></entry></feed>
