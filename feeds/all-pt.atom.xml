@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/all-pt.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2014-01-18T00:00:00-02:00</updated><entry><title>Tutorial Django-REST-Framework - Parte 2</title><link href="http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/" rel="alternate"></link><updated>2014-01-18T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</id><summary type="html">&lt;h2&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>cadu-leite - blog</title><link href="http://cadu-leite.github.io/" rel="alternate"></link><link href="http://cadu-leite.github.io/feeds/all-pt.atom.xml" rel="self"></link><id>http://cadu-leite.github.io/</id><updated>2014-03-04T00:00:00-03:00</updated><entry><title>Compilando Bootstrap Twitter V3 Less no Ubuntu</title><link href="http://cadu-leite.github.io/posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/" rel="alternate"></link><updated>2014-03-04T00:00:00-03:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-03-04:posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Atualizar o node e o less, o que vem do repositório é antigo e não compila. por via das dúvidas ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;software&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;properties&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;chris&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lea&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nodejs&lt;/span&gt;
+
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;autoremove&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;less&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;less&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;fonte: &lt;a href="http://edmondscommerce.github.io/less%20css/compiling-twitter-bootstraps-less-files-on-ubuntu-12-04mint-13.html" title="passo-a-passo para instalar lessc atualizado no ubuntu"&gt;lessc atualizado no ubuntu&lt;/a&gt; e &lt;a href="http://askubuntu.com/questions/272780/ubuntu-12-10-lessc-1-3-3-installation"&gt;ubuntu-12-10-lessc-1-3-3-installation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Baixe o  o código LESS do &lt;a href="https://github.com/twbs/bootstrap/" title="repositório do Booststrap-twitter "&gt;Bootstrap-twitter&lt;/a&gt;, não o css compilado do site.&lt;/p&gt;
+&lt;p&gt;O códifo &lt;em&gt;fonte&lt;/em&gt; do bootstrap twitter é um conjunto de arquivos &lt;strong&gt;less&lt;/strong&gt;, o arquivo principal a ser compilado é o &lt;code&gt;bootstrap.less&lt;/code&gt; . Este arquivo importa todos os outros arquivos.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Adicione suas customizações.&lt;/p&gt;
+&lt;p&gt;eu preferi manter a o código original sem alterá-lo, e adicionei um arquivo &lt;code&gt;theme_1.less&lt;/code&gt; com minhas alterações, para que fosse compilado junto . Adicionei este arquivo ao final dos &lt;em&gt;imports&lt;/em&gt; no arquivo  &lt;code&gt;bootstrap.less&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Utility classes&lt;/span&gt;
+&lt;span class="cp"&gt;@import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;utilities.less&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="cp"&gt;@import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;responsive-utilities.less&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="cp"&gt;@import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;custom.less&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// &amp;lt;&amp;lt; CUSTOMIZAÇÃO DO LESS&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bash script para gerar um arquivo &lt;code&gt;.css&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para testar minhas modificações mantive um bash script re-compilando o less a medida que o alterava, e gerando um arquivo &lt;code&gt;.css&lt;/code&gt; que visualizava em um template &lt;code&gt;.html&lt;/code&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Specify both .less and .css files&amp;quot;&lt;/span&gt;; &lt;span class="nb"&gt;exit &lt;/span&gt;1; &lt;span class="o"&gt;}&lt;/span&gt;
+inotifywait -m -e close_write . | &lt;span class="k"&gt;while &lt;/span&gt;&lt;span class="nb"&gt;read &lt;/span&gt;x op f; &lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$f&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Change detected. Recompiling...&amp;quot;&lt;/span&gt;;
+    lessc &lt;span class="nv"&gt;$2&lt;/span&gt; &amp;gt; &lt;span class="nv"&gt;$3&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;`date`: COMPILED&amp;quot;&lt;/span&gt;;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;fonte: a idéia deste script veio de um &lt;a href="http://stackoverflow.com/questions/13671969/how-to-automatically-compile-less-into-css-on-the-server/22104784#22104784" title="stack overflow sobre "&gt;post no stack overflow&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;para que o script funcione execute ...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;less_compile&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;  &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;diretorio&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;monitorado&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;  &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;less&lt;/span&gt;  &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;custom&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;! É importante gerar o custom.css &lt;strong&gt;fora&lt;/strong&gt; do path a ser monitorado, por motivos óbvios, do contrário o script bash entrará em um loop infinito de chamadas.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Uma dica após terminar a customização é utilizar o &lt;a href="https://github.com/GoalSmashers/clean-css" title="css formater"&gt;clean-css&lt;/a&gt; - um aplicativo node.js que minifica, formata entre outras opções  o arquivo css gerado.&lt;/p&gt;</summary><category term="web-design"></category><category term="less"></category><category term="css"></category></entry><entry><title>Tutorial Django-REST-Framework - Parte 2</title><link href="http://cadu-leite.github.io/posts/2014/Jan/18/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2/" rel="alternate"></link><updated>2014-01-18T00:00:00-02:00</updated><author><name>Cadu-leite</name></author><id>tag:cadu-leite.github.io,2014-01-18:posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/</id><summary type="html">&lt;h2&gt;Tutorial 2: &lt;em&gt;Requests&lt;/em&gt; e &lt;em&gt;Responses&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;A partir deste ponto iremos cobrir o &lt;em&gt;core&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt; REST. Vamos introduzir algumas partes essenciais da construção.&lt;/p&gt;
 &lt;h3&gt;Objetos &lt;em&gt;Request&lt;/em&gt;.&lt;/h3&gt;
 &lt;p&gt;O &lt;em&gt;framework&lt;/em&gt; REST introduz um objeto &lt;code&gt;Reuquest&lt;/code&gt; que extende o &lt;code&gt;HttpRequest&lt;/code&gt; normal, e fornece maior flexibilidade no tratamento do &lt;em&gt;request&lt;/em&gt;. A principal funcionalidade do objeto &lt;code&gt;Request&lt;/code&gt; e o atributo  &lt;code&gt;request.DATA&lt;/code&gt;, o qual é similar ao &lt;code&gt;request.POST&lt;/code&gt;, mas mais funcional para trabalhar com uma API Web.&lt;/p&gt;

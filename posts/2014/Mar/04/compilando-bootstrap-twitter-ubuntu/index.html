@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Tradução do Tutorial do django-rest-framewok</title>
+    <title>Compilando Bootstrap Twitter V3 Less no Ubuntu</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,9 +12,9 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Tradução do Tutorial do django-rest-framewok"/>
-            <meta property="og:url" content="../../../../../posts/2014/Jan/16/tradução-tutorial-django-rest-framework/"/>
-            <meta property="og:description" content="Sobre a tradução do tutorial do django-rest-framework"/>
+            <meta property="og:title" content="Compilando Bootstrap Twitter V3 Less no Ubuntu"/>
+            <meta property="og:url" content="../../../../../posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/"/>
+            <meta property="og:description" content="Compilando Bootstrap Twitter V3 Less no Ubuntu"/>
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="../../../../../theme/css/bootstrap.min.css" type="text/css"/>
@@ -45,10 +45,10 @@ cadu-leite - blog             </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="../../../../../category/css.html">Css</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="../../../../../category/django.html">Django</a>
                         </li>
                         <li >
@@ -71,10 +71,10 @@ cadu-leite - blog             </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="../../../../../posts/2014/Jan/16/tradução-tutorial-django-rest-framework/"
+                    <a href="../../../../../posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/"
                        rel="bookmark"
-                       title="Permalink to Tradução do Tutorial do django-rest-framewok">
-                        Tradução do Tutorial do django-rest-framewok
+                       title="Permalink to Compilando Bootstrap Twitter V3 Less no Ubuntu">
+                        Compilando Bootstrap Twitter V3 Less no Ubuntu
                     </a>
                 </h1>
             </header>
@@ -84,27 +84,87 @@ cadu-leite - blog             </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-01-16T00:00:00">Thu 16 January 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-03-04T00:00:00">Tue 04 March 2014</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="../../../../../tag/django.html">django</a>
+	<a href="../../../../../tag/web-design.html">web-design</a>
         /
-	<a href="../../../../../tag/rest.html">REST</a>
+	<a href="../../../../../tag/less.html">less</a>
         /
-	<a href="../../../../../tag/.html"></a>
+	<a href="../../../../../tag/css.html">css</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>Porque traduzir ?</h2>
-<p>Vamos usar o <a href="http://www.django-rest-framework.org/tutorial/">django-rest-framework</a> dentro da ZNC Sistemas, empresa onde trabalho, e vamos precisar que outros desenvolvedores conheçam um pouco do framework e tenham uma idéia de  como funciona.
-Internamente não vale a pena traduzir, o time consegue ler diocumentação em inglês, más se pensar na comunidade Django Brasil,  e acho que serveria para encourajar outros a lerem o tutorial.
-Acredito que somos carentes de documentação em PT-BR, vai aqui uma pequena contribuição.</p>
-<p>Lembrando que o tutorial original está no site original do <a href="http://www.django-rest-framework.org/tutorial/">django-rest-framework</a></p>
-<p>A tradução do tutorial <strong>começa em <a href="http://cadu-leite.github.io/posts/2014/Jan/17/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-1">tradução-tutorial-django-rest-framework-parte-1</a> </strong></p>
-<p>O segundo capítulo está disponível em  <a href="http://cadu-leite.github.io/posts/2014/Jan/17/tradu%C3%A7%C3%A3o-tutorial-django-rest-framework-parte-2">tradução-tutorial-django-rest-framework-parte-2</a></p>
+                <ol>
+<li>
+<p>Atualizar o node e o less, o que vem do repositório é antigo e não compila. por via das dúvidas ...</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">software</span><span class="o">-</span><span class="n">properties</span> <span class="n">python</span> <span class="n">g</span><span class="o">++</span> <span class="n">make</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">chris</span><span class="o">-</span><span class="n">lea</span><span class="o">/</span><span class="n">node</span><span class="p">.</span><span class="n">js</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">nodejs</span>
+
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">autoremove</span> <span class="n">node</span><span class="o">-</span><span class="n">less</span>
+<span class="n">sudo</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">less</span>
+</pre></div>
+
+
+<blockquote>
+<p>fonte: <a href="http://edmondscommerce.github.io/less%20css/compiling-twitter-bootstraps-less-files-on-ubuntu-12-04mint-13.html" title="passo-a-passo para instalar lessc atualizado no ubuntu">lessc atualizado no ubuntu</a> e <a href="http://askubuntu.com/questions/272780/ubuntu-12-10-lessc-1-3-3-installation">ubuntu-12-10-lessc-1-3-3-installation</a></p>
+</blockquote>
+</li>
+<li>
+<p>Baixe o  o código LESS do <a href="https://github.com/twbs/bootstrap/" title="repositório do Booststrap-twitter ">Bootstrap-twitter</a>, não o css compilado do site.</p>
+<p>O códifo <em>fonte</em> do bootstrap twitter é um conjunto de arquivos <strong>less</strong>, o arquivo principal a ser compilado é o <code>bootstrap.less</code> . Este arquivo importa todos os outros arquivos.</p>
+</li>
+<li>
+<p>Adicione suas customizações.</p>
+<p>eu preferi manter a o código original sem alterá-lo, e adicionei um arquivo <code>theme_1.less</code> com minhas alterações, para que fosse compilado junto . Adicionei este arquivo ao final dos <em>imports</em> no arquivo  <code>bootstrap.less</code></p>
+<div class="highlight"><pre><span class="p">...</span>
+
+<span class="c1">// Utility classes</span>
+<span class="cp">@import</span> <span class="s2">&quot;utilities.less&quot;</span><span class="p">;</span>
+<span class="cp">@import</span> <span class="s2">&quot;responsive-utilities.less&quot;</span><span class="p">;</span>
+
+<span class="cp">@import</span> <span class="s2">&quot;custom.less&quot;</span><span class="p">;</span> <span class="c1">// &lt;&lt; CUSTOMIZAÇÃO DO LESS</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Bash script para gerar um arquivo <code>.css</code>.</p>
+<p>Para testar minhas modificações mantive um bash script re-compilando o less a medida que o alterava, e gerando um arquivo <code>.css</code> que visualizava em um template <code>.html</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="o">[</span> <span class="s2">&quot;$2&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Specify both .less and .css files&quot;</span>; <span class="nb">exit </span>1; <span class="o">}</span>
+inotifywait -m -e close_write . | <span class="k">while </span><span class="nb">read </span>x op f; <span class="k">do</span>
+<span class="k">    </span><span class="nb">echo</span> <span class="nv">$f</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Change detected. Recompiling...&quot;</span>;
+    lessc <span class="nv">$2</span> &gt; <span class="nv">$3</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;`date`: COMPILED&quot;</span>;
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>fonte: a idéia deste script veio de um <a href="http://stackoverflow.com/questions/13671969/how-to-automatically-compile-less-into-css-on-the-server/22104784#22104784" title="stack overflow sobre ">post no stack overflow</a></p>
+</blockquote>
+<p>para que o script funcione execute ...</p>
+<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">less_compile</span><span class="p">.</span><span class="n">sh</span>  <span class="o">/</span><span class="n">diretorio</span><span class="o">/</span><span class="n">monitorado</span><span class="o">/</span>  <span class="n">bootstrap</span><span class="p">.</span><span class="n">less</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">bootstrap</span><span class="p">.</span><span class="n">css</span>
+</pre></div>
+
+
+<p>! É importante gerar o custom.css <strong>fora</strong> do path a ser monitorado, por motivos óbvios, do contrário o script bash entrará em um loop infinito de chamadas.</p>
+</li>
+</ol>
+<p>Uma dica após terminar a customização é utilizar o <a href="https://github.com/GoalSmashers/clean-css" title="css formater">clean-css</a> - um aplicativo node.js que minifica, formata entre outras opções  o arquivo css gerado.</p>
             </div>
             <!-- /.entry-content -->
     <hr />
