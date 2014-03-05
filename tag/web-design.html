@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -67,13 +67,138 @@ cadu-leite - blog             </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="../posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/">Compilando Bootstrap Twitter V3 Less no Ubuntu</a></h2>
-                <div class="summary"><p>Compilando Bootstrap Twitter V3 Less no Ubuntu</p>
-                    <a class="btn btn-default btn-xs" href="../posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/">more ...</a>
+
+            <h1>Compilando Bootstrap Twitter V3 Less no Ubuntu</h1>
+            <div class="panel">
+                    <div class="panel-body-article-info">
+<div>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-03-04T00:00:00">Tue 04 March 2014</time>
+
+    </span>
+
+
+
+    | <span class="label label-default">Tags</span>
+	<a href="../tag/web-design.html">web-design</a>
+        /
+	<a href="../tag/less.html">less</a>
+        /
+	<a href="../tag/css.html">css</a>
+
+     | <a href="posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/"><i class="fa fa-link"></i>Link permanente para este artigo </a>
+
+</div>    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52dbd98c2f09ef4c"></script>
+    <!-- AddThis Button END -->
+                    </div>
                 </div>
-            </article>
-            <hr/>
+                <ol>
+<li>
+<p>Atualizar o node e o less, o que vem do repositório é antigo e não compila. por via das dúvidas ...</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">software</span><span class="o">-</span><span class="n">properties</span> <span class="n">python</span> <span class="n">g</span><span class="o">++</span> <span class="n">make</span>
+<span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">chris</span><span class="o">-</span><span class="n">lea</span><span class="o">/</span><span class="n">node</span><span class="p">.</span><span class="n">js</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">nodejs</span>
+
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">autoremove</span> <span class="n">node</span><span class="o">-</span><span class="n">less</span>
+<span class="n">sudo</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">less</span>
+</pre></div>
+
+
+<blockquote>
+<p>fonte: <a href="http://edmondscommerce.github.io/less%20css/compiling-twitter-bootstraps-less-files-on-ubuntu-12-04mint-13.html" title="passo-a-passo para instalar lessc atualizado no ubuntu">lessc atualizado no ubuntu</a> e <a href="http://askubuntu.com/questions/272780/ubuntu-12-10-lessc-1-3-3-installation">ubuntu-12-10-lessc-1-3-3-installation</a></p>
+</blockquote>
+</li>
+<li>
+<p>Baixe o  o código LESS do <a href="https://github.com/twbs/bootstrap/" title="repositório do Booststrap-twitter ">Bootstrap-twitter</a>, não o css compilado do site.</p>
+<p>O códifo <em>fonte</em> do bootstrap twitter é um conjunto de arquivos <strong>less</strong>, o arquivo principal a ser compilado é o <code>bootstrap.less</code> . Este arquivo importa todos os outros arquivos.</p>
+</li>
+<li>
+<p>Adicione suas customizações.</p>
+<p>eu preferi manter a o código original sem alterá-lo, e adicionei um arquivo <code>theme_1.less</code> com minhas alterações, para que fosse compilado junto . Adicionei este arquivo ao final dos <em>imports</em> no arquivo  <code>bootstrap.less</code></p>
+<div class="highlight"><pre><span class="p">...</span>
+
+<span class="c1">// Utility classes</span>
+<span class="cp">@import</span> <span class="s2">&quot;utilities.less&quot;</span><span class="p">;</span>
+<span class="cp">@import</span> <span class="s2">&quot;responsive-utilities.less&quot;</span><span class="p">;</span>
+
+<span class="cp">@import</span> <span class="s2">&quot;custom.less&quot;</span><span class="p">;</span> <span class="c1">// &lt;&lt; CUSTOMIZAÇÃO DO LESS</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Bash script para gerar um arquivo <code>.css</code>.</p>
+<p>Para testar minhas modificações mantive um bash script re-compilando o less a medida que o alterava, e gerando um arquivo <code>.css</code> que visualizava em um template <code>.html</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="o">[</span> <span class="s2">&quot;$2&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">{</span> <span class="nb">echo</span> <span class="s2">&quot;Specify both .less and .css files&quot;</span>; <span class="nb">exit </span>1; <span class="o">}</span>
+inotifywait -m -e close_write . | <span class="k">while </span><span class="nb">read </span>x op f; <span class="k">do</span>
+<span class="k">    </span><span class="nb">echo</span> <span class="nv">$f</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Change detected. Recompiling...&quot;</span>;
+    lessc <span class="nv">$2</span> &gt; <span class="nv">$3</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;`date`: COMPILED&quot;</span>;
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<blockquote>
+<p>fonte: a idéia deste script veio de um <a href="http://stackoverflow.com/questions/13671969/how-to-automatically-compile-less-into-css-on-the-server/22104784#22104784" title="stack overflow sobre ">post no stack overflow</a></p>
+</blockquote>
+<p>para que o script funcione execute ...</p>
+<div class="highlight"><pre><span class="p">.</span><span class="o">/</span><span class="n">less_compile</span><span class="p">.</span><span class="n">sh</span>  <span class="o">/</span><span class="n">diretorio</span><span class="o">/</span><span class="n">monitorado</span><span class="o">/</span>  <span class="n">bootstrap</span><span class="p">.</span><span class="n">less</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">bootstrap</span><span class="p">.</span><span class="n">css</span>
+</pre></div>
+
+
+<p>! É importante gerar o custom.css <strong>fora</strong> do path a ser monitorado, por motivos óbvios, do contrário o script bash entrará em um loop infinito de chamadas.</p>
+</li>
+</ol>
+<p>Uma dica após terminar a customização é utilizar o <a href="https://github.com/GoalSmashers/clean-css" title="css formater">clean-css</a> - um aplicativo node.js que minifica, formata entre outras opções  o arquivo css gerado.</p>
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52dbd98c2f09ef4c"></script>
+    <!-- AddThis Button END -->
+<div>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-03-04T00:00:00">Tue 04 March 2014</time>
+
+    </span>
+
+
+
+    | <span class="label label-default">Tags</span>
+	<a href="../tag/web-design.html">web-design</a>
+        /
+	<a href="../tag/less.html">less</a>
+        /
+	<a href="../tag/css.html">css</a>
+
+     | <a href="posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/"><i class="fa fa-link"></i>Link permanente para este artigo </a>
+
+</div>            <br/>
+             <div class="alert alert-info">Outros posts</div>
+
 
         </div>
         <div class="col-sm-3 well well-sm" id="sidebar">
@@ -112,38 +237,18 @@ cadu-leite - blog             </a>
 
                 <li class="list-group-item"><a href="../"><h4><i class="fa fa-tags fa-lg"></i>Tags</h4></a></li>
                         <li class="list-group-item tag-1">
-                            <a href="../tag/django.html">
-                                django
+                            <a href="../tag/rest.html">
+                                REST
                             </a>
                         </li>
                         <li class="list-group-item tag-1">
-                            <a href="../tag/rest.html">
-                                REST
+                            <a href="../tag/django.html">
+                                django
                             </a>
                         </li>
                         <li class="list-group-item tag-2">
                             <a href="../tag/django-packages.html">
                                 django-packages
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="../tag/less.html">
-                                less
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="../tag/.html">
-                                
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="../tag/css.html">
-                                css
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="../tag/database.html">
-                                database
                             </a>
                         </li>
                         <li class="list-group-item tag-4">
@@ -154,6 +259,26 @@ cadu-leite - blog             </a>
                         <li class="list-group-item tag-4">
                             <a href="../tag/web-design.html">
                                 web-design
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../tag/database.html">
+                                database
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../tag/css.html">
+                                css
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../tag/.html">
+                                
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../tag/less.html">
+                                less
                             </a>
                         </li>
 
