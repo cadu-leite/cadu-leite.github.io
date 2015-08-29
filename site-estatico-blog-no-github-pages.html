@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="icon" href="../../favicon.ico">
+
+   <title>Carlos Leite (cadu) - blog</title></title>
+
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="theme/custom.css" rel="stylesheet">
+
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <meta name="tags" contents="static blog" />
+    <meta name="tags" contents="gi" />
+
+</head>
+
+<body>
+   <div class="blog-masthead">
+      <nav class="navbar navbar-default navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button"
+                  class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#navbar" aria-expanded="false"
+                  aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">TESTE</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                     role="button" aria-expanded="false">
+                     Dropdown
+                     <span class="caret"></span>
+                     </a>
+                     <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="../navbar/">Default</a></li>
+                  <li><a href="../navbar-static-top/">Static top</a></li>
+                  <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+               </ul>
+            </div><!--/.nav-collapse -->
+         </div>
+      </nav>
+   </div>
+
+   <div class="container">
+      <div class="blog-header">
+         <h1 class="blog-title"></h1>
+         <p class="lead blog-description"> </p>
+      </div>
+      <div class="row">
+         <div class="col-sm-8 blog-main">
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/site-estatico-blog-no-github-pages.html" rel="bookmark"
+         title="Permalink to Site Estático + Blog No GitHub Pages">Site Estático + Blog No GitHub Pages</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2015-04-20T00:00:00+02:00">
+      Mon 20 April 2015
+    </abbr>
+    <abbr class="modified" title="2015-04-20T10:39:00+02:00">
+      Mon 20 April 2015
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/carlos-leite.html">Carlos Leite</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>thub
+Slug: site-estatico-blog-github-pages
+Authors: Carlos Leite
+Summary: O Valor do Software Customizado
+status: draft</p>
+<h2>PATH</h2>
+<p>├── _config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.textile
+|   └── on-simplicity-in-technology.markdown
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── _data
+|   └── members.yml
+├── _site
+└── index.html</p>
+<p>Todo arquivo que deverá ser processado pelo jekyl deve ter as 2 linhas com os 3 traços.</p>
+<blockquote>
+<h2>---</h2>
+</blockquote>
+<p>ou por exemplo</p>
+<div class="highlight"><pre>---
+title: Titulo da página
+subheading: subtitulo
+---
+</pre></div>
+
+
+<p>e no template</p>
+<div class="highlight"><pre><span class="cp">{{</span> <span class="nv">page.title</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{{</span> <span class="nv">page.subheading</span> <span class="cp">}}</span><span class="x"></span>
+</pre></div>
+
+
+<p>mesmo que não haja nenhum tipo de configuraçao dentro .</p>
+<p>Para <strong>limitar os posts</strong> use o <em>limit:N</em> dentro do laço <em>for</em>.</p>
+<div class="highlight"><pre>{% for post in site.tags.news limit:2  %}
+//do something
+{% endfor %}
+</pre></div>
+
+
+<h2>tips</h2>
+<h3>Sem misturar códdigo com seu site</h3>
+<p>se vc mantiver no mesmo repositório o código fonte de um projeto e site no mesmo repo mas no  <em>gh_pages</em> branch  obviamente, talvez seja uma boa idéia usar o parametro <em>--orphan</em>.</p>
+<p>esste parâmetro cria um branch no repositório sem trazer o   que está no master.</p>
+<div class="highlight"><pre>git checkout --orphan
+</pre></div>
+
+
+<h3>coleções</h3>
+<p>Desde ago de 2014, GitHub usa <strong>jekill 2.0</strong>
+veja <a href="https://github.com/blog/1867-github-pages-now-runs-jekyll-2-2-0">aqui</a>.</p>
+<p>Então é possível usar coleções (<em>collections</em>)</p>
+<h3>referências</h3>
+<p>http://24ways.org/2013/get-started-with-github-pages/</p>
+<p>http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/</p>
+<p>Meta dados da sua conta no GitHub https://help.github.com/articles/repository-metadata-on-github-pages/</p>
+<p>Google Analytics + DISQUS Comments - http://joshualande.com/jekyll-github-pages-poole/  </p>
+<p>WHY 
+Simplicity
+Jekyll strips everything down to the bare minimum, eliminating a lot of complexity:
+No database
+Unlike WordPress and other content management systems (CMS), Jekyll doesn’t have a database. All posts and pages are converted to static HTML prior to publication. This is great for loading speed because no database calls are made when a page is loaded.
+No CMS
+Simply write all of your content in Markdown, and Jekyll will run it through templates to generate your static website. GitHub can serve as a CMS if needed because you can edit content on it.
+Fast
+Jekyll is fast because, being stripped down and without a database, you’re just serving up static pages. My base theme, Jekyll Now, makes only three HTTP requests — including the profile picture and social icons!
+Minimal
+Your Jekyll website will include absolutely no functionality or features that you aren’t using.
+Design control
+Spend less time wrestling with complex templates written by other people, and more time creating your own theme or customizing an uncomplicated base theme.
+Security
+The vast majority of vulnerabilities that affect platforms like WordPress don’t exist because Jekyll has no CMS, database or PHP. So, you don’t have to spend as much time installing security updates.
+Convenient hosting
+Convenient if you already use GitHub, that is. GitHub Pages will build and host your Jekyll website at no charge, while simultaneously handling version control.</p>
+  </div><!-- /.entry-content -->
+</section>
+         </div><!-- /.blog-main -->
+
+         <div class="col-sm-3 col-sm-offset-1 blog-sidebar"> <!-- ===SIDEBAR -->
+            <div class="sidebar-module sidebar-module-inset">
+               <h4>About</h4>
+               <p>Carlos Leite, vulgo Cadu</p>
+               <p></p>
+            </div>
+            <div class="sidebar-module">
+               <h4>Archives</h4>
+               <ol class="list-unstyled">
+                  <li><a href="#">March 2014</a></li>
+                  <li><a href="#">February 2014</a></li>
+                  <li><a href="#">January 2014</a></li>
+                  <li><a href="#">December 2013</a></li>
+                  <li><a href="#">November 2013</a></li>
+                  <li><a href="#">October 2013</a></li>
+                  <li><a href="#">September 2013</a></li>
+                  <li><a href="#">August 2013</a></li>
+                  <li><a href="#">July 2013</a></li>
+                  <li><a href="#">June 2013</a></li>
+                  <li><a href="#">May 2013</a></li>
+                  <li><a href="#">April 2013</a></li>
+               </ol>
+            </div>
+
+            <div class="sidebar-module">
+               <h4>Elsewhere</h4>
+               <ol class="list-unstyled">
+                  <li><a href="#">GitHub</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Facebook</a></li>
+               </ol>
+            </div>
+         </div><!--  ======================================== /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+   </div><!-- /.container -->
+
+<footer class="blog-footer">
+   <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+   <p>
+      <a href="#">Back to top</a>
+   </p>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <!-- JavaScript -->
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

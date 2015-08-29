@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="icon" href="../../favicon.ico">
+
+   <title>Carlos Leite (cadu) - blog</title></title>
+
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="theme/custom.css" rel="stylesheet">
+
+   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+    <meta name="tags" contents="python" />
+    <meta name="tags" contents="django" />
+
+</head>
+
+<body>
+   <div class="blog-masthead">
+      <nav class="navbar navbar-default navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button"
+                  class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#navbar" aria-expanded="false"
+                  aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">TESTE</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                     role="button" aria-expanded="false">
+                     Dropdown
+                     <span class="caret"></span>
+                     </a>
+                     <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="../navbar/">Default</a></li>
+                  <li><a href="../navbar-static-top/">Static top</a></li>
+                  <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+               </ul>
+            </div><!--/.nav-collapse -->
+         </div>
+      </nav>
+   </div>
+
+   <div class="container">
+      <div class="blog-header">
+         <h1 class="blog-title"></h1>
+         <p class="lead blog-description"> </p>
+      </div>
+      <div class="row">
+         <div class="col-sm-8 blog-main">
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/drafts/django_nao_gosta_porque_usando_errado.html" rel="bookmark"
+         title="Permalink to Django - Se você não gosta, é porque está usando errado.">Django - Se você não gosta, é porque está usando errado.</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2015-07-07T00:00:00-03:00">
+      Tue 07 July 2015
+    </abbr>
+    <abbr class="modified" title="2014-08-11T00:00:00-03:00">
+      Mon 11 August 2014
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/carlos-leite.html">Carlos Leite</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <h1>Se vc não gosta do Django, então é porque vc não precisa dele.</h1>
+<p>Se já usou o framework Django e não gostou, você provavelmente o testou no problema errado !</p>
+<p>O que eu quero neste POST é E neste texto, vou descrever quais são os pontos do Django, que EU julgo que são importantes levar em consideração antes de tomar a decisão de usá-lo para sua solucão e onde eu uso o Django.</p>
+<h1>1. O que é Django ?</h1>
+<p>Django é um framework web para desenvolvimento de <strong>aplicações WEB</strong> e foi escrito em <strong>Python</strong>.</p>
+<p>O <em>slogan</em> do django nos dá uma pista.</p>
+<blockquote>
+<p>Django: The web framework for perfectionists with deadlines.</p>
+</blockquote>
+<p>Então o objectivo do framework Django é <strong>OTIMIZAR o tempo</strong> de desenvolvimento de uma aplicação WEB - prototipagem rápida! Aliás, a jato ! 8P</p>
+<p>Isso não quer dizer que todo o resto foi negligenciado, só que o objetivo principal era otimizar o tempo de <em>bootstrap</em> - Início do projeto.</p>
+<p>Para isso, os desenvolvedores do Django integraram ao framework, algumas ferramentas (ou bibliotecas python) que sempre eram usadas por estes ao iniciar uma aplicação WEB.</p>
+<p>Embutidos no framework, estão bibliotecas que tratam requisições WEB, um <em>ORM</em> para BD relacionais, uma linguagem de <em>templates</em> entre outras ferramentas uo funcionalidades. Ex. framework de autenticação de usuários, sistema de permissões, cache, variáveis de ambiente e etc.
+Tudo o que você precisa para uma <strong>Aplicação WEB</strong>.</p>
+<h2>Bala de prata !?!</h2>
+<p><strong>NÃO</strong>. O Django não é um framework para ser usado em qualquer aplicação WEB.</p>
+<p>Aliás, o que é uma aplicação WEB ? aqui começa o problema para definir se sua solução requer ou exige a utilização do Django.</p>
+<p>Aplicação WEB, pode ser qualquer coisa, um Blog pode ser publicado ou pode ter seu sistema de publicação sendo uma aplicação web, e o sistema de cadastramento do sistema de saúde do brasil com milhões de usuários também. Mas nem por isso tem soluções pareceidas.</p>
+<p>Eu costumo fazer a seguinte pergunta:</p>
+<blockquote>
+<p>tem grande número de interações com o usuário (diferentes tipos de inputs principalmente) e banco de dados? então eu uso Django.</p>
+</blockquote>
+<p>Não tão fácil - as vezes, responder essa pergunta não é o suficiente.</p>
+<p>e mais, <strong>a recíproca não é verdadeira</strong>.</p>
+<p>Mesmo que sua aplicação tenha muita interação com o usuário, banco de dados, perfis, permissões  etc, mesmo assim o Django <strong>pode</strong> não ser a melhor soluçao.</p>
+<p>Mas a pergunta faz sentido, dentro do meu contexto de desenvolvimento.</p>
+<p>Porque a pergunta então ?</p>
+<h2>Caraceterística importantes do Django.</h2>
+<p>Um dos pontos de ganho de produtividade que se pode impor a um time que está produzindo um produto, é diminuir a quantidade de decisões a serem tomadas durante o desenvolvimento.</p>
+<p>Algumas são muito importantes mas ao mesmo tempo mais básicas.</p>
+<div class="highlight"><pre>ex.: existe um framework que podemos usar para este projeto ? qual ?
+</pre></div>
+
+
+<p>Outras questões, podem ter respostas menos óbvias, e ao mesmo tempo terem tantas opções similares que é quase uma questão pessoal ou cultural.</p>
+<div class="highlight"><pre>Ex.: que banco de dados utilizar na solução.
+</pre></div>
+
+
+<p>Na verdade qualquer um dos meus 2 exemplos, tem uma infinidade de fatores que podem influenciar. A Cultura, <em>know-how</em> da equipe de desenvolvimento,  ou o conhecimento desta, cultura da empresa, o cliente etc etc etc. Mas o fato é :</p>
+<p>Quanto menos decisões tivermos que tomar para cada novo projeto de software que fazemos, aumentamos a produtividade. (... só essa inha da um novo artigo.)</p>
+<p>O que o Django faz para aumentar a produtividade é tomar algumas decisões de projeto de aplicação WEB.</p>
+<ol>
+<li>O sistema ORM</li>
+<li>A linguagem de templates.</li>
+<li>FORMs</li>
+<li>parte de como vc deve organizar o projeto.</li>
+</ol>
+<h1>Onde utilizar o Django ?</h1>
+<p>Mas aqui também se aplica a regra: <em>"não existe almoço grátis"</em>.</p>
+<blockquote>
+<p>Sempre que há um bônus, existe também um ônus.</p>
+</blockquote>
+<p>No caso do framework Django, o ônus é a "quase obrigatoriedade" de se resolver certos problemas da aplicação web com as ferramentas (bibliotecas)
+ <em>embutidas</em> no framework. <strong>QUASE</strong>!</p>
+<p>Para que o desenvolvimento de uma aplicação Django seja rápido (rápida prototipação), os desenvolvedores do framework Django, fizeram algumas escolhas para embutir no framework soluções que resolvem problemas comuns ao desenvolvimento de aplicações WEB (comuns ao contexto que eles imaginaram ao desenvolver o framework) . Essa integração,</p>
+<p>O outro lado desta moeda ou no caso, o <em>"custo desse almoço"</em> é que para ganhar tempo, sua solucão terá que ser desenvolvida, e terá talvez que se adaptar em parte a essas ferramentas que compõem o framework Django.</p>
+<p>Tentar alterar o comportamento de uma dessas ferramentas ou até <em>"trocá-las"</em> pode lhe tirar todo o ganho que o framework Django lhe daria, e consequentemente, perde-se o sentido de utilizar o framework.</p>
+<p>E aí ?! e o slogan ?</p>
+<blockquote>
+<p>The web framework for perfectionists with deadlines.</p>
+</blockquote>
+<p>depende de qual é o seu problema, ou melhor ainda, qual a solução você quer dar ao seu problema.</p>
+<h2>Como saber se uso ou não o framework Django</h2>
+<p>Alguns desenvolvedores, insistem em comparar <strong>microframeworks</strong> com Django, e muitas vezes o fazem de maneira errada.</p>
+<p>Vc pode querer comparar qualquer coisa com um framework web, até uma laranja, e vai chegar a conclusão que são coisas bem diferentes (ou não). Um microframework, está bem mais próximo de um framework, mas ainda sim como a laranja, atende necessidades diferentes de um framework.</p>
+<p>POR EXEMPLO <strong>Flask</strong> !
+<strong>Flask</strong> é um micro framework também desenvolvido em Python, para desenvolvimento de aplicações WEB. sem os plugins, ele é uma grande biblioteca para tratar requisições HTTP.
+Vc também não precisa dele para fazer um blog, mas se vc quiser fazer um sistema de publicação enxuto, ele pode ser uma saida (mas antes tente algo como o projeto Pelikan por exemplo.)</p>
+<p>Um exemplo de uso do FLASK, caso no qual o Django seria <em>"overkill"</em> é se vc necessita somente desenvolver um serviço WEB, recebimento de dados (machine to machine), ou um validador de 1 formulário, ou coisas suscintas e objetivas com pouca ou nenhuma interação de usuários.</p>
+<h2>Para que serve o Django então ?:</h2>
+<p>O framework Django é formado por 3 principais <em>"partes"</em>:</p>
+<ol>
+<li>ORM</li>
+<li>Linguagem de templates.</li>
+<li>Tratamento de requisições HTTP (com extrema simplcidade).</li>
+<li>ADMIN - um site pronto para que possa editar os modelos de dados do projeto.</li>
+</ol>
+<p>...
+para quem nao conhece nada de Django, ele ainda tem um sistema para autenticação de usuários, um framework para permisões entre vários outros plugins e bibliotecas que podem facilitar o desenvolvimento de uma applicação WEB. Existe até uma app para fazer com que o framework trabalhe com REST!</p>
+<p>Isso quer dizer que, utilizando o framework, vc tem facilidades para acessar um banco de dados (ler, escrever), permite publicar dados dinâmicos em uma página web, possui rotinas para que tudo isso seja <strong>acionado</strong> através de chamadas HTTP - requisições http.</p>
+<blockquote>
+<p>LOGO se vc não precisa de uma destas 3 "ferramentas", então vc não precisa do Django.</p>
+</blockquote>
+<p>Se vc não precisa de um formulário web + controle de usuário + páginas html (talvez vc ainda queira o banco de dados), o Flask é realmente uma ótima opção..</p>
+<p>O que os desenvolvedores (comunidade)  do Django, fizeram, foi tomar algumas decisões por você (programador) para que você foque no problema que vc quer resolver com a sua aplicação. Essas escolhas (ORM, templates ...) tornam o início do projeto extremamente rápido</p>
+<p>Eles definiram o ORM, a linguagem de templates e a maneira como vc interage com o usuário (ModelForms)  e colocaram dentro de um pacote que se integra. ...  e muito bem diga-se de passagem.</p>
+<p>Se vc quer alterar um destas "ferramentas", faça um favor a você mesmo, e não use o Django !</p>
+<p>Python tem talvez uma centena de bibliotecas e frameworks capazes de resolver requisições HTTP,  vc vai enontrar algo que se encaixe perfeitamente na suas necessidades ...  ou algo muito próximo.</p>
+  </div><!-- /.entry-content -->
+</section>
+         </div><!-- /.blog-main -->
+
+         <div class="col-sm-3 col-sm-offset-1 blog-sidebar"> <!-- ===SIDEBAR -->
+            <div class="sidebar-module sidebar-module-inset">
+               <h4>About</h4>
+               <p>Carlos Leite, vulgo Cadu</p>
+               <p></p>
+            </div>
+            <div class="sidebar-module">
+               <h4>Archives</h4>
+               <ol class="list-unstyled">
+                  <li><a href="#">March 2014</a></li>
+                  <li><a href="#">February 2014</a></li>
+                  <li><a href="#">January 2014</a></li>
+                  <li><a href="#">December 2013</a></li>
+                  <li><a href="#">November 2013</a></li>
+                  <li><a href="#">October 2013</a></li>
+                  <li><a href="#">September 2013</a></li>
+                  <li><a href="#">August 2013</a></li>
+                  <li><a href="#">July 2013</a></li>
+                  <li><a href="#">June 2013</a></li>
+                  <li><a href="#">May 2013</a></li>
+                  <li><a href="#">April 2013</a></li>
+               </ol>
+            </div>
+
+            <div class="sidebar-module">
+               <h4>Elsewhere</h4>
+               <ol class="list-unstyled">
+                  <li><a href="#">GitHub</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Facebook</a></li>
+               </ol>
+            </div>
+         </div><!--  ======================================== /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+   </div><!-- /.container -->
+
+<footer class="blog-footer">
+   <div class="row">
+      <div class="col-sm-3">Last posts</div>
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-3"></div>
+   </div>
+
+</footer>
+
+
+
+<!-- Bootstrap core JavaScript
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <!-- JavaScript -->
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

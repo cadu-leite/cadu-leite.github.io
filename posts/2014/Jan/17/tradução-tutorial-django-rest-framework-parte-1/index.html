@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Tutorial Django-REST-Framework - Parte 1</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Tutorial Django-REST-Framework - Parte 1"/>
+            <meta property="og:url" content="../../../../../posts/2014/Jan/17/tradução-tutorial-django-rest-framework-parte-1/"/>
+            <meta property="og:description" content="Tradução do tutorial Django-rest-framewrok parte 1"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../../../theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../../theme/css/style.css" type="text/css"/>
+
+        <link href="../../../../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="cadu-leite - blog  ATOM Feed"/>
+        <link href="../../../../../rss/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="cadu-leite - blog  RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../../../../../" class="navbar-brand">
+cadu-leite - blog             </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../../../../../category/css.html">Css</a>
+                        </li>
+                        <li class="active">
+                            <a href="../../../../../category/django.html">Django</a>
+                        </li>
+                        <li >
+                            <a href="../../../../../category/postgresql.html">Postgresql</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../../../../../archives.html"><i class="fa fa-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../../../posts/2014/Jan/17/tradução-tutorial-django-rest-framework-parte-1/"
+                       rel="bookmark"
+                       title="Permalink to Tutorial Django-REST-Framework - Parte 1">
+                        Tutorial Django-REST-Framework - Parte 1
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body-article-info">
+<div>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-01-17T00:00:00">Fri 17 January 2014</time>
+
+    </span>
+
+
+
+    | <i class="fa fa-tags"></i>
+	<a href="../../../../../tag/django.html">django</a>
+        /
+	<a href="../../../../../tag/django-packages.html">django-packages</a>
+        /
+	<a href="../../../../../tag/rest.html">REST</a>
+
+     | <a href="posts/2014/Jan/17/tradução-tutorial-django-rest-framework-parte-1/"><i class="fa fa-link"></i>Link permanente para este artigo </a>
+
+</div>    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52dbd98c2f09ef4c"></script>
+    <!-- AddThis Button END -->
+                    </div>
+                </div>
+                <h2>Tutorial 1: Serialização</h2>
+<h3>Introdução</h3>
+<p>Este tutorial cobre a criação de um serviço simples de <em>pastebin</em>  com <em>highlight</em> de código. O tutorial irá introduzir vários componentes que juntos compõem o framework REST, e lhe darão uma compreensão de como tudo se encaixa.</p>
+<p>Este tutorial é detalhado, então você deveria pegar alguns biscoitos e um copo de sua bebida favorita antes de começá-lo. Se você quer somente uma visão geral, então você deveria ler a documentação do <a href="http://www.django-rest-framework.org/tutorial/quickstart">quickstart</a></p>
+<hr />
+<p><strong>Nota</strong>: O código para este tutorial está disponível no GitHub no <a href="https://github.com/tomchristie/rest-framework-tutorial">tomchristie/rest-framework-tutorial</a>. A implementação completa está também online como uma versão para testes -  <em>sandbox</em>  <a href="http://restframework.herokuapp.com/">aqui</a></p>
+<hr />
+<h3>Construindo um novo ambiente</h3>
+<p>Antes de mais nada, criaremos um <em>virtual environment</em>, usando o <a href="http://www.virtualenv.org/en/latest/index.html">virtualenv</a>. Isso fará com que os pacotes do nosso ambiente fiquem isoldados de outros projetos que estamos trabalhando.</p>
+<div class="highlight"><pre>virtualenv env
+<span class="nb">source </span>env/bin/activate
+</pre></div>
+
+
+<p>Agora que estamos dentro do nosso ambiente, podemos instalar os pacotes requeridos.</p>
+<div class="highlight"><pre>pip install django
+pip install djangorestframework
+pip install pygments  <span class="c"># We&#39;ll be using this for the code highlighting</span>
+</pre></div>
+
+
+<blockquote>
+<p><strong>Nota</strong>: para sair do virtualenv a qualquer momento basta digitar  <code>deactivate</code>. Para mais informações veja a <a href="http://www.virtualenv.org/en/latest/index.html">documentação do virtualenv</a></p>
+</blockquote>
+<h3>Iniciando</h3>
+<p>Ok, estamos prontos para codificar. Para começar, vamos criar um projeto para trabalharmos.</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="o">~</span>
+<span class="n">django</span><span class="o">-</span><span class="n">admin</span><span class="p">.</span><span class="n">py</span> <span class="n">startproject</span> <span class="n">tutorial</span>
+<span class="n">cd</span> <span class="n">tutorial</span>
+</pre></div>
+
+
+<p>Uma vez criado o projeto, criamos uma aplicação que iremos usar para uma API WEB simples.</p>
+<div class="highlight"><pre>python manage.py startapp snippets
+</pre></div>
+
+
+<p>O caminho mais simples para iniciarmos é provavelmente utilizar para este tutorial um banco de dados <code>sqlite3</code>. Altere o arquivo <code>turial/settings.py</code>, e configure o <code>ENGINE</code> do banco de dados <em>default</em> para <code>sqlite3</code>, e nomeie-o para <code>tmp.db</code>.</p>
+<div class="highlight"><pre><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span>
+    <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="s">&#39;tmp.db&#39;</span><span class="p">,</span>
+    <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Precisamos também adicionar nossa aplicação <code>snippets</code> e a aplicação <code>rest_framework</code> no <code>INSTALLED_APPS</code>.</p>
+<div class="highlight"><pre><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+<span class="o">...</span>
+<span class="s">&#39;rest_framework&#39;</span><span class="p">,</span>
+<span class="s">&#39;snippets&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>Precisamos também definir a raiz do urlconf, no arquivo <code>tutorial/urls.py</code>, para incluir as URLs da aplicação snippet.</p>
+<div class="highlight"><pre><span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+<span class="n">url</span><span class="p">(</span><span class="s">r&#39;^&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s">&#39;snippets.urls&#39;</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>Ok, estamos prontos para continuar.</p>
+<h3>Criando um modelo para trabalhar</h3>
+<p>Para os propósitos deste tutorial, vamos começar criando um modelo simples de <code>Snippet</code> que será usado para armazenar <em>code snippets</em> (amostras de código). Vá em frente e altere o arquivo <code>models.py</code> da aplicação <code>snippet</code>.</p>
+<blockquote>
+<p><strong>Nota</strong>: é boa prática de progrmação incluir comentários. Ainda que você os encontre na versão do nosso repositório, aqui nós a omitimos para focar no código.</p>
+</blockquote>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_all_lexers</span>
+<span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">get_all_styles</span>
+
+<span class="n">LEXERS</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">get_all_lexers</span><span class="p">()</span> <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">LANGUAGE_CHOICES</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">LEXERS</span><span class="p">])</span>
+<span class="n">STYLE_CHOICES</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">item</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">get_all_styles</span><span class="p">())</span>
+
+
+<span class="k">class</span> <span class="nc">Snippet</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+    <span class="n">linenos</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">LANGUAGE_CHOICES</span><span class="p">,</span>
+                                <span class="n">default</span><span class="o">=</span><span class="s">&#39;python&#39;</span><span class="p">,</span>
+                                <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">STYLE_CHOICES</span><span class="p">,</span>
+                             <span class="n">default</span><span class="o">=</span><span class="s">&#39;friendly&#39;</span><span class="p">,</span>
+                             <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">ordering</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;created&#39;</span><span class="p">,)</span>
+</pre></div>
+
+
+<p>Não se esqueça de sincronizar o banco de dados pela primeira vez.</p>
+<div class="highlight"><pre>python manage.py syncdb
+</pre></div>
+
+
+<h3>Criando a classe de serialização</h3>
+<p>a primeira coisa que precisamos para iniciar nossa API é providenciar uma maneira de serializar e deserializar as instâncias de snippet em uma representação como <code>json</code>. Nós podemos fazer isso declarando serializadores que funcionam tal como os forms do Django. Crie um arquivo no diretório <code>snippets</code> chamado <code>serializers.py</code> e adicione o seguinte código.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.forms</span> <span class="kn">import</span> <span class="n">widgets</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">snippets.models</span> <span class="kn">import</span> <span class="n">Snippet</span><span class="p">,</span> <span class="n">LANGUAGE_CHOICES</span><span class="p">,</span> <span class="n">STYLE_CHOICES</span>
+
+
+<span class="k">class</span> <span class="nc">SnippetSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+    <span class="n">pk</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span>  <span class="c"># Note: `Field` is an untyped read-only field.</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                                  <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">widget</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Textarea</span><span class="p">,</span>
+                                 <span class="n">max_length</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+    <span class="n">linenos</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">LANGUAGE_CHOICES</span><span class="p">,</span>
+                                       <span class="n">default</span><span class="o">=</span><span class="s">&#39;python&#39;</span><span class="p">)</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ChoiceField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">STYLE_CHOICES</span><span class="p">,</span>
+                                    <span class="n">default</span><span class="o">=</span><span class="s">&#39;friendly&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">restore_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">instance</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create or update a new snippet instance, given a dictionary</span>
+<span class="sd">        of deserialized field values.</span>
+
+<span class="sd">        Note that if we don&#39;t define this method, then deserializing</span>
+<span class="sd">        data will simply return a dictionary of items.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">instance</span><span class="p">:</span>
+            <span class="c"># Update existing instance</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;title&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;code&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">linenos</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;linenos&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">linenos</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;language&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">language</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;style&#39;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">instance</span>
+
+        <span class="c"># Create new instance</span>
+        <span class="k">return</span> <span class="n">Snippet</span><span class="p">(</span><span class="o">**</span><span class="n">attrs</span><span class="p">)</span>
+</pre></div>
+
+
+<p>A primeira parte da classe de serialização define os campos que serão serializados/desserializados. O método <code>restore_object</code> define como serão criadas as instâncias quando desserializarmos os dados.</p>
+<p>Note que podemos usar também vários atributos que seriam tipicamente usados em  campos de um form, tal como <code>widget=widgets.TextArea</code>. Eles podem ser usados para controlar como serializador deve renderizar quando mostrado como um form HTML. Isso é particularmente útil para o controle de como a API navegável será mostrada, como veremos mais tarde neste tutorial.</p>
+<p>Na verdade, nós podemos  também economizar algum tempo usando a classe <code>ModelSerializer</code>, como veremos mais tarde, mas por hora, vamos manter nosso serializador explícito.</p>
+<h3>Trabalhando com serializadores.</h3>
+<p>Antes de ir mais adiante iremos nos familiarizar com o uso da nossa nova classe Serializer. Vamos para o Django shell.</p>
+<div class="highlight"><pre>python manage.py shell
+</pre></div>
+
+
+<p>Okay, uma vez que tenhamos feito alguns imports, vamos criar alguns <em>snippets</em> de código pra trabalhar.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">snippets.models</span> <span class="kn">import</span> <span class="n">Snippet</span>
+<span class="kn">from</span> <span class="nn">snippets.serializers</span> <span class="kn">import</span> <span class="n">SnippetSerializer</span>
+<span class="kn">from</span> <span class="nn">rest_framework.renderers</span> <span class="kn">import</span> <span class="n">JSONRenderer</span>
+<span class="kn">from</span> <span class="nn">rest_framework.parsers</span> <span class="kn">import</span> <span class="n">JSONParser</span>
+
+<span class="n">snippet</span> <span class="o">=</span> <span class="n">Snippet</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;foo = &quot;bar&quot;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="n">snippet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="n">snippet</span> <span class="o">=</span> <span class="n">Snippet</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="s">&#39;print &quot;hello, world&quot;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="n">snippet</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Temos agora algumas instanccias de <em>snippet</em> para brincar. Vamos dar uma olhada na serialização de uma destas instâncias.</p>
+<div class="highlight"><pre><span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippet</span><span class="p">)</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<span class="c"># {&#39;pk&#39;: 2, &#39;title&#39;: u&#39;&#39;, &#39;code&#39;: u&#39;print &quot;hello, world&quot;\n&#39;, &#39;linenos&#39;: False, &#39;language&#39;: u&#39;python&#39;, &#39;style&#39;: u&#39;friendly&#39;}</span>
+</pre></div>
+
+
+<p>Aqui, nós traduzimos a instância do modelo em um tipo de dado nativo Python. Para finalizar o processo de serialização vamos renderizar os dados em um <code>json</code>.</p>
+<div class="highlight"><pre><span class="n">content</span> <span class="o">=</span> <span class="n">JSONRenderer</span><span class="p">()</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">content</span>
+<span class="c"># &#39;{&quot;pk&quot;: 2, &quot;title&quot;: &quot;&quot;, &quot;code&quot;: &quot;print \\&quot;hello, world\\&quot;\\n&quot;, &quot;linenos&quot;: false, &quot;language&quot;: &quot;python&quot;, &quot;style&quot;: &quot;friendly&quot;}&#39;</span>
+</pre></div>
+
+
+<p>A deserialização é similar. Primeiro fazemos o <em>parser</em> da cadeia de dados em um tipo nativo de em Python.</p>
+<div class="highlight"><pre><span class="c"># This import will use either `StringIO.StringIO` or `io.BytesIO`</span>
+<span class="c"># as appropriate, depending on if we&#39;re running Python 2 or Python 3.</span>
+<span class="kn">from</span> <span class="nn">rest_framework.compat</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">JSONParser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+</pre></div>
+
+
+<p>... então  restauramos os tipos nativos em uma instância do objeto completa.</p>
+<div class="highlight"><pre><span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">()</span>
+<span class="c"># True</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">object</span>
+<span class="c"># &lt;Snippet: Snippet object&gt;</span>
+</pre></div>
+
+
+<p>Note quanto essa API é similar quanto a trabalhar com <em>forms</em>. A similaridade deve ficar ainda mais aparente quando nós escrevermos <em>views</em> que usem nosso serializador.</p>
+<p>Nós podemos serializar <em>querysets</em> ao invés de instância de modelos. Pra tal, simplesmente adicionamos uma flag <code>many=True</code> nos argumentos do serializador.</p>
+<div class="highlight"><pre><span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">serializer</span><span class="o">.</span><span class="n">data</span>
+<span class="c"># [{&#39;pk&#39;: 1, &#39;title&#39;: u&#39;&#39;, &#39;code&#39;: u&#39;foo = &quot;bar&quot;\n&#39;, &#39;linenos&#39;: False, &#39;language&#39;: u&#39;python&#39;, &#39;style&#39;: u&#39;friendly&#39;}, {&#39;pk&#39;: 2, &#39;title&#39;: u&#39;&#39;, &#39;code&#39;: u&#39;print &quot;hello, world&quot;\n&#39;, &#39;linenos&#39;: False, &#39;language&#39;: u&#39;python&#39;, &#39;style&#39;: u&#39;friendly&#39;}]</span>
+</pre></div>
+
+
+<h3>Usando <em>ModelSerializers</em></h3>
+<p>Nossa classe <code>SnippetSerializer</code> está replicando várias informações que estão também contidas no modelo <code>snippet</code>. Seria bom se pudéssemos manter nosso código um pouco mais conciso.</p>
+<p>Da mesma maneira que o Django fornece classes de <code>Form</code> e <code>ModelForm</code>, o framework REST inclui as classes <code>Serializer</code> e <code>ModelsSerializer</code>.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">SnippetSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Snippet</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="s">&#39;title&#39;</span><span class="p">,</span> <span class="s">&#39;code&#39;</span><span class="p">,</span> <span class="s">&#39;linenos&#39;</span><span class="p">,</span> <span class="s">&#39;language&#39;</span><span class="p">,</span> <span class="s">&#39;style&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>Escrevendo <em>Views</em> Django regulares usando nosso <em>Serializer</em></h3>
+<p>Vamos ver como podemos escrever algumas <em>API views</em> usando nossa nova classe <em>Serializer</em>. Por hora, não usaremos nenhuma outra funcionalidade do REST Framework, nós iremos escrever <em>views</em> Django como qualquer outra <em>view</em>.</p>
+<p>Vamos começar criando uma subclasse do <em>HttpResponse</em> que podermos usar para renderizar qualquer dato que retornaremos no formato <code>json</code>.</p>
+<p>Edit o arquivo <code>snippets/views.py</code>, e adicione o seguinte.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.views.decorators.csrf</span> <span class="kn">import</span> <span class="n">csrf_exempt</span>
+<span class="kn">from</span> <span class="nn">rest_framework.renderers</span> <span class="kn">import</span> <span class="n">JSONRenderer</span>
+<span class="kn">from</span> <span class="nn">rest_framework.parsers</span> <span class="kn">import</span> <span class="n">JSONParser</span>
+<span class="kn">from</span> <span class="nn">snippets.models</span> <span class="kn">import</span> <span class="n">Snippet</span>
+<span class="kn">from</span> <span class="nn">snippets.serializers</span> <span class="kn">import</span> <span class="n">SnippetSerializer</span>
+
+<span class="k">class</span> <span class="nc">JSONResponse</span><span class="p">(</span><span class="n">HttpResponse</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Um HttpReponse  que renderiza seu conteudo em, json.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">JSONRenderer</span><span class="p">()</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s">&#39;content_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;application/json&#39;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">JSONResponse</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+
+
+<p>A raiz da nossa API será uma <em>view</em> que dá suporte à listar qualquer <em>snippets</em> existente, ou a criar um novo <em>snippet</em>.</p>
+<div class="highlight"><pre><span class="nd">@csrf_exempt</span>
+<span class="k">def</span> <span class="nf">snippet_list</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List all code snippets, or create a new snippet.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
+        <span class="n">snippets</span> <span class="o">=</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippets</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">JSONParser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Note que, porque queremos fazer <em>POSTS</em> pra essa <em>view</em> de qualquer cliente que npode não haver um <em>CSRF TOKEN</em> precisamos marcar essa <em>view</em> com <code>csrf_exempt</code> . Isso não é algo que você queira fazer normalmente, e as <em>views</em> do framework REST podem ter um comportamento mais sensato que isso, mas isso serve para os nossos porpósitos de agora.</p>
+<p>Também iremos precisar de uma <em>view</em> que correponda a um <em>snippet</em> individual, e possa ser usada para retornar, atualizar ou deletar  o <em>snippet</em>.</p>
+<div class="highlight"><pre><span class="nd">@csrf_exempt</span>
+<span class="k">def</span> <span class="nf">snippet_detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve, update or delete a code snippet.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">snippet</span> <span class="o">=</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Snippet</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;GET&#39;</span><span class="p">:</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippet</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;PUT&#39;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">JSONParser</span><span class="p">()</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">SnippetSerializer</span><span class="p">(</span><span class="n">snippet</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;DELETE&#39;</span><span class="p">:</span>
+        <span class="n">snippet</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">204</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Finalmente, precisamos amarrar essas <em>views</em>. Crir o arquivo <code>snippets/urls.py</code>.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.conf.urls</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">url</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;snippets.views&#39;</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^snippets/$&#39;</span><span class="p">,</span> <span class="s">&#39;snippet_list&#39;</span><span class="p">),</span>
+    <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^snippets/(?P&lt;pk&gt;[0-9]+)/$&#39;</span><span class="p">,</span> <span class="s">&#39;snippet_detail&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>Vale a pena notar que existem alguns casos específicos que não estamos tratando no momento. Se nós enviarmos um <code>json</code> mal formado, ou se a requisição (<em>request</em>) for feito com um método que a _view_não trata, então acabaremos com uma resposta de um erro 500 "server error" . Ainda, isso serve por hora.</p>
+<h3>Testando nossa primeira tentativa na API Web.</h3>
+<p>Agora podemos iniciar um servidor que servirá nossos <em>snippets</em>.
+Saia do <em>shell</em> ...</p>
+<div class="highlight"><pre><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+
+
+<p>... e inicie o servidor de desenvolvimento do Django</p>
+<div class="highlight"><pre>python manage.py runserver
+
+Validating models...
+
+0 errors found
+Django version 1.4.3, using settings <span class="s1">&#39;tutorial.settings&#39;</span>
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</pre></div>
+
+
+<p>Em uma outra janela de terminal, podemos testar o servidor.</p>
+<div class="highlight"><pre>curl http://127.0.0.1:8000/snippets/
+<span class="o">[{</span><span class="s2">&quot;id&quot;</span>: 1, <span class="s2">&quot;title&quot;</span>: <span class="s2">&quot;&quot;</span>, <span class="s2">&quot;code&quot;</span>: <span class="s2">&quot;foo = \&quot;bar\&quot;\n&quot;</span>, <span class="s2">&quot;linenos&quot;</span>: <span class="nb">false</span>, <span class="s2">&quot;language&quot;</span>: <span class="s2">&quot;python&quot;</span>, <span class="s2">&quot;style&quot;</span>: <span class="s2">&quot;friendly&quot;</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;id&quot;</span>: 2, <span class="s2">&quot;title&quot;</span>: <span class="s2">&quot;&quot;</span>, <span class="s2">&quot;code&quot;</span>: <span class="s2">&quot;print \&quot;hello, world\&quot;\n&quot;</span>, <span class="s2">&quot;linenos&quot;</span>: <span class="nb">false</span>, <span class="s2">&quot;language&quot;</span>: <span class="s2">&quot;python&quot;</span>, <span class="s2">&quot;style&quot;</span>: <span class="s2">&quot;friendly&quot;</span><span class="o">}]</span>
+</pre></div>
+
+
+<p>Ou podemos acessar um <em>snippet</em> particular referenciando seu id.</p>
+<div class="highlight"><pre>curl http://127.0.0.1:8000/snippets/2/
+
+<span class="o">{</span><span class="s2">&quot;id&quot;</span>: 2, <span class="s2">&quot;title&quot;</span>: <span class="s2">&quot;&quot;</span>, <span class="s2">&quot;code&quot;</span>: <span class="s2">&quot;print \&quot;hello, world\&quot;\n&quot;</span>, <span class="s2">&quot;linenos&quot;</span>: <span class="nb">false</span>, <span class="s2">&quot;language&quot;</span>: <span class="s2">&quot;python&quot;</span>, <span class="s2">&quot;style&quot;</span>: <span class="s2">&quot;friendly&quot;</span><span class="o">}</span>
+</pre></div>
+
+
+<p>da mesma maneira, você pode ver o mesmo <code>json</code>, visitando essas URLs com um browser web.</p>
+<h3>Onde estamos agora.</h3>
+<p>Estamos indo bem até agora, temos uma API de serialização muito similar a API do Django <em>Forms</em>, e algumas <em>views</em>.</p>
+<p>Nossas <em>views</em> de API não fazem nada de especial até o momento, além de servir respostas <code>json</code>, e existem alguns tratamentos de erros específicos nós poderíamos fazer, mas é uma API web funcional.</p>
+<p>Iremos ver como melhorar as coisas na  <a href="2-requests-and-responses.md">parte 2 deste tutorial</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+        <a class="addthis_button_tweet"></a>
+        <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52dbd98c2f09ef4c"></script>
+    <!-- AddThis Button END -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4>cadu-leite</h4></li>
+                    <div style="float:left;">
+                        <a href="/feeds/" title="rss"><i class="fa fa-rss-square fa-lg"></i></a></li>
+                    </div>
+                    <div style="float:left;">
+                        <a href="http://twitter.com/cadu_leite" title="twitter"><i class="fa fa-twitter-square fa-lg"></i></a></li>
+                    </div>
+                    <div style="float:left;">
+                        <a href="http://google.com/+CarlosLeite" title="google-plus"><i class="fa fa-google-plus-square fa-lg"></i></a></li>
+                    </div>
+                    <div style="float:left;">
+                        <a href="http://github.com/cadu-leite" title="github"><i class="fa fa-github-square fa-lg"></i></a></li>
+                    </div>
+                    <div style="float:left;">
+                        <a href="http://bitbucket.org/carlos_leite" title="bitbucket"><i class="fa fa-bitbucket-square fa-lg"></i></a></li>
+                    </div>
+                    <div style="float:left;">
+                        <a href="http://people.python.org.br/" title="Python People"><i class="fa fa-python people-square fa-lg"></i></a></li>
+                    </div>
+            <hr>
+
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i>Recent Posts</h4></li>
+                        <li class="list-group-item">
+                            <a href="../../../../../posts/2014/Mar/04/compilando-bootstrap-twitter-ubuntu/">
+                                Compilando Bootstrap Twitter V3 Less no Ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../../../../../posts/2014/Jan/18/tradução-tutorial-django-rest-framework-parte-2/">
+                                Tutorial Django-REST-Framework - Parte 2
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../../../../../posts/2014/Jan/17/tradução-tutorial-django-rest-framework-parte-1/">
+                                Tutorial Django-REST-Framework - Parte 1
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../../../../../posts/2014/Jan/16/tradução-tutorial-django-rest-framework/">
+                                Tradução do Tutorial do django-rest-framewok
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../../../../../posts/2011/Sep/02/postgresql_tamanho_banco_no_disco.md/">
+                                PostgreSQL - Tamanho do B.D. no disco
+                            </a>
+                        </li>
+
+
+                <li class="list-group-item"><a href="../../../../../"><h4><i class="fa fa-tags fa-lg"></i>Tags</h4></a></li>
+                        <li class="list-group-item tag-1">
+                            <a href="../../../../../tag/rest.html">
+                                REST
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="../../../../../tag/django.html">
+                                django
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="../../../../../tag/django-packages.html">
+                                django-packages
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../../../../../tag/less.html">
+                                less
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../../../../../tag/.html">
+                                
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../../../../../tag/web-design.html">
+                                web-design
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../../../../../tag/css.html">
+                                css
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../../../../../tag/database.html">
+                                database
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="../../../../../tag/postgresql.html">
+                                postgresql
+                            </a>
+                        </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i>GitHub Repos</h4></li>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i>Links</h4></li>
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://www.znc.com.br/" target="_blank">
+                ZNC Sistemas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://sigef.incra.gov.br/" target="_blank">
+                SIGEF
+            </a>
+        </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 cadu-leite
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../../../theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '../../../../../theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'cadu-leite',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="../../../../../theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-47255377-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</body>
+</html>
