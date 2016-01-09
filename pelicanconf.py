@@ -20,11 +20,11 @@ GITHUB_URL = 'https://github.com/cadu-leite'
 
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
+FEED_ALL_ATOM = True
+CATEGORY_FEED_ATOM = True
+TRANSLATION_FEED_ATOM = True
+AUTHOR_FEED_ATOM = True
+AUTHOR_FEED_RSS = True
 
 # Blogroll
 LINKS = (
