@@ -128,7 +128,7 @@
                 {% endif %}
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
                     {% for cat, null in categories %}
-                        <li {% if cat == category %}class="active"{% endif %}>
+                        <li class="menu-categoria-item" {% if cat == category %}class="active"{% endif %}>
                             <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
                         </li>
                     {% endfor %}
