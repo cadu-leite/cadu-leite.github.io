@@ -15,7 +15,7 @@ DEFAULT_LANG = u'pt'
 THEME = 'theme'
 
 GOOGLE_ANALYTICS = 'UA-72223300-1'
-
+GITHUB_URL = 'https://github.com/cadu-leite'
 
 
 # Feed generation is usually not desired when developing
