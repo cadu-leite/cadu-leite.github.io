@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Django - Se você não gosta, é porque está usando errado. - cadu-leite</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="/django_nao_gosta_porque_esta_usando_errado.html">
+
+        <meta name="author" content="Carlos Leite" />
+        <meta name="keywords" content="python,django" />
+        <meta name="description" content="Django, se você não gosta é porque está usando no lugar errado." />
+
+        <meta property="og:site_name" content="cadu-leite" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Django - Se você não gosta, é porque está usando errado."/>
+        <meta property="og:url" content="/django_nao_gosta_porque_esta_usando_errado.html"/>
+        <meta property="og:description" content="Django, se você não gosta é porque está usando no lugar errado."/>
+        <meta property="article:published_time" content="2015-07-07" />
+            <meta property="article:section" content="django" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="django" />
+            <meta property="article:author" content="Carlos Leite" />
+
+
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="/theme/css/custom.css" type="text/css"/>
+    
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="cadu-leite ATOM Feed"/>
+
+
+
+        <link href="/feeds/django.atom.xml" type="application/atom+xml" rel="alternate"
+              title="cadu-leite django ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+cadu-leite            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/category/django.html">Django</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/django_nao_gosta_porque_esta_usando_errado.html"
+                       rel="bookmark"
+                       title="Permalink to Django - Se você não gosta, é porque está usando errado.">
+                        Django - Se você não gosta, é porque está usando errado.
+                    </a>
+
+                </h1>
+                <small><footer class="post-info">
+    <span class="label">Date</span>
+    <span class="published">
+        <time datetime="2015-07-07T00:00:00-03:00"> Tue 07 July 2015</time>
+    </span>
+            <span class="label">Modified</span>
+            <span class="modified">
+                <time datetime="2015-08-11T00:00:00-03:00"> Tue 11 August 2015</time>
+            </span>
+
+
+            <span class="label">By</span>
+            <a href="/author/carlos-leite.html"> Carlos Leite</a>
+
+        <span class="label">Category</span>
+        <a href="/category/django.html">django</a>
+
+
+<span class="label">| Tags:</span>
+    <a href="/tag/python.html">python</a>
+        /
+    <a href="/tag/django.html">django</a>
+
+    
+
+</footer><!-- /.post-info --></small>
+            </header>
+            <div class="entry-content">
+                <p>Se já usou o framework Django e não gostou, você provavelmente o usou no problema errado !</p>
+<p>No texto abaixo eu vou descrever algumas caracteísticas do framework Django, que EU julgo, sejam importantes levar em consideração antes de decidir usá-lo para sua solucão.</p>
+<h2>1. O que é Django ?</h2>
+<p>Django é um framework web para desenvolvimento de <strong>aplicações WEB</strong> e foi escrito em <strong>Python</strong>.</p>
+<p>O <em>slogan</em> do django nos dá uma pista.</p>
+<blockquote>
+<p>Django: The web framework for perfectionists with deadlines.</p>
+</blockquote>
+<p>Então o objectivo do framework Django é <strong>OTIMIZAR o tempo</strong> de desenvolvimento de uma aplicação WEB - prototipagem rápida! Aliás, a jato ! 8P</p>
+<p>Isso não quer dizer que todo o resto foi negligenciado, só que o objetivo principal era otimizar o tempo de <em>bootstrap</em> - Início do projeto.</p>
+<p>Para isso, os desenvolvedores do Django integraram ao framework, algumas ferramentas (ou bibliotecas python) que sempre eram usadas por estes ao iniciar uma aplicação WEB.</p>
+<p>Embutidos no framework, estão bibliotecas que tratam requisições WEB, um <em>ORM</em> para BD relacionais, uma linguagem de <em>templates</em> entre outras ferramentas uo funcionalidades. Ex. framework de autenticação de usuários, sistema de permissões, cache, variáveis de ambiente e etc.
+Tudo o que você precisa para uma <strong>Aplicação WEB</strong>.</p>
+<h3>Bala de prata !?!</h3>
+<p><strong>NÃO</strong>. O Django não é um framework para ser usado em qualquer aplicação WEB.</p>
+<p>Aliás, o que é uma aplicação WEB ? aqui começa o problema para definir se sua solução requer ou exige a utilização do Django.</p>
+<p>Aplicação WEB, pode ser qualquer coisa, um Blog pode ser publicado ou pode ter seu sistema de publicação sendo uma aplicação web, e o sistema de cadastramento do sistema de saúde do brasil com milhões de usuários também. Mas nem por isso tem soluções pareceidas.</p>
+<p>Eu costumo fazer a seguinte pergunta:</p>
+<blockquote>
+<p>A Maior parte dos dados é tabular e são inseridos pelo usuário ?
+... então é um projeto Django.</p>
+</blockquote>
+<p>Se existe uma quantidade de dados grande que serão inseridos pelo usuário, 
+eu preciso de formulários, validção e um local pra armazenar.</p>
+<p>São as 3 funções, principais, que o django resolve !
+1. entrada de dados (views/templates)
+2. validação da entrada de dados (Forms)
+3. armazenamento (ORM)</p>
+<p>Não tão fácil - as vezes, responder essa pergunta não é o suficiente.</p>
+<p>e mais, <strong>a recíproca não é verdadeira</strong>.</p>
+<p>Mesmo que sua aplicação tenha muita interação com o usuário, banco de dados, perfis, permissões  etc, mesmo assim o Django <strong>pode</strong> não ser a melhor soluçao.</p>
+<p>Mas a pergunta faz sentido, dentro do meu contexto de desenvolvimento.</p>
+<p>Porque a pergunta então ?</p>
+<h2>Caraceterística importantes do Django.</h2>
+<p>Um dos pontos de ganho de produtividade que se pode ter em um time que está construindo um sistema, é diminuir a quantidade de decisões a serem tomadas durante o desenvolvimento.</p>
+<p>Algumas são muito importantes mas ao mesmo tempo mais básicas.</p>
+<div class="highlight"><pre>ex.: existe um framework que podemos usar para este projeto ? qual ?
+</pre></div>
+
+
+<p>Outras questões, podem ter respostas menos óbvias, e ao mesmo tempo terem tantas opções similares que é quase uma questão pessoal ou cultural.</p>
+<div class="highlight"><pre>Ex.: que banco de dados utilizar na solução.
+</pre></div>
+
+
+<p>Na verdade qualquer um dos meus 2 exemplos, tem uma infinidade de fatores que podem influenciar. A Cultura, <em>know-how</em> da equipe de desenvolvimento,  ou o conhecimento desta, cultura da empresa, o cliente etc etc etc. Mas o fato é :</p>
+<p>Quanto menos decisões tivermos que tomar para cada novo projeto de software que fazemos, aumentamos a produtividade. (... só essa inha da um novo artigo.)</p>
+<p>O que o Django faz para aumentar a produtividade é tomar algumas decisões de projeto de aplicação WEB.</p>
+<ol>
+<li>O sistema ORM</li>
+<li>A linguagem de templates.</li>
+<li>FORMs</li>
+<li>parte de como vc deve organizar o projeto.</li>
+</ol>
+<h2>Onde utilizar o Django ?</h2>
+<p>Mas aqui também se aplica a regra: <em>"não existe almoço grátis"</em>.</p>
+<blockquote>
+<p>Sempre que há um bônus, existe também um ônus.</p>
+</blockquote>
+<p>No caso do framework Django, o ônus é a "quase obrigatoriedade" de se resolver certos problemas da aplicação web com as ferramentas (bibliotecas)
+ <em>embutidas</em> no framework. <strong>QUASE</strong>!</p>
+<p>Para que o desenvolvimento de uma aplicação Django seja rápido (rápida prototipação), os desenvolvedores do framework Django, fizeram algumas escolhas para embutir no framework soluções que resolvem problemas comuns ao desenvolvimento de aplicações WEB (comuns ao contexto que eles imaginaram ao desenvolver o framework) . Essa integração,</p>
+<p>O outro lado desta moeda ou no caso, o <em>"custo desse almoço"</em> é que para ganhar tempo, sua solucão terá que ser desenvolvida, e terá talvez que se adaptar em parte a essas ferramentas que compõem o framework Django.</p>
+<p>Tentar alterar o comportamento de uma dessas ferramentas ou até <em>"trocá-las"</em> pode lhe tirar todo o ganho que o framework Django lhe daria, e consequentemente, perde-se o sentido de utilizar o framework.</p>
+<p>E aí ?! e o slogan ?</p>
+<blockquote>
+<p>The web framework for perfectionists with deadlines.</p>
+</blockquote>
+<p>depende de qual é o seu problema, ou melhor ainda, qual a solução você quer dar ao seu problema.</p>
+<h3>Como saber se uso ou não o framework Django</h3>
+<p>Alguns desenvolvedores, insistem em comparar <strong>microframeworks</strong> com Django, e muitas vezes o fazem de maneira errada.</p>
+<p>Vc pode querer comparar qualquer coisa com um framework web, até uma laranja, e vai chegar a conclusão que são coisas bem diferentes (ou não). Um microframework, está bem mais próximo de um framework, mas ainda sim como a laranja, atende necessidades diferentes de um framework.</p>
+<p>POR EXEMPLO <strong>Flask</strong> !
+<strong>Flask</strong> é um micro framework também desenvolvido em Python, para desenvolvimento de aplicações WEB. sem os plugins, ele é uma grande biblioteca para tratar requisições HTTP.
+Vc também não precisa dele para fazer um blog, mas se vc quiser fazer um sistema de publicação enxuto, ele pode ser uma saida (mas antes tente algo como o projeto Pelikan por exemplo.)</p>
+<p>Um exemplo de uso do FLASK, caso no qual o Django seria <em>"overkill"</em> é se vc necessita somente desenvolver um serviço WEB, recebimento de dados (machine to machine), ou um validador de 1 formulário, ou coisas suscintas e objetivas com pouca ou nenhuma interação de usuários.</p>
+<h2>Para que serve o Django então ?:</h2>
+<p>O framework Django é formado por 3 principais <em>"partes"</em>:</p>
+<ol>
+<li>ORM</li>
+<li>Linguagem de templates.</li>
+<li>Tratamento de requisições HTTP (com extrema simplcidade).</li>
+<li>ADMIN - um site pronto para que possa editar os modelos de dados do projeto.</li>
+</ol>
+<p>...
+para quem nao conhece nada de Django, ele ainda tem um sistema para autenticação de usuários, um framework para permisões entre vários outros plugins e bibliotecas que podem facilitar o desenvolvimento de uma applicação WEB. Existe até uma app para fazer com que o framework trabalhe com REST!</p>
+<p>Isso quer dizer que, utilizando o framework, vc tem facilidades para acessar um banco de dados (ler, escrever), permite publicar dados dinâmicos em uma página web, possui rotinas para que tudo isso seja <strong>acionado</strong> através de chamadas HTTP - requisições http.</p>
+<blockquote>
+<p>LOGO se vc não precisa de uma destas 3 "ferramentas", então vc não precisa do Django.</p>
+</blockquote>
+<p>Se vc não precisa de um formulário web + controle de usuário + páginas html (talvez vc ainda queira o banco de dados), o Flask é realmente uma ótima opção..</p>
+<p>O que os desenvolvedores (comunidade)  do Django, fizeram, foi tomar algumas decisões por você (programador) para que você foque no problema que vc quer resolver com a sua aplicação. Essas escolhas (ORM, templates ...) tornam o início do projeto extremamente rápido</p>
+<p>Eles definiram o ORM, a linguagem de templates e a maneira como vc interage com o usuário (ModelForms)  e colocaram dentro de um pacote que se integra. ...  e muito bem diga-se de passagem.</p>
+<p>Se vc quer alterar um destas "ferramentas", faça um favor a você mesmo, e não use o Django !</p>
+<p>Python tem talvez uma centena de bibliotecas e frameworks capazes de resolver requisições HTTP,  vc vai enontrar algo que se encaixe perfeitamente na suas necessidades ...  ou algo muito próximo.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+
+<footer class="inverse">
+  <div class="container">
+    <hr>
+    <div class="row">
+      <div class="col-xs-10">&copy; 2015 Carlos Leite
+        &middot; Powered by 
+        <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+        Theme Based on 
+          <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a> and 
+          
+          <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>      </div>
+
+      <div class="col-xs-2 pull-right"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+          <ul class="list-group" id="social">
+            <li class="list-group-item"><a href="https://bitbucket.org/carlos_leite/"><i class="fa fa-bitbucket-square fa-lg"></i> bitbucket</a></li>
+            <li class="list-group-item"><a href="https://github.com/cadu-leite"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+            <li class="list-group-item"><a href="https://google.com/+CarlosLeite"><i class="fa fa-g-plus-square fa-lg"></i> g+</a></li>
+            <li class="list-group-item"><a href="https://br.linkedin.com/in/carlosleite/en"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+            <li class="list-group-item"><a href="//blog.alexandrevicenzi.com/feeds/all.atom.xml"><i class="fa fa-rss-square fa-lg"></i> rss</a></li>
+          </ul>
+        </li>
+      </div>
+      <div class="col-xs-4">
+      </div>
+      <div class="col-xs-4">
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://znc.com.br" target="_blank">
+                ZNC Sistemas
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://people.python.org.br/" target="_blank">
+                PythonPeople
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+      </ul>
+    </li>
+      </div>
+    </div>
+    <div class="row">
+<div id="aboutme">
+    <p>
+        <strong>About Carlos Leite</strong><br/>
+        
+    </p>
+</div>    </div>
+  </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
