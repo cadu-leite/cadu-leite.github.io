@@ -13,6 +13,11 @@ TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_LANG = u'pt'
 
 THEME = 'theme'
+
+GOOGLE_ANALYTICS = 'UA-72223300-1'
+
+
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
