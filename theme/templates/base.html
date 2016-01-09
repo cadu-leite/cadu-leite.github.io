@@ -126,6 +126,7 @@
                           </a></li>
                       {% endfor %}
                 {% endif %}
+
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
                     {% for cat, null in categories %}
                         <li class="menu-categoria-item" {% if cat == category %}class="active"{% endif %}>
