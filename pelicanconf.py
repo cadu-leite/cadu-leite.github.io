@@ -5,14 +5,15 @@ from __future__ import unicode_literals
 AUTHOR = u'Carlos Leite'
 SITENAME = u'cadu-leite'
 SITEURL = ''
-
-PATH = 'content'
-
 TIMEZONE = 'America/Sao_Paulo'
 
 DEFAULT_LANG = u'pt'
-
 THEME = 'theme'
+DEFAULT_PAGINATION = 5
+
+
+PATH = 'content'
+
 
 GOOGLE_ANALYTICS = 'UA-72223300-1'
 GITHUB_URL = 'https://github.com/cadu-leite'
@@ -46,9 +47,11 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 
 
-#CUSTOM Booystrap3 settings
+# CUSTOM Booystrap3 settings
 # the Bootstrap3 theme has benn customized.
 # Settings VARS name didnt, but the behavior slightly diff
+
+BOOTSTRAP_NAVBAR_INVERSE = True
 HIDE_SIDEBAR = True
 
 DISPLAY_PAGES_ON_MENU = True
