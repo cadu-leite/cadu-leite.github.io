@@ -1,0 +1,53 @@
+<footer class="post-info">
+    <span class="label">Date</span>
+    <span class="published">
+        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+    </span>
+    {% if SHOW_DATE_MODIFIED %}
+        {% if article.modified %}
+            <span class="label">Modified</span>
+            <span class="modified">
+                <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+            </span>
+        {% endif %}
+    {% endif %}
+
+    {% if SHOW_SERIES %}
+        {% if article.series %}
+            <span class="label">Series</span>
+            Part {{ article.series.index}} of {{ article.series.name }}
+        {% endif %}
+    {% endif %}
+
+    {% if SHOW_ARTICLE_AUTHOR %}
+        {% if article.author %}
+            <span class="label">By</span>
+            <a href="{{ SITEURL }}/{{ article.author.url }}"> {{ article.author }}</a>
+        {% endif %}
+    {% endif %}
+
+    {% if SHOW_ARTICLE_CATEGORY %}
+        <span class="label">Category</span>
+        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    {% endif %}
+
+    {% if PDF_PROCESSOR %}
+        <span class="label">
+            <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
+        </span>
+    {% endif %}
+
+{% if article.tags %}
+<span class="label">| Tags:</span>
+{% for tag in article.tags %}
+    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+    {% if not loop.last %}
+        /
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+    {% import 'includes/translations.html' as translations with context %}
+    {{ translations.translations_for(article) }}
+
+</footer><!-- /.post-info -->

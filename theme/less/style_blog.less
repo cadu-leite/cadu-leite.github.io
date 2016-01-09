@@ -1,0 +1,89 @@
+@import "bootstrap-3.3.6/less/bootstrap.less";
+
+@gray-lighterlight:      lighten(@gray-base, 99%); // added cadu
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:               @gray-lighterlight;
+//** Global text color on `<body>`.
+@text-color:            @gray-dark;
+
+//** Global textual link color.
+@link-color:            @brand-primary;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      darken(@link-color, 15%);
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-size-base:          14px; //14px cadu
+
+//** By default, this inherits from the `<body>`.
+@headings-font-family:    inherit;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+@headings-color:          inherit;
+
+@article-title-color:#003D8D;
+
+//== Iconography
+//
+//## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+//** Load fonts from this directory.
+@icon-font-path:          "../fonts/";
+//** File name for all font files.
+@icon-font-name:          "glyphicons-halflings-regular";
+//** Element ID within SVG icon file.
+@icon-font-svg-id:        "glyphicons_halflingsregular";
+
+@link-hover-decoration: None;
+
+// add a line at link bottom
+div>a, p>a, a:hover, a:visited{border-bottom:1px dotted @link-color;}
+// exclude line at bottom for menus and lists
+li>a, .navbar-header a, .navbar a, h1, h2, h3, h4, h5, h6 {border-bottom:0px dotted @link-color;}
+a{color:@link-color;}
+
+a:hover{color:@link-color;}
+
+
+.page-header>h1{
+    color:@link-hover-color;
+}
+
+.entry-content{
+    p{
+        color:@gray;
+        font-size: 1.4em;
+    }
+    h1, h2, h3, h4, h5, h6{
+        color:@gray-light;
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+.page-header>small{
+    color:@gray;
+    font-size: 0.9em;
+}
+
+.page-header>small>footer>span{
+    color:@gray-dark;
+    font-size: 0.9em;
+}
