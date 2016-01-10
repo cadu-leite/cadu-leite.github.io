@@ -55,19 +55,18 @@
             {% include 'includes/links_list.html' %}
          </div>
          <div class="col-xs-4">
-
-            {% if RECENT_POST_COUNT is not defined %}
-            {% set RECENT_POST_COUNT = 5 %}
-            {% endif %}
+         {% if RECENT_POST_COUNT is not defined %}{% set RECENT_POST_COUNT = 5 %}
+         {% endif %}
             <h4>Recent Posts</h4>
             {% for article in dates[:RECENT_POST_COUNT] %}
-            <p>
-            <span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
-            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
-            </p>
-
-            {% endfor %}
-
+               <p>
+                  <span class="categories-timestamp">
+                     <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                  </span>
+                  <a href="{{ SITEURL }}/{{ article.url }}">
+                  {{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
+               </p>
+         {% endfor %}
          </div>
       </div>
       <div class="row">
