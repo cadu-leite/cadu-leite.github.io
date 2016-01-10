@@ -34,17 +34,19 @@ LINKS = (
     ('Pelican', 'http://getpelican.com/'),
     )
 
-SOCIAL = (('bitbucket', 'https://bitbucket.org/carlos_leite/'),
-          ('github', 'https://github.com/cadu-leite'),
-          ('g+', 'https://google.com/+CarlosLeite'),
-          ('linkedin', 'https://br.linkedin.com/in/carlosleite/en'),
-          ('rss', '//blog.alexandrevicenzi.com/feeds/all.atom.xml'))
+SOCIAL = (
+    ('bitbucket', 'https://bitbucket.org/carlos_leite/'),
+    ('github', 'https://github.com/cadu-leite'),
+    ('google-plus', 'https://google.com/+CarlosLeite'),
+    ('linkedin', 'https://br.linkedin.com/in/carlosleite/en'),
+    ('rss', '//blog.alexandrevicenzi.com/feeds/all.atom.xml')
+)
 
 
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 
 # CUSTOM Booystrap3 settings
