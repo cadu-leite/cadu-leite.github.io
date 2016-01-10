@@ -57,7 +57,7 @@ DEFAULT_PAGINATION = False
 # the Bootstrap3 theme has benn customized.
 # Settings VARS name didnt, but the behavior slightly diff
 
-BOOTSTRAP_NAVBAR_INVERSE = True
+BOOTSTRAP_NAVBAR_INVERSE = False
 HIDE_SIDEBAR = True
 
 DISPLAY_PAGES_ON_MENU = True
