@@ -99,12 +99,12 @@ a:hover{color:@link-color;}
   }
 }
 
-.page-header>small{
+.article-header>small{
     color:@gray;
     font-size: 0.9em;
 }
 
-.page-header>small>footer>span{
+.article-header>footer>small>span{
     color:@gray-dark;
     font-size: 0.9em;
 }
@@ -112,5 +112,21 @@ a:hover{color:@link-color;}
 li.menu-categoria-item>a:after{
     content:" \f0da";
     padding-left: 2px;
-    font-family: "FontAwesome";    
+    font-family: "FontAwesome";
 }
+
+
+footer.page-footer{
+    background-color: @gray-dark;
+    color:@gray-light;
+}
+
+footer.page-footer a,
+footer.page-footer p,
+footer.page-footer li,
+footer.page-footer ul,
+footer.page-footer ul>li,{
+    background-color: inherit;
+    color:@gray-lighter;
+}
+
