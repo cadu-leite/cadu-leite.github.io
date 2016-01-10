@@ -35,11 +35,15 @@ LINKS = (
     )
 
 SOCIAL = (
+    ('twitter', 'https://twitter.com/cadu_leite'),
+
     ('bitbucket', 'https://bitbucket.org/carlos_leite/'),
     ('github', 'https://github.com/cadu-leite'),
     ('google-plus', 'https://google.com/+CarlosLeite'),
     ('linkedin', 'https://br.linkedin.com/in/carlosleite/en'),
-    ('rss', '//blog.alexandrevicenzi.com/feeds/all.atom.xml')
+    ('rss', '//blog.alexandrevicenzi.com/feeds/all.atom.xml'),
+    ('twitter PythonPeople', 'https://twitter.com/pythonpeople'),
+
 )
 
 
