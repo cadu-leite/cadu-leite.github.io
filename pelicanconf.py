@@ -18,13 +18,17 @@ PATH = 'content'
 GOOGLE_ANALYTICS = 'UA-72223300-1'
 GITHUB_URL = 'https://github.com/cadu-leite'
 
+# FEEDs
+FEED_USE_SUMMARY = True
 
-# Feed generation is usually not desired when developing
-# FEED_ALL_ATOM = True
-# CATEGORY_FEED_ATOM = True
-# TRANSLATION_FEED_ATOM = True
-# AUTHOR_FEED_ATOM = True
-# AUTHOR_FEED_RSS = True
+FEED_ALL_RSS = 'feeds.rss'
+CATEGORY_FEED_RSS = 'feeds/%s.rss'
+TAG_FEED_RSS = 'feeds/%s.rss.xml'
+
+FEED_ALL_ATOM = 'feeds.atom'
+CATEGORY_FEED_ATOM = 'feeds/%s.atom'
+TAG_FEED_ATOM = 'feeds/%s.atom.xml'
+
 
 # Blogroll
 LINKS = (
@@ -41,7 +45,7 @@ SOCIAL = (
     ('github', 'https://github.com/cadu-leite'),
     ('google-plus', 'https://google.com/+CarlosLeite'),
     ('linkedin', 'https://br.linkedin.com/in/carlosleite/en'),
-    ('rss', '//blog.alexandrevicenzi.com/feeds/all.atom.xml'),
+    ('rss', 'http://cadu-leite.github.io/feeds/all.atom.xml'),
     ('twitter PythonPeople', 'https://twitter.com/pythonpeople'),
 
 )
