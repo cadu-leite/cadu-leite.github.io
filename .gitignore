@@ -1,2 +1,3 @@
 *.pid
 output/
+.DS_Store
