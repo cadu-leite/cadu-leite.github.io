@@ -21,13 +21,12 @@ GITHUB_URL = 'https://github.com/cadu-leite'
 # FEEDs
 FEED_USE_SUMMARY = True
 
-FEED_ALL_RSS = 'feeds.rss'
-CATEGORY_FEED_RSS = 'feeds/%s.rss'
-TAG_FEED_RSS = 'feeds/%s.rss.xml'
-
-FEED_ALL_ATOM = 'feeds.atom'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom'
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+FEED_ALL_RSS = 'feeds/all.rss.xml'
+CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 TAG_FEED_ATOM = 'feeds/%s.atom.xml'
+TAG_FEED_RSS = 'feeds/%s.rss.xml'
 
 
 # Blogroll
