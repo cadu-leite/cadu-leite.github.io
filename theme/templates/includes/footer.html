@@ -31,7 +31,7 @@
          <div class="col-xs-2 pull-right"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
       <div class="row">
-         <div class="col-xs-4">
+         <div class="col-xs-2">
             {% if SOCIAL %}
             <h4>Social  </h4>
                <ul class="social list-group">
@@ -51,10 +51,10 @@
                </ul>
             {% endif %}
          </div>
-         <div class="col-xs-4">
+         <div class="col-xs-2">
             {% include 'includes/links_list.html' %}
          </div>
-         <div class="col-xs-4">
+         <div class="col-xs-8">
          {% if RECENT_POST_COUNT is not defined %}{% set RECENT_POST_COUNT = 5 %}
          {% endif %}
             <h4>Recent Posts</h4>
