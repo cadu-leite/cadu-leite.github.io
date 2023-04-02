@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="http://127.0.0.1:8000/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="http://127.0.0.1:8000/theme/pygments/arduino.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/solid.css">
+
+
+  <link rel="shortcut icon" href="http://127.0.0.1:8000//images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://127.0.0.1:8000//images/favicon.ico" type="image/x-icon">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#333">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#333">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Microsoft EDGE -->
+  <meta name="msapplication-TileColor" content="#333">
+
+
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Carlos Leite" />
+<meta name="description" content="python-idiomatico" />
+<meta name="keywords" content="python">
+
+
+  <meta property="og:site_name" content="Cadu Leite"/>
+  <meta property="og:title" content="Python Idiomático"/>
+  <meta property="og:description" content="python-idiomatico"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="http://127.0.0.1:8000/python-idiomatico.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-10-03 10:20:00-03:00"/>
+  <meta property="article:modified_time" content="2010-10-04 18:40:00-03:00"/>
+  <meta property="article:author" content="http://127.0.0.1:8000/author/carlos-leite.html">
+  <meta property="article:section" content="python"/>
+  <meta property="article:tag" content="python"/>
+  <meta property="og:image" content="http://127.0.0.1:8000/images/praca.jpg">
+
+  <title>Cadu Leite &ndash; Python Idiomático</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="http://127.0.0.1:8000/">
+      <img src="http://127.0.0.1:8000//images/kdu_espelho_circ_150.png" alt="... Cadu Leite" title="... Cadu Leite">
+    </a>
+
+    <h1>
+      <a href="http://127.0.0.1:8000/">... Cadu Leite</a>
+    </h1>
+
+    <p>Web Developer - Python, Django, e toda a sopda de letrinha</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+            <li>
+              <a target="_self"
+                 href="http://127.0.0.1:8000/pages/about-cadu-leite.html#about-cadu-leite">
+                About
+              </a>
+            </li>
+
+          <li>
+            <a target="_self" href="https://getpelican.com/" >Pelican</a>
+          </li>
+          <li>
+            <a target="_self" href="https://www.python.org/" >Python.org</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/carlosleite/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/cadu_leite"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/cadu-leite"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="http://127.0.0.1:8000/">Home</a>
+
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="python-idiomatico">Python Idiomático</h1>
+    <p>
+      Posted on Sáb 03 Outubro 2020 in <a href="http://127.0.0.1:8000/category/python.html">python</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <div class="topic" id="codigo-pythonico">
+<p class="topic-title">Código Pythonico</p>
+<blockquote>
+Código Pythonico</blockquote>
+</div>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#iterar-sobre-listas" id="toc-entry-1">1&nbsp;&nbsp;&nbsp;iterar sobre listas</a></li>
+<li><a class="reference internal" href="#desempacotando-multiplos-valores-lendo-uma-lista" id="toc-entry-2">2&nbsp;&nbsp;&nbsp;&quot;desempacotando&quot; <cite>*</cite> múltiplos valores - lendo uma lista</a></li>
+<li><a class="reference internal" href="#cuidado-ao-ter-listas-como-parametros-default" id="toc-entry-3">3&nbsp;&nbsp;&nbsp;Cuidado ao ter listas como parâmetros <cite>default</cite></a></li>
+<li><a class="reference internal" href="#troca-substituicao-de-valores" id="toc-entry-4">4&nbsp;&nbsp;&nbsp;Troca / Substituição de valores</a></li>
+<li><a class="reference internal" href="#igualdade-de-tipo-ou-valor-is-ou" id="toc-entry-5">5&nbsp;&nbsp;&nbsp;Igualdade de Tipo ou Valor - <cite>is</cite> ou <cite>==</cite></a></li>
+<li><a class="reference internal" href="#propriedades-de-classes-use-o-property" id="toc-entry-6">6&nbsp;&nbsp;&nbsp;Propriedades de classes - use o <cite>&#64;property</cite></a></li>
+<li><a class="reference internal" href="#parametro-opcional-cuidado-com-default-none" id="toc-entry-7">7&nbsp;&nbsp;&nbsp;Parâmetro opcional - cuidado com default = <cite>None</cite></a></li>
+<li><a class="reference internal" href="#use-gestores-de-contexto-with" id="toc-entry-8">8&nbsp;&nbsp;&nbsp;Use gestores de contexto - <cite>with</cite></a></li>
+<li><a class="reference internal" href="#python-select-case-ou-if-exclusivo" id="toc-entry-9">9&nbsp;&nbsp;&nbsp;Python Select-case ou IF exclusivo</a></li>
+</ul>
+</div>
+<div class="section" id="iterar-sobre-listas">
+<h2><a class="toc-backref" href="#toc-entry-1">1&nbsp;&nbsp;&nbsp;iterar sobre listas</a></h2>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">5</span>
+<span class="mi">4</span>
+<span class="mi">2</span>
+<span class="mi">0</span>
+</pre></div>
+<p>em ordem reversa  usando o <cite>reversed</cite>.</p>
+<p>É o mesmo que  <cite>x[::-1]</cite> (step) só que mais &quot;limpo&quot; na minha opinião.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="mi">0</span>
+<span class="mi">2</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">3</span>
+<span class="mi">1</span>
+</pre></div>
+<p>OU ainda com um índice, usando <cite>enumerate</cite></p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Índice: </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> - item </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">Índice</span><span class="p">:</span> <span class="mi">0</span> <span class="o">-</span> <span class="n">item</span> <span class="mi">1</span>
+<span class="n">Índice</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">item</span> <span class="mi">3</span>
+<span class="n">Índice</span><span class="p">:</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">item</span> <span class="mi">5</span>
+<span class="n">Índice</span><span class="p">:</span> <span class="mi">3</span> <span class="o">-</span> <span class="n">item</span> <span class="mi">4</span>
+<span class="n">Índice</span><span class="p">:</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">item</span> <span class="mi">2</span>
+<span class="n">Índice</span><span class="p">:</span> <span class="mi">5</span> <span class="o">-</span> <span class="n">item</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="section" id="desempacotando-multiplos-valores-lendo-uma-lista">
+<h2><a class="toc-backref" href="#toc-entry-2">2&nbsp;&nbsp;&nbsp;&quot;desempacotando&quot; <cite>*</cite> múltiplos valores - lendo uma lista</a></h2>
+<p>O <cite>*</cite> pode ser útil, ao invés de criar um monte de variáveis inúteis ou iterar com um for ou mesmo um <cite>listcomprehension</cite> para ler um valor</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">primeiro</span><span class="p">,</span> <span class="o">*</span><span class="n">os_meios</span><span class="p">,</span> <span class="n">ultimo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">primeiro</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os_meios</span>  <span class="c1"># cuidado, o `*` definie uma lista</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ultimo</span>
+<span class="mi">5</span>
+</pre></div>
+<p>reforçando ..  pode haver um &quot;erro&quot; que não levanta nenhuma exceção.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">primeiro</span><span class="p">,</span> <span class="o">*</span><span class="n">os_meios</span><span class="p">,</span> <span class="n">ultimo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">primeiro</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">os_meios</span>
+<span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ultimo</span>
+<span class="mi">2</span>
+</pre></div>
+<p>As vezes só queremos jogar alguns valores &quot;fora&quot; e explicitar isso</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">nome</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">email</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;O Nome&#39;</span><span class="p">,</span> <span class="s1">&#39;idade&#39;</span><span class="p">,</span> <span class="s1">&#39;logradouro&#39;</span><span class="p">,</span> <span class="s1">&#39;alguma outra coisa&#39;</span><span class="p">,</span>  <span class="s1">&#39;c@mail.com&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">nome</span>
+<span class="s1">&#39;O Nome&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
+<span class="p">[</span><span class="s1">&#39;idade&#39;</span><span class="p">,</span> <span class="s1">&#39;logradouro&#39;</span><span class="p">,</span> <span class="s1">&#39;alguma outra coisa&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">email</span>
+<span class="s1">&#39;c@mail.com&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+<p>o uso do <cite>_</cite> (<em>underscore</em>) não tem uma função especial, mas indica pra quem está lendo que aquele conteúdo não é importante - estou jogando fora&quot;</p>
+</div>
+<div class="section" id="cuidado-ao-ter-listas-como-parametros-default">
+<h2><a class="toc-backref" href="#toc-entry-3">3&nbsp;&nbsp;&nbsp;Cuidado ao ter listas como parâmetros <cite>default</cite></a></h2>
+<div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">def</span> <span class="nf">add_value</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="p">[]):</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="n">seq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="k">return</span> <span class="n">seq</span>
+   <span class="o">...</span><span class="p">:</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">add_value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">add_value</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># era o esperado ?</span>
+</pre></div>
+<p>A lista se acumula caso o parâmetro opcional <cite>seq</cite> não seja informado, e pode não ser o esperado !</p>
+<p>de outro modo ...</p>
+<blockquote>
+<dl class="docutils">
+<dt>In [4]: def add_value(value, seq=None):</dt>
+<dd>...:     if seq is None:
+...:         seq = []
+...:     seq.append(value)
+...:     return seq
+...:
+...:</dd>
+</dl>
+<p>In [5]: add_value(1)
+Out[5]: [1]</p>
+<p>In [6]: add_value(2)
+Out[6]: [2]</p>
+<p>In [7]: add_value(2, _)  # _ = última saída no iPython.
+Out[7]: [2, 2]</p>
+</blockquote>
+</div>
+<div class="section" id="troca-substituicao-de-valores">
+<h2><a class="toc-backref" href="#toc-entry-4">4&nbsp;&nbsp;&nbsp;Troca / Substituição de valores</a></h2>
+<p>Em Python não é necessário uma terceira variável para trocar valores entre variáveis.</p>
+<div class="highlight"><pre><span></span><span class="c1"># 3 variáveis ?</span>
+<span class="n">var_3</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">var_3</span>
+
+<span class="c1"># Não preciso ... isso funciona.</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+</pre></div>
+</div>
+<div class="section" id="igualdade-de-tipo-ou-valor-is-ou">
+<h2><a class="toc-backref" href="#toc-entry-5">5&nbsp;&nbsp;&nbsp;Igualdade de Tipo ou Valor - <cite>is</cite> ou <cite>==</cite></a></h2>
+<p><cite>is</cite> não é somente mais fácil de ler mas é também mais rápido porque <cite>is</cite> não pode ser sobrecarregado e o interpretador faz menos verificações (<em>dunder methods</em>).</p>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span>
+
+<span class="n">x</span> <span class="ow">is</span> <span class="kc">True</span>
+
+<span class="n">x</span> <span class="ow">is</span> <span class="kc">False</span>
+</pre></div>
+<div class="admonition tip">
+<p class="first admonition-title">Dica</p>
+<p>Não confunda igualde de valor e de identididade.</p>
+<p><cite>is</cite> é um operador de identidade</p>
+<p class="last"><cite>==</cite> é um operador de valor</p>
+</div>
+<p>veja mais em  <a class="reference external" href="https://docs.python.org/3.4/library/operator.html">https://docs.python.org/3.4/library/operator.html</a></p>
+<div class="highlight"><pre><span></span><span class="c1"># correto</span>
+<span class="k">if</span> <span class="n">foo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="c1"># errado ...</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">foo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="o">...</span>
+
+
+<span class="c1"># correto:</span>
+<span class="k">if</span> <span class="n">greeting</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="c1"># errado</span>
+<span class="k">if</span> <span class="n">greeting</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="c1"># errado ou ainda pior</span>
+<span class="k">if</span> <span class="n">greeting</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="section" id="propriedades-de-classes-use-o-property">
+<h2><a class="toc-backref" href="#toc-entry-6">6&nbsp;&nbsp;&nbsp;Propriedades de classes - use o <cite>&#64;property</cite></a></h2>
+<p>EM Python não usamos os chamados &quot;getters and setters&quot;, não do mesmo jeito que em C ou Java.</p>
+<p>Em Python resumindamente:</p>
+<ul>
+<li><p class="first">Decorator <cite>&#64;property</cite></p>
+</li>
+<li><p class="first">Decorator <cite>#&lt;attribute_name&gt;.setter</cite> (repare que o nome da função é o mesmo !!!)</p>
+<blockquote>
+<p>Em Python não há sobrecarga de métodos, mas aqui é possível por causa dos &quot;decorators&quot;</p>
+</blockquote>
+</li>
+</ul>
+<p>Existem outras maneiras de se escrever um setter mas não tão elegante, ou ao menos não tão &quot;pythonico&quot;.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MinhaClasse</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calculado</span> <span class="o">=</span> <span class="n">valor</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">calculado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__calculado</span>
+
+    <span class="nd">@calculado</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">calculado</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;limita a propriedade `limitado` entre 0 e 10.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">valor</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__calculado</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">elif</span> <span class="n">valor</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__calculado</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__calculado</span> <span class="o">=</span> <span class="n">valor</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="n">MinhaClasse</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">calculado</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="mi">0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">c</span> <span class="o">=</span> <span class="n">MinhaClasse</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">calculado</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="mi">10</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">calculado</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># atribuindo diretamente</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">calculado</span>  <span class="c1"># reultado</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="mi">10</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">calculado</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10000</span>  <span class="c1"># atribuindo diretamente</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">c</span><span class="o">.</span><span class="n">calculado</span>  <span class="c1"># reultado</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="section" id="parametro-opcional-cuidado-com-default-none">
+<h2><a class="toc-backref" href="#toc-entry-7">7&nbsp;&nbsp;&nbsp;Parâmetro opcional - cuidado com default = <cite>None</cite></a></h2>
+<p>em funções com parâmetros opcionais, caso <cite>None</cite>
+seja um valor aceitável, como saber se este valor foi informado ou se é o valor <em>default</em>.</p>
+<p>Podemos definir um objeto como abaixo</p>
+<div class="highlight"><pre><span></span><span class="n">_NOT_PASSED</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+</pre></div>
+<p>e testá-lo dentro</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uma_funcao</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;funcao de exemplo</span>
+
+<span class="sd">    Paramters:</span>
+
+<span class="sd">    x   int:  parâmetro 1 obrigatório</span>
+<span class="sd">    y   int:  parâmetro 2 *opcional*</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="n">_NOT_PASSED</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y não informado, o valor default será utilizado.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="use-gestores-de-contexto-with">
+<h2><a class="toc-backref" href="#toc-entry-8">8&nbsp;&nbsp;&nbsp;Use gestores de contexto - <cite>with</cite></a></h2>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;arquivo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">my_file</span><span class="p">:</span>
+
+    <span class="o">...</span> <span class="n">código</span>
+</pre></div>
+<p>não tem como esquecer o arquivo aberto</p>
+<p>entenda melhor e saiba o que mais pode fazer com a <a class="reference external" href="http://https://docs.python.org/pt-br/3/library/contextlib.html?highlight=context#module-contextlib">contextlib</a></p>
+</div>
+<div class="section" id="python-select-case-ou-if-exclusivo">
+<h2><a class="toc-backref" href="#toc-entry-9">9&nbsp;&nbsp;&nbsp;Python Select-case ou IF exclusivo</a></h2>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">OPT_0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">OPT_1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">OPT_2</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">OPT_6</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># isso é o mesmo que 4 `if`s ...</span>
+<span class="c1">#  SELECT_CASE_TYPE[0] =&gt; &#39;tipo_0&#39;</span>
+<span class="n">SELECT_CASE_TYPE</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span>  <span class="c1"># defaultdict nunca da keyerror - int default=0</span>
+    <span class="nb">int</span><span class="p">,</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">OPT_0</span><span class="p">,</span> <span class="s1">&#39;tipo_0&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">OPT_1</span><span class="p">,</span> <span class="s1">&#39;tipo_1&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">OPT_2</span><span class="p">,</span> <span class="s1">&#39;tipo_2&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">OPT_6</span><span class="p">,</span> <span class="s1">&#39;tipo_6&#39;</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">SELECT_CASE_TYPE</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;tipo_0&#39;</span>
+</pre></div>
+<p>é aqui tem <cite>lambda</cite> mas ainda mantém o código simples e podemos comentar</p>
+<p>uma versão mais madura, e que pode ser usada para agrupar as opções e alguns métodos úteis...</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="k">class</span> <span class="nc">Opcoes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Opções de alguma coisa.</span>
+
+<span class="sd">    Como um conjunto de `if` ou `selec case/swicth`</span>
+<span class="sd">    Essa classe possui atributos que são aliases para opções (neste caso inteiros)</span>
+
+<span class="sd">    Possui um método que faz o papel de um select case (ou conjunto de ifs).</span>
+
+
+<span class="sd">    &gt;&gt;&gt;Opcoes.opt_1</span>
+<span class="sd">     1</span>
+
+<span class="sd">    &gt;&gt;&gt;Opcoes.opt_2</span>
+<span class="sd">     2</span>
+
+<span class="sd">    &gt;&gt;&gt;Opcoes.opcao(1)</span>
+<span class="sd">     &#39;tipo_1&#39;</span>
+
+<span class="sd">    &gt;&gt;&gt;Opcoes.opcao(Opcoes.opt_3)</span>
+<span class="sd">     &#39;tipo_6&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># opções possíveis</span>
+    <span class="n">opt_0</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">opt_1</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">opt_2</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">opt_3</span> <span class="o">=</span> <span class="mi">6</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">opcao</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+        <span class="n">selecionado</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">opt_0</span><span class="p">:</span> <span class="s1">&#39;tipo_0&#39;</span><span class="p">,</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">opt_1</span><span class="p">:</span> <span class="s1">&#39;tipo_1&#39;</span><span class="p">,</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">opt_2</span><span class="p">:</span> <span class="s1">&#39;tipo_2&#39;</span><span class="p">,</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">opt_3</span><span class="p">:</span> <span class="s1">&#39;tipo_6&#39;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">selecionado</span><span class="p">[</span><span class="n">valor</span><span class="p">]</span>
+</pre></div>
+<!-- links  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</div>
+
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://127.0.0.1:8000/tag/python.html">python</a>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Cadu Leite ",
+  "url" : "http://127.0.0.1:8000",
+  "image": "http://127.0.0.1:8000//images/kdu_espelho_circ_150.png",
+  "description": "Foo Bar's Thoughts and Writings"
+}
+</script>
+</body>
+</html>

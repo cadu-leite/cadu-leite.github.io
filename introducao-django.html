@@ -1,0 +1,968 @@
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="http://127.0.0.1:8000/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="http://127.0.0.1:8000/theme/pygments/arduino.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/solid.css">
+
+
+  <link rel="shortcut icon" href="http://127.0.0.1:8000//images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://127.0.0.1:8000//images/favicon.ico" type="image/x-icon">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#333">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#333">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Microsoft EDGE -->
+  <meta name="msapplication-TileColor" content="#333">
+
+
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Carlos Leite" />
+<meta name="description" content="Introdução Django Programador FELIZ é aquele que consegue ler e escrever documentação. O primeiro porque aprende sozinho e quando precisa, o segundo porque consegue colaboradores sem perder muito tempo ensinando! TIP! Comentários de código compõem a documentação técnica do projeto quem disse ? -- EU ! Carlos Leite" />
+<meta name="keywords" content="python, django">
+
+
+  <meta property="og:site_name" content="Cadu Leite"/>
+  <meta property="og:title" content="Curso Intro django"/>
+  <meta property="og:description" content="Introdução Django Programador FELIZ é aquele que consegue ler e escrever documentação. O primeiro porque aprende sozinho e quando precisa, o segundo porque consegue colaboradores sem perder muito tempo ensinando! TIP! Comentários de código compõem a documentação técnica do projeto quem disse ? -- EU ! Carlos Leite"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="http://127.0.0.1:8000/introducao-django.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2020-10-03 10:20:00-03:00"/>
+  <meta property="article:modified_time" content="2010-10-04 18:40:00-03:00"/>
+  <meta property="article:author" content="http://127.0.0.1:8000/author/carlos-leite.html">
+  <meta property="article:section" content="tutorial"/>
+  <meta property="article:tag" content="python"/>
+  <meta property="article:tag" content="django"/>
+  <meta property="og:image" content="http://127.0.0.1:8000//images/kdu_espelho_circ_150.png">
+
+  <title>Cadu Leite &ndash; Curso Intro django</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="http://127.0.0.1:8000/">
+      <img src="http://127.0.0.1:8000//images/kdu_espelho_circ_150.png" alt="... Cadu Leite" title="... Cadu Leite">
+    </a>
+
+    <h1>
+      <a href="http://127.0.0.1:8000/">... Cadu Leite</a>
+    </h1>
+
+    <p>Web Developer - Python, Django, e toda a sopda de letrinha</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+            <li>
+              <a target="_self"
+                 href="http://127.0.0.1:8000/pages/about-cadu-leite.html#about-cadu-leite">
+                About
+              </a>
+            </li>
+
+          <li>
+            <a target="_self" href="https://getpelican.com/" >Pelican</a>
+          </li>
+          <li>
+            <a target="_self" href="https://www.python.org/" >Python.org</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/carlosleite/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/cadu_leite"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/cadu-leite"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="http://127.0.0.1:8000/">Home</a>
+
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="introducao-django">Curso Intro django</h1>
+    <p>
+      Posted on Sáb 03 Outubro 2020 in <a href="http://127.0.0.1:8000/category/tutorial.html">tutorial</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <div class="admonition tip">
+<p class="first admonition-title">Dica</p>
+<p>para ler o documento</p>
+<div class="last"><div class="highlight"><pre><span></span>$&gt;<span class="w">   </span><span class="c1"># quer dizer que o comando é executado no SHELL do seu sistema operacional.</span>
+</pre></div>
+</div></div>
+<div class="section" id="o-http">
+<h2>O HTTP</h2>
+<blockquote>
+Não adianta conhecer a ferramenta se não conhecemos o problema</blockquote>
+<p>HTTP - Protocolo de Transferência de Hipertexto, é a base de comunicação com a internet ou &quot;world Wide Web&quot;.</p>
+<dl class="docutils">
+<dt>Outras fontes:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol">https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a></li>
+<li><a class="reference external" href="http://wiki.icmc.usp.br/images/a/a6/Rc04-aplicacao.pdf">http://wiki.icmc.usp.br/images/a/a6/Rc04-aplicacao.pdf</a></li>
+<li><a class="reference external" href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP">https://developer.mozilla.org/pt-BR/docs/Web/HTTP</a></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="request-vs-response">
+<h3>&quot;Request&quot; vs &quot;Response&quot;</h3>
+<div class="figure">
+<img alt="request/response image" src="images/request_response.png" style="width: 700px;" />
+</div>
+</div>
+</div>
+<div class="section" id="python-preparando-seu-ambiente">
+<h2>Python - Preparando seu ambiente</h2>
+<div class="section" id="ambiente-virtual">
+<h3>Ambiente virtual</h3>
+<p>O que é um ambiente virtual ??</p>
+<blockquote>
+<p>O módulo <tt class="docutils literal">venv</tt> fornece suporte para a criação de “ambientes virtuais” leves com seus próprios diretórios de site, opcionalmente isolados dos diretórios de site do sistema. Cada ambiente virtual possui seu próprio binário Python (que corresponde à versão do binário usado para criar esse ambiente) e pode ter seu próprio conjunto independente de pacotes Python instalados nos diretórios do site.</p>
+<p class="attribution">&mdash;fonte &quot;Documentação do Python sobre ambientes virtuais:
+<a class="reference external" href="https://docs.python.org/pt-br/3/library/venv.html#an-example-of-extending-envbuilder">https://docs.python.org/pt-br/3/library/venv.html#an-example-of-extending-envbuilder</a></p>
+</blockquote>
+</div>
+<div class="section" id="diretorio-de-trabalho">
+<h3>Diretório de trabalho</h3>
+<p>Para facilitar, fins didáticos, vamos criar o um diretório e dentro deste iremos ter outros 2 com o ambiente virtual e projeto Django.</p>
+<p>Criar um diretório de trabalho <strong>django_necto_fatec</strong></p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>mkdir<span class="w"> </span>django_necto_fatec
+</pre></div>
+<p>entre no diretório de trabalho</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>django_necto_fatec
+</pre></div>
+</div>
+<div class="section" id="criando-o-ambiente-virtual">
+<h3>Criando o &quot;ambiente virtual&quot;</h3>
+<p>Crie o diretório do seu <em>virtual enviroment</em> utilizando o &quot;venv&quot; do Python,
+com o nome de <em>&quot;django_intro_env&quot;</em></p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>django_intro_env
+</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Sobre o ambiente virtual em <a class="reference external" href="https://docs.python.org/pt-br/3/library/venv.html">https://docs.python.org/pt-br/3/library/venv.html</a></p>
+</div>
+</div>
+<div class="section" id="virtual-environment-super-gemeos-ativar">
+<h3>&quot;Virtual Environment&quot; - <em>Super Gemeos Ativar</em></h3>
+<p>estando &quot;dentro&quot; do diretório <strong>django_necto_fatec</strong> execute os passos abaixo.</p>
+<p>Para linux</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span><span class="nb">source</span><span class="w"> </span>django_intro_env/bin/activate
+</pre></div>
+<div class="admonition warning">
+<p class="first admonition-title">Aviso</p>
+<p><em>No WINDOWS ...</em></p>
+<div class="last"><div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>django_intro_env<span class="se">\s</span>cripts<span class="se">\a</span>ctivate.bat
+</pre></div>
+</div></div>
+<p>O ambiente virtual ficará ativo enquanto a sessão do <em>shell</em> estiver ativa.</p>
+<p>Se outra sessão for aberta, é necessário ativar o ambiente virtual para aquela sessão.</p>
+<p>Para sair do seu ambiente virtual</p>
+<blockquote>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>deactivate
+</pre></div>
+</blockquote>
+</div>
+<div class="section" id="hierarquia-e-organizacao-final-dos-diretorios">
+<h3>Hierarquia e organização final dos diretórios</h3>
+<p>Até agora, devemos ter a seguinte estrutura de diretórios.</p>
+<pre class="literal-block">
+django_necto_fatec
+├── django_intro_env
+│&nbsp;&nbsp; ├── bin
+│&nbsp;&nbsp; ├── include
+│&nbsp;&nbsp; ├── lib
+│&nbsp;&nbsp; └── pyvenv.cfg
+</pre>
+</div>
+<div class="section" id="verifique-as-bibliotecas-instaladas">
+<h3>Verifique as bibliotecas instaladas</h3>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>pip<span class="w"> </span>list<span class="w"> </span>--local
+</pre></div>
+<p>resultado esperado ...</p>
+<pre class="literal-block">
+Package    Version
+---------- -------
+pip        20.2.3
+setuptools 49.2.1
+</pre>
+</div>
+<div class="section" id="resumo">
+<h3>RESUMO</h3>
+<p>para o Linux</p>
+<div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>$&gt;<span class="w"> </span>mkdir<span class="w"> </span>django_necto_fatec
+<span class="m">2</span>.<span class="w"> </span>$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>django_necto_fatec
+<span class="m">3</span>.<span class="w"> </span>$&gt;<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>django_intro_env
+<span class="m">4</span>.<span class="w"> </span>$&gt;<span class="w"> </span><span class="nb">source</span><span class="w"> </span>django_intro_env/bin/activate
+<span class="m">5</span>.<span class="w"> </span>$&gt;<span class="w"> </span>pip<span class="w"> </span>list<span class="w"> </span>--local<span class="w">     </span><span class="c1"># somente para verificar se esta tudo ok.</span>
+</pre></div>
+<p>para o Windows</p>
+<div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>$&gt;<span class="w"> </span>mkdir<span class="w"> </span>django_necto_fatec
+<span class="m">2</span>.<span class="w"> </span>$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>django_necto_fatec
+<span class="m">3</span>.<span class="w"> </span>$&gt;<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>django_intro_env
+<span class="m">4</span>.<span class="w"> </span>$&gt;<span class="w"> </span>django_intro_env<span class="se">\s</span>cripts<span class="se">\a</span>ctivate.bat
+<span class="m">5</span>.<span class="w"> </span>$&gt;<span class="w"> </span>pip<span class="w"> </span>list<span class="w"> </span>--local<span class="w">     </span><span class="c1"># somente para verificar se esta tudo ok.</span>
+</pre></div>
+<p>saída esperada para ambos os casos ...</p>
+<pre class="literal-block">
+Package    Version
+---------- -------
+pip        20.2.3
+setuptools 49.2.1
+</pre>
+</div>
+</div>
+<div class="section" id="instalando-o-django-no-ambiente-virtual">
+<h2>Instalando o Django no ambiente virtual</h2>
+<p>A intenção é instalar o Django no ambiente virtual criado anteriormente.</p>
+<p>Para isso verifique se o seu <em>prompt</em> de comando, indica que seu ambiente virtual está ativo.</p>
+<p>O ambiente virtual ativo é indicado no seu <em>prompt</em> de comando como abaixo</p>
+<pre class="literal-block">
+(django_intro_env) $ _
+</pre>
+<p>Não importa o diretório que esteja, o ambiente virtual estará sempre ativo dentro daquela sessão (do <em>shell</em>).</p>
+<p>Sendo o Django uma biblioteca (<em>lib</em>) Python, podemos instalá-lo com o <tt class="docutils literal">pip</tt>, como mostrado abaixo.</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>django
+</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<ul class="last simple">
+<li>Site do Django em português - <a class="reference external" href="https://docs.djangoproject.com/pt-br/3.2/">https://docs.djangoproject.com/pt-br/3.2/</a></li>
+<li>Saiba mais sobre o <tt class="docutils literal">pip</tt> em <a class="reference external" href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></li>
+</ul>
+</div>
+<div class="section" id="o-django-esta-instalado">
+<h3>O Django está instalado ?</h3>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>pip<span class="w"> </span>list<span class="w"> </span>--local
+</pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>pip<span class="w"> </span>freeze
+</pre></div>
+<div class="admonition tip">
+<p class="first admonition-title">Dica</p>
+<p class="last">repare na saída dos 2 comandos</p>
+</div>
+</div>
+</div>
+<div class="section" id="iniciando-um-projeto-django">
+<h2>Iniciando um projeto Django</h2>
+<ol class="arabic simple">
+<li>Criar um diretório para o projeto - com o nome de <strong>django_intro_proj</strong></li>
+<li>Criar um projeto Django chamado <strong>djproj</strong></li>
+</ol>
+<p>Crie o diretório do seu projeto Django, e &quot;entre&quot; no diretório.</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>mkdir<span class="w"> </span>django_intro_proj
+$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>django_intro_proj
+</pre></div>
+<p>Dentro do diretório do seu projeto execute</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>django-admin<span class="w"> </span>startproject<span class="w"> </span>djproj
+$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>djproj
+</pre></div>
+<p>A arvore de diretórios deve ter a seguinte hierarquia:</p>
+<pre class="literal-block">
+django_necto_fatec            # Diretorio raiz projeto + Python environment
+├── django_intro_env          # Diretório Python
+│&nbsp;&nbsp; ├── bin
+│&nbsp;&nbsp; ├── include
+│&nbsp;&nbsp; ├── lib
+│&nbsp;&nbsp; └── pyvenv.cfg
+└── django_intro_proj         # Diretório do projeto django (Código)
+    └── djproj
+        ├── djproj
+        │&nbsp;&nbsp; ├── __init__.py
+        │&nbsp;&nbsp; ├── asgi.py
+        │&nbsp;&nbsp; ├── settings.py
+        │&nbsp;&nbsp; ├── urls.py
+        │&nbsp;&nbsp; └── wsgi.py
+        └── manage.py         # gerenciador do Django - indica a raiz do meu projeto django
+</pre>
+<div class="admonition tip">
+<p class="first admonition-title">Dica</p>
+<p class="last">o diretório do ambiente virtual poderia ser criado em qualquer outro local do seu sistema de arquivos.</p>
+</div>
+<p>resumo:</p>
+<div class="highlight"><pre><span></span><span class="m">1</span>.<span class="w"> </span>$&gt;<span class="w"> </span>mkdir<span class="w"> </span>django_intro_proj
+<span class="m">2</span>.<span class="w"> </span>$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>django_intro_proj
+<span class="m">3</span>.<span class="w"> </span>$&gt;<span class="w"> </span>django-admin<span class="w"> </span>startproject<span class="w"> </span>djproj
+<span class="m">4</span>.<span class="w"> </span>$&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>djproj
+</pre></div>
+<p>Encontrar o arquivo <tt class="docutils literal">manage.py</tt></p>
+<div class="section" id="teste-ja-funciona">
+<h3>teste: já funciona?</h3>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver<span class="w"> </span><span class="m">8080</span>
+</pre></div>
+<pre class="literal-block">
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+...  &lt;podem aparecer outras informações aqui&gt; ...
+
+July 21, 2021 - 01:24:44
+Django version 3.2.5, using settings 'djproj.settings'
+Starting development server at http://127.0.0.1:8080/
+Quit the server with CONTROL-C.
+</pre>
+<div class="admonition warning">
+<p class="first admonition-title">Aviso</p>
+<p>As informações emitidas pelos comandos do Python/Django são bastante claras e objetivas</p>
+<p class="last">Importante acostumar-se a ler o que é impresso, sempre útil.</p>
+</div>
+<p>Abra um navegador Web no endereço indicado na mensagem do Django - <cite>http://127.0.0.1:8080/</cite></p>
+<p>O resultado esperado é mostrado abaixo - o &quot;foguetinho do Django&quot;</p>
+<div class="figure">
+<img alt="django site front page" src="images/django_front_page.png" style="width: 550px;" />
+<p class="caption">tela inicial de um projeto Django quando não há <em>urls</em> definidas além das padrão.</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Dica</p>
+<p>Quando o <em>runserver</em> é executado sem a porta, a porta padrão é a <em>8000</em>.</p>
+<p>Então se executado</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+<p class="last">a url deve ser <tt class="docutils literal"><span class="pre">http://127.0.0.1:8000/</span></tt></p>
+</div>
+</div>
+<div class="section" id="django-app">
+<h3>Django APP</h3>
+<p>vamos criar uma aplicação chamada <strong>app_intro</strong></p>
+<p>O objetivo desta aplicação Django é somente para podermos acessar a requisição feita por um navegador Web na sua aplicação.</p>
+<ul class="simple">
+<li>O que sua aplicação recebe ?</li>
+<li>Como chegam os dados ?</li>
+</ul>
+<p>Na <strong>raiz</strong> do seu projeto execute o comando abaixo</p>
+<div class="admonition tip">
+<p class="first admonition-title">Dica</p>
+<p class="last">A raiz do projeto Django é onde está o arquivo <tt class="docutils literal">manage.py</tt></p>
+</div>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w">  </span>app_intro
+</pre></div>
+<p>Repare que o Django criou o diretório <strong>&quot;app_intro&quot;</strong> e dentro deles vários outros arquivos
+no caminho <tt class="docutils literal">django_necto_fatec/django_intro_proj/djproj/</tt>
+e sua árvore de diretórios deve estar parecida com o esquema abaixo.</p>
+<pre class="literal-block">
+djproj
+├── app_intro
+│&nbsp;&nbsp; ├── __init__.py
+│&nbsp;&nbsp; ├── __pycache__
+│&nbsp;&nbsp; ├── admin.py
+│&nbsp;&nbsp; ├── apps.py
+│&nbsp;&nbsp; ├── migrations
+│&nbsp;&nbsp; ├── models.py
+│&nbsp;&nbsp; ├── tests.py
+│&nbsp;&nbsp; ├── urls.py     #  !! este arquivo deve ser criado !!!
+│&nbsp;&nbsp; └── views.py    #  editar este arquivo.
+├── djproj
+│&nbsp;&nbsp; ├── ...     # existem outros arquivos
+│&nbsp;&nbsp; ├── urls.py # iremos editar este arquivo
+│&nbsp;&nbsp; └── wsgi.py
+└── manage.py
+</pre>
+<p>Para que o Django possa responder a uma requisição em uma <em>url</em> precisamos &quot;avisar&quot; ao Django o que fazer quando a <em>url</em> for endereçada, do contrário ele retornará um erro HTTP 404.</p>
+<dl class="docutils">
+<dt>Edite o arquivo:</dt>
+<dd><cite>django_necto_fatec/django_intro_proj/djproj/app_intro/views.py</cite></dd>
+</dl>
+<div class="highlight"><pre><span></span><span class="c1"># app_intro/views.py - django_necto_fatec/django_intro_proj/djproj/app_intro/views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">print_reqs</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+<dl class="docutils">
+<dt>Edite o arquivo:</dt>
+<dd><tt class="docutils literal">django_necto_fatec/django_intro_proj/djproj/urls.py</tt></dd>
+</dl>
+<div class="highlight"><pre><span></span><span class="c1"># djaproj/urls.py - django_necto_fatec/django_intro_proj/djproj/urls.py</span>
+
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">include</span><span class="p">,</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">app_intro.views</span> <span class="kn">import</span> <span class="n">print_reqs</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;print_get_post_meta/&#39;</span><span class="p">,</span> <span class="n">print_reqs</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;print_get_post_meta&#39;</span><span class="p">),</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+<p>E então verifique se o servidor continua rodando ou execute</p>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+<p>Com o seu navegador Web, acessa a <em>url</em> inicial</p>
+</div>
+<div class="section" id="objetos-http">
+<h3>Objetos Http</h3>
+<p>Vamos utilizar nossa <em>view</em> para visualizar um pouco da requisição <em>HTTP</em> ou <em>HTTP request</em></p>
+<div class="figure">
+<img alt="django_http.png" src="images/django_http.png" style="width: 750px;" />
+<p class="caption">Django esquema request/response
+--fonte: doc do django.</p>
+</div>
+<p>Mais adiante iremos entrar em detalhes sobre as partes do Django,
+por hora basta saber que uma <em>view</em> nada mais é que uma função Python
+que recebe um parâmetro com os dados do <em>request</em>
+e sempre deve retornar uma resposta válida para o <em>HTTP</em>.</p>
+<p>Analisando rapidamente a view <tt class="docutils literal">app_intro,views.py</tt></p>
+<blockquote>
+<tt class="docutils literal">django_necto_fatec/django_intro_proj/djproj/app_intro/views.py</tt></blockquote>
+<p>A view é uma função Python que recebe como primeiro parâmetro um objeto do tipo <tt class="docutils literal">HttpRequest</tt>
+Na função abaixo é o parâmetro <tt class="docutils literal">request</tt> da <em>view</em> <strong>print_reqs</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">leia mais em <a class="reference external" href="https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpRequest">https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpRequest</a></p>
+</div>
+<p>Outro ponto importante da função, é que esta deve retornar um objeto <em>HttpResponse</em>.
+Na função abaixo, este objeto é criado instanciando o objeto <em>HttpResponse()</em></p>
+<div class="highlight"><pre><span></span><span class="c1"># app_intro/views.py - django_necto_fatec/django_intro_proj/djproj/app_intro/views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">print_reqs</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; View Hello World &#39;&#39;&#39;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Vamos editar esta view para nos mostrar mais sobre o objeto <em>HttpRequest</em></p>
+<div class="highlight"><pre><span></span><span class="c1"># app_intro/views.py</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+
+<span class="kn">from</span> <span class="nn">django.views.decorators.csrf</span> <span class="kn">import</span> <span class="n">csrf_exempt</span>
+
+<span class="nd">@csrf_exempt</span>
+<span class="k">def</span> <span class="nf">print_reqs</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Imprime requisições POST, GET  e META (variaveis do cabeçalho)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-------META--------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">META</span><span class="p">)</span>
+
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-------REQUEST--------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-------REQUEST POST--------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-------REQUEST GET--------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;olá mundo&#39;</span><span class="p">)</span>
+</pre></div>
+<p>Os <tt class="docutils literal">prints</tt> da <em>view</em> devem aparecer no sessão da linha de comando
+onde foi iniciado o servidor do Django  e deve se parecer com algo como abaixo</p>
+<pre class="literal-block">
+-------REQUEST--------------
+
+&lt;WSGIRequest: GET '/print_get_post_meta'&gt;
+
+-------REQUEST POST--------------
+
+&lt;QueryDict: {}&gt;
+
+-------REQUEST GET--------------
+
+&lt;QueryDict: {}&gt;
+
+-------META--------------
+
+{'TERM_SESSION_ID': 'w0t0p0:C19AB7E2-6734-4EF7-8618-F1CF88CA8284',
+'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.igyfZUFvo0/Listeners',
+'LC_TERMINAL_VERSION': '3.4.8',
+'COLORFGBG': '15;0',
+'ITERM_PROFILE': 'Default',
+'XPC_FLAGS': '0x0',
+'PWD': '/Users/cadu/projs/django_necto_fatec/django_intro_proj/djproj',
+'SHELL': '/bin/zsh',
+'__CFBundleIdentifier': 'com.googlecode.iterm2',
+'TERM_PROGRAM_VERSION': '3.4.8',
+'TERM_PROGRAM': 'iTerm.app',
+'PATH': '/Users/cadu/projs/django_necto_fatec/django_intro_env/bin:/usr/local/opt/tcl-tk/bin:/Applications/Postgres.app/Contents/Versions/12/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Library/Apple/usr/bin:/Applications/Post
+
+...
+</pre>
+<p>O que fizemos aqui foi imprimir o Objeto HttpRequest <tt class="docutils literal">&lt;WSGIRequest: GET '/print_get_post_meta'&gt;</tt></p>
+<p>Em seguida temos o dicionário com o conteúdo do <em>POST</em> (caso houvesse uma submissão via POST - e. um formulário) <tt class="docutils literal">&lt;QueryDict: {}&gt;</tt></p>
+<p>O dicionário do <em>GET</em> onde poderiam estar os parâmetros partes de uma <em>url</em> -
+ex.: <tt class="docutils literal"><span class="pre">https://example.com/caminho/pagina?nome=carlos&amp;color=blue</span></tt> representando pelo <tt class="docutils literal">&lt;QueryDict: {}&gt;</tt></p>
+<p>Por último temos o conteúdo douto atrib <tt class="docutils literal">META</tt>, que contém todos os dados do cabeçalho . Veja uma lista de exemplos em <a class="reference external" href="https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpRequest.META">https://docs.djangoproject.com/en/3.2/ref/request-response/#django.http.HttpRequest.META</a></p>
+<div class="admonition danger">
+<p class="first admonition-title">PERIGO!</p>
+<p>ADICIONAR NO CONTEÚDO</p>
+<ul class="last simple">
+<li>SE Nao tem nome (&quot;name&quot;), nao é enviado</li>
+<li>Verbos HTTP</li>
+<li>MultiValueDict / Dict</li>
+<li>Aquivos ESTATICOS nao passam pelo DJANGO !</li>
+<li>tudo que recebeo no request é string</li>
+<li>o form do Django valida os tipos e me da o tipo do dado</li>
+<li>vale a pensa usar sempre o form do Django</li>
+</ul>
+</div>
+<div class="section" id="dados-no-dicionario-do-get">
+<h4>Dados no dicionário do <em>GET</em></h4>
+<p>Simplesmente acesse a <em>url</em> da view passando alguns parâmetros como <em>query string</em></p>
+<p>ex.: <tt class="docutils literal"><span class="pre">http://127.0.0.1:8000/print_get_post_meta/?data=2020-07-11&amp;var=teste&amp;data1=1&amp;data2=2</span></tt></p>
+<p>Os prints da <tt class="docutils literal">view</tt> devem apresentar algo como abaixo</p>
+<pre class="literal-block">
+-------REQUEST--------------
+
+&lt;WSGIRequest: GET '/print_get_post_meta/?data=2020-07-11&amp;var=teste&amp;data1=1&amp;data2=2'&gt;
+
+-------REQUEST POST--------------
+
+&lt;QueryDict: {}&gt;
+
+-------REQUEST GET--------------
+
+&lt;QueryDict: {'data': ['2020-07-11'], 'var': ['teste'], 'data1': ['1'], 'data2': ['2']}&gt;
+[22/Jul/2021 02:45:08] &quot;GET /print_get_post_meta/?data=2020-07-11&amp;var=teste&amp;data1=1&amp;data2=2 HTTP/1.1&quot; 200 500
+</pre>
+<p>Repare que os dados aprecem no objeto (dicionário) <tt class="docutils literal">QueryDict GET</tt></p>
+</div>
+<div class="section" id="dados-no-dicionario-do-post">
+<h4>Dados no dicionário do <em>POST</em></h4>
+<p>Para visualizar os dados de um <em>POST</em>, iremos precisar de um formulário com o botão de <em>submit</em>.</p>
+<p>Você poderia abrir qualquer arquivo HTML no seu navegador Web e &quot;apontar&quot; o formulário (<tt class="docutils literal">&lt;form <span class="pre">action=&quot;...url...&quot;&gt;</span></tt>) para o endereço da <em>view</em>, mas definindo o método como <em>POST</em></p>
+<p>por exemplo crie um arquivo <em>html</em> com o conteúo abaixo.</p>
+<p>Temos 2 formulários que aponta para a <em>url</em>  da nossa <em>view</em> de demonstração.</p>
+<p>Mas o primeiro usa o <tt class="docutils literal">method=post</tt> e o outro o <tt class="docutils literal">method=get</tt>.</p>
+<p>Submeta e veja a saída dos <em>prints</em> da <em>view</em>.</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Formulário POST<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;http://127.0.01:8000/url_intro/&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;id_nome&quot;</span><span class="p">&gt;</span>nome:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_nome&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nome&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;id_sobrenome&quot;</span><span class="p">&gt;</span>Sobrenome:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_sobrenome&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;sobrenome&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Formulário GET<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;http://127.0.01:8000/url_intro/&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;get&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;id_nome&quot;</span><span class="p">&gt;</span>nome:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_nome&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;nome&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;id_sobrenome&quot;</span><span class="p">&gt;</span>Sobrenome:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;id_sobrenome&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;sobrenome&quot;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="o-framework-web-django">
+<h2>O Framework Web &quot;Django&quot;</h2>
+<blockquote>
+<p>Django - The web framework for perfectionists with deadlines.</p>
+<p class="attribution">&mdash;<a class="reference external" href="https://www.djangoproject.com/">https://www.djangoproject.com/</a></p>
+</blockquote>
+<p>Alguns sites onde o Django é usado</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.instagram.com/">Instagram</a></li>
+<li><a class="reference external" href="https://disqus.com/">Disqus</a></li>
+<li><a class="reference external" href="https://www.mozilla.org/">Mozilla</a></li>
+<li><a class="reference external" href="https://www.pinterest.com/">Pinterest</a></li>
+<li><a class="reference external" href="http://www.nationalgeographic.com/">National geographic</a></li>
+<li><a class="reference external" href="https://www.openstack.org/">OpenStack</a></li>
+<li>Globo.com</li>
+<li><a class="reference external" href="https://www.spotify.com/br/">spotfy</a></li>
+</ul>
+<div class="section" id="partes-do-django">
+<h3>Partes do Django</h3>
+<ol class="arabic">
+<li><p class="first"><cite>URL Configuration</cite></p>
+</li>
+<li><p class="first"><cite>Views</cite></p>
+</li>
+<li><p class="first"><cite>Template</cite></p>
+</li>
+<li><p class="first"><cite>Models</cite></p>
+</li>
+<li><p class="first">Django Admin</p>
+</li>
+<li><p class="first">Django Settings</p>
+</li>
+<li><p class="first"><cite>Middlewares</cite></p>
+</li>
+<li><p class="first"><cite>Webserver wsgi</cite></p>
+<blockquote>
+<div class="admonition danger">
+<p class="first admonition-title">PERIGO!</p>
+<p class="last">para seguir adiante no tutorial, crie uma aplicação django chamada <strong>&quot;artigo&quot;</strong></p>
+</div>
+</blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="configuracao-de-urls">
+<h3>Configuração de <em>urls</em></h3>
+<p>O Django tem <em>urls</em> configuráveis. E isso quer dizer que eu posso definir praticamente qualquer combinação de &quot;strings&quot; e &quot;barras&quot; (&quot;/&quot;) para acessar uma página do meu sistema.</p>
+<p>Veja alguns exemlos abaixo</p>
+<div class="highlight"><pre><span></span><span class="c1"># arquivo: django_necto_fatec/django_intro_proj/djproj/djproj/urls.py</span>
+
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+
+    <span class="c1"># include do arquivo de urls da aplicação &quot;artigo&quot;</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;artigos/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;artigo.urls&#39;</span><span class="p">)),</span>
+
+    <span class="c1"># ...  outros definições de padrões</span>
+
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+<p>crie e edite o arquivo <em>urls.py</em> da aplicação <strong>&quot;artigo&quot;</strong></p>
+<div class="highlight"><pre><span></span><span class="c1"># arquivo: django_necto_fatec/django_intro_proj/djproj/artigo/urls.py</span>
+
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">re_path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="c1"># as urls abaixo são inclusas no djproj/urls.py</span>
+<span class="c1"># então a URL = &quot;artigos/&lt;url_definida_aqui&gt;</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+
+    <span class="c1"># ex.: http://127.0.0.1:8000/artigos/</span>
+    <span class="c1"># na view</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">artigo_ultimos</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;artigos_ultimos&quot;</span><span class="p">),</span>
+
+    <span class="c1"># ex.: http://127.0.0.1:8000/artigos/pagina/2/</span>
+    <span class="c1"># na view -&gt; def page(request, num=1):</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;pagina/&lt;int:pag&gt;/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">artigo_pagina</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;artigos_pagina&quot;</span><span class="p">),</span>
+
+    <span class="c1"># ex.: http://127.0.0.1:8000/artigos/2022/</span>
+    <span class="c1"># envia o parametro ano, definido na regex</span>
+    <span class="n">re_path</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^(?P&lt;ano&gt;[0-9]</span><span class="si">{4}</span><span class="s1">)/$&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">artigo_ano</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;artigos_ano&quot;</span><span class="p">),</span>
+
+<span class="p">]</span>
+</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>links sobre <em>urls</em>. Django</p>
+<ul class="last simple">
+<li><a class="reference external" href="https://docs.djangoproject.com/pt-br/3.2/topics/http/urls/">https://docs.djangoproject.com/pt-br/3.2/topics/http/urls/</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="views">
+<h3>Views</h3>
+<div class="section" id="exemplos-de-views">
+<h4>Exemplos de <em>views</em></h4>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">JsonResponse</span>
+
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
+
+<span class="k">def</span> <span class="nf">response_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; view utilizando HttpResponse&#39;&#39;&#39;</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;appdjango/nometemplate.html&#39;</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">request</span><span class="p">),</span> <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/xhtml+xml&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">render_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; view utilizando render (shortcut)&#39;&#39;&#39;</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span>
+        <span class="n">request</span><span class="p">,</span> <span class="s1">&#39;appdjango/nometemplate.html&#39;</span><span class="p">,</span> <span class="p">{</span>
+            <span class="s1">&#39;var&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/xhtml+xml&#39;</span><span class="p">)</span>
+</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<ul class="last simple">
+<li><a class="reference external" href="https://docs.djangoproject.com/en/3.2/ref/request-response/#httpresponse-subclasses">https://docs.djangoproject.com/en/3.2/ref/request-response/#httpresponse-subclasses</a></li>
+<li><a class="reference external" href="https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/">https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="views-para-o-tutorial">
+<h4><em>views</em> para o tutorial</h4>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+
+<span class="k">def</span> <span class="nf">artigo_ultimos</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;artigos ultimos&lt;/h1&gt;&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">artigo_pagina</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">pag</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;artigos pagina&lt;/h1&gt;&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">artigo_ano</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">ano</span><span class="o">=</span><span class="mi">2021</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;artigo ano&lt;/h1&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-variaveis-tags-e-filtros">
+<h3>Template {{ variaveis}}, {% tags %} e filtros</h3>
+<div class="highlight"><pre><span></span>{% extends &quot;base_generic.html&quot; %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ section.title }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+{% for story in story_list %}
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ story.get_absolute_url }}&quot;</span><span class="p">&gt;</span>
+    {{ story.headline|upper }}
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ story.tease|truncatewords:&quot;100&quot; }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% endfor %}
+{% endblock %}
+</pre></div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<dl class="last docutils">
+<dt>Links da documentação do Django sobre Templates:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://docs.djangoproject.com/pt-br/3.2/topics/templates/">https://docs.djangoproject.com/pt-br/3.2/topics/templates/</a></li>
+<li><a class="reference external" href="https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#ref-templates-builtins-filters">https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#ref-templates-builtins-filters</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+<p>Comentar sobre a linguagem de template do Django e
+JINJA e outras cossitas</p>
+</div>
+<div class="section" id="models">
+<h3>Models</h3>
+<p><tt class="docutils literal">Models</tt> são classes que herdam da classe <tt class="docutils literal">models.Model</tt> do framework Django.</p>
+<p>ex.:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>  <span class="c1"># importação da classe  models do Django</span>
+
+<span class="k">class</span> <span class="nc">Artigo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="s1">&#39;Título&#39;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># campo  &quot;varchar&quot; de até 50 caracteres</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="s1">&#39;Corpo&#39;</span><span class="p">)</span>   <span class="c1"># campo texto</span>
+    <span class="n">autor</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>  <span class="c1"># def Chave Estrangeira para o Modelo User</span>
+    <span class="n">data_criacao</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s1">&#39;Criado em&#39;</span><span class="p">,</span> <span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1">#  def campo &quot;&quot;datetime&quot;</span>
+    <span class="n">data_pub</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s1">&#39;Publicado em&#39;</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+<p>Uma classe &quot;modelo&quot; é a representação Python de uma relação (&quot;relation&quot; ou tabela) no seu banco de dados.</p>
+<dl class="docutils">
+<dt>Isso quer dizer que a classe Python acima, que herda de <tt class="docutils literal">models.Model</tt>,</dt>
+<dd>é a representação de uma tabela no banco de dados como a abaixo - o exemplo utiliza o o banco de dados SQLite.</dd>
+</dl>
+<pre class="code sql literal-block">
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="ss">&quot;artigo_artigo&quot;</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span><span class="w">
+</span><span class="ss">&quot;titulo&quot;</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="ss">&quot;texto&quot;</span><span class="w"> </span><span class="nb">text</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="ss">&quot;data_criacao&quot;</span><span class="w"> </span><span class="n">datetime</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="ss">&quot;data_pub&quot;</span><span class="w"> </span><span class="n">datetime</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span><span class="ss">&quot;autor_id&quot;</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="ss">&quot;auth_user&quot;</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;id&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">DEFERRABLE</span><span class="w"> </span><span class="k">INITIALLY</span><span class="w"> </span><span class="k">DEFERRED</span><span class="p">)</span>
+</pre>
+<p>A classe &quot;Artigo&quot;</p>
+<p># titulo = models.CharField('Título', max_length=50)</p>
+<blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">adicionar comentario sobre relacionamento e regras normais.
+- django model fields page da doc</p>
+</div>
+</blockquote>
+<div class="section" id="make-migrations-e-migrate">
+<h4>Make migrations e migrate</h4>
+<p>Cuidado facil nao quer dizer que deve ser usado sem cuidado</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>django_intro_env<span class="o">)</span><span class="w"> </span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations
+
+<span class="c1"># saida esperada .... ALGO COMO ! ...</span>
+
+Migrations<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;artigo&#39;</span>:
+<span class="w">  </span>artigo/migrations/0001_initial.py
+<span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>model<span class="w"> </span>Artigo
+</pre></div>
+<p>Django &quot;migrations&quot; são geradas nos diretórios &quot;migrations&quot; de cada aplicação Django.</p>
+<p>O comando <tt class="docutils literal">makemigrations</tt> somente gera os arquivos com o código Python para aplicar as alterações no banco de dados, mas <strong>não aplica as alterações</strong> !</p>
+<p>Para aplicar as alterações é necessário um segundo comando  o <tt class="docutils literal">migrate</tt></p>
+<blockquote>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+</pre></div>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="o">(</span>django_intro_env<span class="o">)</span><span class="w"> </span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
+
+<span class="c1"># ...  o retorno é a lista de migrações executadas.</span>
+
+Operations<span class="w"> </span>to<span class="w"> </span>perform:
+<span class="w">  </span>Apply<span class="w"> </span>all<span class="w"> </span>migrations:<span class="w"> </span>admin,<span class="w"> </span>artigo,<span class="w"> </span>auth,<span class="w"> </span>contenttypes,<span class="w"> </span>sessions
+Running<span class="w"> </span>migrations:
+<span class="w">  </span>Applying<span class="w"> </span>contenttypes.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>admin.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>admin.0002_logentry_remove_auto_add...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>admin.0003_logentry_add_action_flag_choices...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>artigo.0001_initial...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>contenttypes.0002_remove_content_type_name...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0002_alter_permission_name_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0003_alter_user_email_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0004_alter_user_username_opts...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0005_alter_user_last_login_null...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0006_require_contenttypes_0002...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0007_alter_validators_add_error_messages...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0008_alter_user_username_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0009_alter_user_last_name_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0010_alter_group_name_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0011_update_proxy_permissions...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>auth.0012_alter_user_first_name_max_length...<span class="w"> </span>OK
+<span class="w">  </span>Applying<span class="w"> </span>sessions.0001_initial...<span class="w"> </span>OK
+</pre></div>
+<div class="highlight"><pre><span></span>$&gt;<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>dbshell
+</pre></div>
+<div class="highlight"><pre><span></span>sqlite&gt;<span class="w"> </span>.tables
+</pre></div>
+</div>
+<div class="section" id="django-admin-site">
+<h4>Django Admin site</h4>
+<dl class="docutils">
+<dt>CUSTOMIZACAO É PERIGOSO</dt>
+<dd>se mal feita perde a capacidade de de atualizações.</dd>
+</dl>
+<p>python manage.py createsuperuser</p>
+<p>Toda vez que vez que houver alteração de modelos</p>
+<p>$&gt; python manage.py makemigrations</p>
+<p>$&gt; python manage.py migrate</p>
+<p>Para habilitar a interface de administracao par ao seu modelo , registre no &quot;admin.py&quot; mais póximo.</p>
+<p>from django.contrib import admin
+from .models import Artigo</p>
+<p>admin.site.register(Artigo)</p>
+<p><a class="reference external" href="https://docs.djangoproject.com/en/3.2/ref/contrib/admin/">https://docs.djangoproject.com/en/3.2/ref/contrib/admin/</a></p>
+<dl class="docutils">
+<dt>próximos tópicos:</dt>
+<dd><ul class="first last simple">
+<li>Django Forms</li>
+<li>Webserver wsgi</li>
+<li>Middlewares</li>
+</ul>
+</dd>
+<dt>Para ler a Documentação do Django por conteúdo:</dt>
+<dd><a class="reference external" href="https://docs.djangoproject.com/pt-br/3.2/contents/">https://docs.djangoproject.com/pt-br/3.2/contents/</a></dd>
+</dl>
+</div>
+</div>
+</div>
+
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://127.0.0.1:8000/tag/python.html">python</a>
+      <a href="http://127.0.0.1:8000/tag/django.html">django</a>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Cadu Leite ",
+  "url" : "http://127.0.0.1:8000",
+  "image": "http://127.0.0.1:8000//images/kdu_espelho_circ_150.png",
+  "description": "Foo Bar's Thoughts and Writings"
+}
+</script>
+</body>
+</html>

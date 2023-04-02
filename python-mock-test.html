@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="http://127.0.0.1:8000/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="http://127.0.0.1:8000/theme/pygments/arduino.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/theme/font-awesome/css/solid.css">
+
+
+  <link rel="shortcut icon" href="http://127.0.0.1:8000//images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="http://127.0.0.1:8000//images/favicon.ico" type="image/x-icon">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#333">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#333">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Microsoft EDGE -->
+  <meta name="msapplication-TileColor" content="#333">
+
+
+
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Carlos Leite" />
+<meta name="description" content="python-mock-test Mock is a type, and patch is a context" />
+<meta name="keywords" content="python, django">
+
+
+  <meta property="og:site_name" content="Cadu Leite"/>
+  <meta property="og:title" content="Python Mock com unittest"/>
+  <meta property="og:description" content="python-mock-test Mock is a type, and patch is a context"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="http://127.0.0.1:8000/python-mock-test.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2016-10-03 10:20:00-03:00"/>
+  <meta property="article:modified_time" content="2010-10-04 18:40:00-03:00"/>
+  <meta property="article:author" content="http://127.0.0.1:8000/author/carlos-leite.html">
+  <meta property="article:section" content="python"/>
+  <meta property="article:tag" content="python"/>
+  <meta property="article:tag" content="django"/>
+  <meta property="og:image" content="http://127.0.0.1:8000//images/kdu_espelho_circ_150.png">
+
+  <title>Cadu Leite &ndash; Python Mock com unittest</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="http://127.0.0.1:8000/">
+      <img src="http://127.0.0.1:8000//images/kdu_espelho_circ_150.png" alt="... Cadu Leite" title="... Cadu Leite">
+    </a>
+
+    <h1>
+      <a href="http://127.0.0.1:8000/">... Cadu Leite</a>
+    </h1>
+
+    <p>Web Developer - Python, Django, e toda a sopda de letrinha</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+            <li>
+              <a target="_self"
+                 href="http://127.0.0.1:8000/pages/about-cadu-leite.html#about-cadu-leite">
+                About
+              </a>
+            </li>
+
+          <li>
+            <a target="_self" href="https://getpelican.com/" >Pelican</a>
+          </li>
+          <li>
+            <a target="_self" href="https://www.python.org/" >Python.org</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/carlosleite/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-twitter"
+           href="https://twitter.com/cadu_leite"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-github"
+           href="https://github.com/cadu-leite"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="http://127.0.0.1:8000/">Home</a>
+
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="python-mock-test">Python Mock com unittest</h1>
+    <p>
+      Posted on Seg 03 Outubro 2016 in <a href="http://127.0.0.1:8000/category/python.html">python</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Gosto do módulo  &quot;UnitTest&quot; por ser um &quot;buil-in&quot;, ou seja, porque ele já faz parte do Python. Ao usar o &quot;unittest&quot; não preciso aumentar as dependências do meu projeto. Claro, se já estou usando um &quot;framework web&quot; por exemplo e este depende de uma biblioteca de testes outra que não <cite>unittest</cite>, talvez eu considere usá-la. Diminuir a árvore de dependências é sempre bom !</p>
+<blockquote>
+Então, porque não usar <strong>`UnitTest`</strong> ?</blockquote>
+<div class="section" id="o-que-e-mock">
+<h2>O que é &quot;mock&quot;</h2>
+<p>&quot;Mock&quot; lhe permite criar situações que imitam o comportamento do seu software.</p>
+<p>Através de objetos &quot;Mock&quot; é possível simular o comportamento de um objeto ou de uma função.</p>
+<blockquote>
+Mock = e uma imitação, geralmente de menor qualidade.</blockquote>
+<p>Então &quot;mockar&quot; é simular, adicionar uma comportamento que imita o real mas que de fato não é.</p>
+</div>
+<div class="section" id="qual-a-utilidade-disso">
+<h2>Qual a utilidade disso ?</h2>
+<p>Testes !!</p>
+<p>Mock tem a ver com testes, mais especificamente testes unitários.</p>
+<p>Teste unitários por definição testam uma unidade do código uma função. E é aí que o objeto Mock entra.</p>
+<blockquote>
+<p>E pense no seguinte caso:</p>
+<blockquote>
+&quot;Escrever um teste para um método de uma classe que recebe um objeto de um determinado tipo&quot;</blockquote>
+</blockquote>
+<p>algo como ...</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Klasse</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    suposta classe complexa que não será testada, mas que recebe vários argumentos e complexo.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span> <span class="o">...</span> <span class="n">paramN</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;oi&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">method_externo</span><span class="p">(</span><span class="n">kls</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    função a ser testada</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">kls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span> <span class="o">...</span> <span class="n">paramN</span><span class="p">)</span>
+
+    <span class="n">obj</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span>
+</pre></div>
+<p>Dado o caso acima, imagina que eu somente quero testar se minha função está chamando o método::hello() do objeto recebido. Mas para criar uma instancia do objeto obj::Klasse preciso antes definir uma dezena de parâmetros...</p>
+<p>Eu posso economizar bastante tempo ao escrever meus testes, se eu simplesmente crio um objeto qualquer e adiciono um método::Hello() simplificado, somente para passar pra a função a qual eu quero realmente testar.</p>
+<p>Eu posso fazer isso com Python puro, mas eete exemplo é muito simples, e podemos ter situações bem mais complexas que exijam outros comportamentos do meu objeto de apoio ao teste e voltamos a gastar tempo somente para &quot;enganar&quot; o sistema. E para resolver isso temos o Mock !</p>
+<p>Um outro exemplo comum, só para exemplificarmos o poder do Mock, seria acessar uma API externa, onde eu posso &quot;mockar&quot; os objetos de resposta desta API para testar minha lógica, afinal não vou reconstruir o sistema da API somente para grantir os testes da minha aplicação.</p>
+</div>
+<div class="section" id="o-objeto-mock">
+<h2>O objeto Mock !</h2>
+<p><cite>unittest.mock</cite> gera objetos que imitam qualquer coisa.</p>
+<p>O código abaixo tem uma classe Python chamada <cite>MinhaClasse</cite>, e tem um método que sempre retorna o valor <strong>3</strong>.</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MinhaClasse</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">metodo_retorna_3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">3</span>
+
+<span class="n">instancia</span> <span class="o">=</span> <span class="n">MinhaClasse</span><span class="p">()</span>
+<span class="n">instancia</span><span class="o">.</span><span class="n">metodo_retorna_3</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="mi">3</span>
+<span class="c1"># até aqui, tudo como deveria ser...</span>
+</pre></div>
+<p>Então eu &quot;mocko&quot; o objeto ... (sim, eu &quot;mock&quot;,tu &quot;mocka&quot;, ele &quot;mocka&quot; - todo mundo que faz teste &quot;mocka&quot;).</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span><span class="c1"># mas quando chamamos o `mock`</span>
+<span class="o">&gt;&gt;&gt;</span><span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">MagicMock</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">instancia</span><span class="o">.</span><span class="n">metodo_retorna_3</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># especifíca o valor a ser retornado.</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">instancia</span><span class="o">.</span><span class="n">metodo_retorna_3</span><span class="p">()</span>
+<span class="mi">1</span>
+</pre></div>
+<p>Veja bem, o meu código continua chamando o método da minha instância com o mesmo nome mas agora ele retorna um valor diferente porque assim foi setado pelo objeto Mock.</p>
+<p>O objeto Mock, ele não só permite que eu imite um resultado, mas ele aceita qualquer coisa que eu passar para ele como parâmetro.</p>
+<blockquote>
+&gt;&gt;&gt;# não importa os argumentos... o método NEM tinha argumento
+&gt;&gt;&gt;instancia.metodo_retorna_3(2, 3, 4, 5, kye_arg='argumento')
+&gt;&gt; 1</blockquote>
+<p>Nem mesmo um método precisa existir previamente ...
+embora &quot;mockar&quot; um método inexistente não faça muito sentido pra mim agora,
+mas para ficar claro que é possível, veja abaixo.</p>
+<div class="highlight"><pre><span></span><span class="n">instancia</span><span class="o">.</span><span class="n">metodo_inexistente</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">return_value</span><span class="o">=</span><span class="s1">&#39;existo na instancia&#39;</span><span class="p">)</span>
+<span class="n">instancia</span><span class="o">.</span><span class="n">metodo_inexistente</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="s1">&#39;existo na instancia&#39;</span>
+</pre></div>
+<p>Objetos como o <cite>Mock</cite> e o <cite>MagicMock</cite> criam os atributos e os métodos  quando  os acessamos.</p>
+<blockquote>
+<cite>from unittest.mock import MagicMock</cite></blockquote>
+<p>É possível limitar este comportamento usando o <cite>patch</cite></p>
+<blockquote>
+<cite>from unittest.mock import patch</cite></blockquote>
+<p>Resumindo, objeto::Mock() aceita qulquer coisa, método ou argumentos se eu não disser o contrário e assume qualquer nome e a forma</p>
+<p>veja o seguinte ...</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+<span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+</pre></div>
+<!--  -->
+<p>O objeto::Mock permite tudo e qualquer coisa, mas e se for necessário limitar os atributos e os métodos ? Modificar somente parte do comportamento padrão de um objeto ?  <cite>autospec=True</cite> veja os exemplos.</p>
+</div>
+<div class="section" id="mock-patch">
+<h2>Mock &amp; Patch</h2>
+<p>Mock: é um objeto</p>
+<p>Patch: é um contexto</p>
+<p>Outra maneira de entender Mock e Patch ...</p>
+<dl class="docutils">
+<dt>Mock:</dt>
+<dd>Usado para substituir algo que está no mesmo contexto</dd>
+<dt>Pacth:</dt>
+<dd>Usado para substituir algo que foi importado ou criado em outro contexto</dd>
+</dl>
+<p>melhor entendido através de exemplos.</p>
+</div>
+<div class="section" id="o-patch">
+<h2>O Patch</h2>
+<p>O <cite>patch</cite> irá interceptar o <cite>import</cite> e retornar uma instância <cite>Mock</cite> - uma instância mockada.</p>
+<p>O <cite>Patch</cite></p>
+<blockquote>
+<ul class="simple">
+<li>1 teste por vez (teste unidade/unitário)</li>
+<li>Testar o que ?</li>
+<li>Cuidado para não testar códigos de terceiros...  do ponto de vista do seu código.</li>
+</ul>
+</blockquote>
+<!-- Links
+
+http://engineroom.trackmaven.com/blog/mocking-mistakes/
+
+http://www.ines-panker.com/2020/06/01/python-mock.html -->
+</div>
+
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://127.0.0.1:8000/tag/python.html">python</a>
+      <a href="http://127.0.0.1:8000/tag/django.html">django</a>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Cadu Leite ",
+  "url" : "http://127.0.0.1:8000",
+  "image": "http://127.0.0.1:8000//images/kdu_espelho_circ_150.png",
+  "description": "Foo Bar's Thoughts and Writings"
+}
+</script>
+</body>
+</html>
